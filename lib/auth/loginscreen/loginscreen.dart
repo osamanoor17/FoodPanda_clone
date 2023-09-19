@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Image.asset("assets/icons/icon5.png"),
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
             Column(
               children: [
@@ -90,7 +90,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                // Add the LoginForm widget here
                 LoginForm(),
               ],
             ),
