@@ -1,339 +1,133 @@
+// import 'package:ecommerce_clone/splash_screen/contentpage.dart';
+// import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
-// import 'package:onboarding/onboarding.dart';
 //
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatefulWidget {
-//   const MyApp({Key? key}) : super(key: key);
+// class SideBar extends StatefulWidget {
+//   const SideBar({Key? key}) : super(key: key);
 //
 //   @override
-//   State<MyApp> createState() => _MyAppState();
+//   State<SideBar> createState() => _SideBarState();
 // }
 //
-// class _MyAppState extends State<MyApp> {
-//   late int index;
+// class _SideBarState extends State<SideBar> {
+//   final PageController _pageController = PageController(initialPage: 0);
 //
-//   final onboardingPagesList = [
-//     PageModel(
-//       widget: DecoratedBox(
-//         decoration: BoxDecoration(
-//           color: background,
-//           border: Border.all(
-//             width: 0.0,
-//             color: background,
-//           ),
-//         ),
-//         child: SingleChildScrollView(
-//           controller: ScrollController(),
-//           child: Column(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(
-//                   horizontal: 45.0,
-//                   vertical: 90.0,
-//                 ),
-//                 child: Image.asset('assets/icons/icon1.png',
-//                     color: pageImageColor),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'SECURED BACKUP',
-//                     style: pageTitleStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Keep your files in closed safe so you can\'t lose them. Consider TrueNAS.',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     ),
-//     PageModel(
-//       widget: DecoratedBox(
-//         decoration: BoxDecoration(
-//           color: background,
-//           border: Border.all(
-//             width: 0.0,
-//             color: background,
-//           ),
-//         ),
-//         child: SingleChildScrollView(
-//           controller: ScrollController(),
-//           child: Column(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(
-//                   horizontal: 45.0,
-//                   vertical: 90.0,
-//                 ),
-//                 child: Image.asset('assets/icons/icon2.png',
-//                     color: pageImageColor),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'CHANGE AND RISE',
-//                     style: pageTitleStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Give others access to any file or folders you choose',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     ),
-//     PageModel(
-//       widget: DecoratedBox(
-//         decoration: BoxDecoration(
-//           color: background,
-//           border: Border.all(
-//             width: 0.0,
-//             color: background,
-//           ),
-//         ),
-//         child: SingleChildScrollView(
-//           controller: ScrollController(),
-//           child: Column(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(
-//                   horizontal: 45.0,
-//                   vertical: 90.0,
-//                 ),
-//                 child: Image.asset('assets/icons/icon3.png',
-//                     color: pageImageColor),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'EASY ACCESS',
-//                     style: pageTitleStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//               const Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-//                 child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: Text(
-//                     'Reach your files anytime from any devices anywhere',
-//                     style: pageInfoStyle,
-//                     textAlign: TextAlign.left,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     ),
+//   final List<String> sidebarImages = [
+//     'assets/icons/sidebar_red.png',
+//     'assets/icons/sidebar_purple.png',
+//     'assets/icons/sidebar_orange.png',
 //   ];
 //
-//   static const width = 100.0;
-//   @override
-//   void initState() {
-//     super.initState();
-//     index = 0;
-//   }
+//   final List<String> colorImages = [
+//     'assets/icons/icon1.png',
+//     'assets/icons/icon2.png',
+//     'assets/icons/icon3.png',
+//   ];
 //
-//   SizedBox get _signinButton {
-//     return SizedBox(
-//       width: width,
-//       child: Align(
-//         alignment: Alignment.centerRight,
-//         child: Material(
-//           borderRadius: signinButtonBorderRadius,
-//           color: signinButtonColor,
-//           child: InkWell(
-//             borderRadius: signinButtonBorderRadius,
-//             onTap: () {},
-//             child: const Padding(
-//               padding: signinButtonPadding,
-//               child: Text(
-//                 'Sign in',
-//                 style: signinButtonTextStyle,
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
+//   final List<double> sidebarIconScales = [0.8, 0.5, 0.7];
+//   final List<String?> sidebarTexts = [null, null, 'Get Started'];
 //
-//   SizedBox _skipButton({void Function(int)? setIndex}) {
-//     return SizedBox(
-//       width: width,
-//       child: Align(
-//         alignment: Alignment.centerLeft,
-//         child: Material(
-//           borderRadius: defaultSkipButtonBorderRadius,
-//           color: defaultSkipButtonColor,
-//           child: InkWell(
-//             borderRadius: defaultSkipButtonBorderRadius,
-//             onTap: () {
-//               if (setIndex != null) {
-//                 index = 2;
-//                 setIndex(2);
-//               }
-//             },
-//             child: const Padding(
-//               padding: defaultSkipButtonPadding,
-//               child: Text(
-//                 'Skip',
-//                 style: defaultSkipButtonTextStyle,
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   // SizedBox get _signupButton {
-//   //   return SizedBox(
-//   //     width: width,
-//   //     child: Align(
-//   //       alignment: Alignment.centerRight,
-//   //       child: Material(
-//   //         borderRadius: defaultProceedButtonBorderRadius,
-//   //         color: defaultProceedButtonColor,
-//   //         child: InkWell(
-//   //           borderRadius: defaultProceedButtonBorderRadius,
-//   //           onTap: () {},
-//   //           child: const Padding(
-//   //             padding: defaultProceedButtonPadding,
-//   //             child: Text(
-//   //               'Sign up',
-//   //               style: defaultProceedButtonTextStyle,
-//   //             ),
-//   //           ),
-//   //         ),
-//   //       ),
-//   //     ),
-//   //   );
-//   // }
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//     return Scaffold(
+//       body: PageView.builder(
+//         controller: _pageController,
+//         itemCount: sidebarImages.length,
+//         itemBuilder: (context, index) {
+//           return _buildPage(
+//             imagePath: sidebarImages[index],
+//             iconScale: sidebarIconScales[index],
+//             text: sidebarTexts[index],
+//             rotateIcon: index == 0 || index == 1,
+//             iconPosition: _getIconPosition(index),
+//             imageForContent: colorImages[index], // Pass the content image path
+//           );
+//         },
 //       ),
-//       home: Scaffold(
-//         body: Onboarding(
-//           pages: onboardingPagesList,
-//           onPageChange: (int pageIndex) {
-//             index = pageIndex;
-//           },
-//           footerBuilder: (context, dragDistance, pagesLength, setIndex) {
-//             return DecoratedBox(
-//               decoration: BoxDecoration(
-//                 color: background,
-//                 border: Border.all(
-//                   width: 0.0,
-//                   color: background,
-//                 ),
-//               ),
-//               child: ColoredBox(
-//                 color: background,
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(45.0),
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: [
-//                       index != pagesLength - 1
-//                           ? _skipButton(setIndex: setIndex)
-//                           : const SizedBox(width: width),
-//                       Padding(
-//                         padding: const EdgeInsets.only(right: 45.0),
-//                         child: CustomIndicator(
-//                           netDragPercent: dragDistance,
-//                           pagesLength: pagesLength,
-//                           indicator: Indicator(
-//                             indicatorDesign: IndicatorDesign.polygon(
-//                               polygonDesign: PolygonDesign(
-//                                 polygon: DesignType.polygon_arrow,
-//                               ),
-//                             ),
-//                           ),
+//     );
+//   }
+//
+//   Offset _getIconPosition(int index) {
+//     if (index == 0) {
+//       return const Offset(20, 710); // Position for sidebar_red
+//     } else if (index == 1) {
+//       return const Offset(20, 690); // Position for sidebar_purple
+//     } else {
+//       return const Offset(17, 30); // Position of sidebar_orange
+//     }
+//   }
+//
+//   Widget _buildPage({
+//     required String imagePath, // Existing parameter
+//     required String imageForContent, // New parameter for the content image path
+//     required double iconScale,
+//     String? text,
+//     bool rotateIcon = false,
+//     required Offset iconPosition,
+//   }) {
+//     return GestureDetector(
+//       onHorizontalDragEnd: (details) {
+//         if (details.primaryVelocity! < 0) {
+//           _pageController.nextPage(
+//             duration: const Duration(seconds: 1),
+//             curve: Curves.easeInOut,
+//           );
+//         } else if (details.primaryVelocity! > 0) {
+//           _pageController.previousPage(
+//             duration: const Duration(seconds: 1),
+//             curve: Curves.easeInOut,
+//           );
+//         }
+//       },
+//       child: Transform(
+//         transform: Matrix4.identity()
+//           ..setEntry(3, 2, 0.002)
+//           ..rotateY(rotateIcon ? 0.02 : 0.0),
+//         alignment: FractionalOffset.center,
+//         child: Stack(
+//           children: [
+//
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.end,
+//               children: [
+//                 Stack(
+//                   alignment: Alignment.center,
+//                   children: [
+//                     Image.asset(
+//                       imagePath, // Use the sidebar image path here
+//                       scale: iconScale,
+//                     ),
+//                     if (rotateIcon)
+//                       Positioned(
+//                         right: iconPosition.dx,
+//                         top: iconPosition.dy,
+//                         child: const Icon(
+//                           CupertinoIcons.arrow_right,
+//                           color: Colors.white,
+//                           size: 40.0,
 //                         ),
 //                       ),
-//                       // index != pagesLength - 1 ? _signupButton : _signinButton,
-//                     ],
-//                   ),
+//                     if (text != null)
+//                       Positioned(
+//                         bottom: 43,
+//                         right: 17,
+//                         child: TextButton(
+//                           child: Text(
+//                             text,
+//                             style: const TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 16.0,
+//                             ),
+//                           ),
+//                           onPressed: () {},
+//                         ),
+//                       ),
+//                   ],
 //                 ),
-//               ),
-//             );
-//           },
+//               ],
+//             )
+//           ],
 //         ),
 //       ),
 //     );
