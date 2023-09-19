@@ -33,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isFirstPage = currentIndex == 0;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -50,28 +49,18 @@ class _SplashScreenState extends State<SplashScreen> {
                       padding: const EdgeInsets.all(40),
                       child: Column(
                         children: [
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: SizedBox(
-                                child: Image.asset(
-                                  contents[currentIndex].sidebarImages,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
+                          const SizedBox(
+                            height: 60,
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: Image.asset(
                               contents[i].image,
                               scale: 0.02,
                               height: 300,
                             ),
                           ),
-                          const SizedBox(
-                            height: 60,
-                          ),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               Text(
@@ -106,16 +95,29 @@ class _SplashScreenState extends State<SplashScreen> {
                                 ),
                               ),
                             ],
-                          )
+                          ),
+                          if (i == 2) const SizedBox(height: 5),
+                          if (i == 2)
+                            ElevatedButton(
+                              onPressed: () {
+                                // Handle the "Get Started" button tap
+                              },
+                              child: const Text(
+                                'Get Started',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
                         ],
                       ),
                     );
                   },
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -134,12 +136,14 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ],
           ),
-          if (isFirstPage)
+          if (currentIndex == 0)
             Positioned(
               top: 0,
               right: 0,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  // Handle the "Skip" button tap
+                },
                 child: Container(
                   padding: const EdgeInsets.all(35.0),
                   child: Padding(
