@@ -71,7 +71,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 children: [
                   const SizedBox(width: 80),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'signup');
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.red,
                       minimumSize: const Size(120, 50),
@@ -85,7 +87,9 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                   const SizedBox(width: 20),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'login');
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.purple,
                       minimumSize: const Size(120, 50),

@@ -1,6 +1,9 @@
+import 'package:ecommerce_clone/auth/signupscreen/signupscreen.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:ecommerce_clone/welocme/welcome_page.dart';
 import 'package:flutter/material.dart';
+
+import 'auth/loginscreen/loginscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +26,8 @@ class MyApp extends StatelessWidget {
         home: SplashScreen(),
         routes: {
           'welcome': (context) => WelcomePage(),
+          'login': (context) => LoginScreen(),
+          'signup': (context) => SignupScreen(),
         });
   }
 }

@@ -102,15 +102,15 @@ class _SplashScreenState extends State<SplashScreen> {
                               onPressed: () {
                                 Navigator.pushNamed(context, 'welcome');
                               },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                              ),
                               child: const Text(
                                 'Get Started',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,
                                 ),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blueAccent,
                               ),
                             ),
                         ],
