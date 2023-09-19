@@ -1,4 +1,5 @@
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
+import 'package:ecommerce_clone/welocme/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: SplashScreen(),
-    );
+        theme: ThemeData.light(
+          useMaterial3: true,
+        ), // Light mode theme
+        darkTheme: ThemeData.dark(
+          useMaterial3: true,
+        ), // Dark mode theme
+        themeMode: ThemeMode.system, //
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+        routes: {
+          'welcome': (context) => WelcomePage(),
+        });
   }
 }

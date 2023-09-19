@@ -100,13 +100,17 @@ class _SplashScreenState extends State<SplashScreen> {
                           if (i == 2)
                             ElevatedButton(
                               onPressed: () {
-                                // Handle the "Get Started" button tap
+                                Navigator.pushNamed(context, 'welcome');
                               },
                               child: const Text(
                                 'Get Started',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 14,
                                 ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
                               ),
                             ),
                         ],
@@ -115,9 +119,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   },
                 ),
               ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -157,7 +158,9 @@ class _SplashScreenState extends State<SplashScreen> {
                           fontSize: 20,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
                 ),
