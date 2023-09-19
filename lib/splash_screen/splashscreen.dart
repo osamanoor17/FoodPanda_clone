@@ -50,12 +50,14 @@ class _SplashScreenState extends State<SplashScreen> {
                       padding: const EdgeInsets.all(40),
                       child: Column(
                         children: [
-                          const Expanded(
+                          Expanded(
                             child: Align(
                               alignment: Alignment.topRight,
                               child: SizedBox(
-                                width: 50,
-                                height: 700,
+                                child: Image.asset(
+                                  contents[currentIndex].sidebarImages,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
@@ -139,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(35.0),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
