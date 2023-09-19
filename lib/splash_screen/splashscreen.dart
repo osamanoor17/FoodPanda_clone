@@ -33,8 +33,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isFirstPage = currentIndex == 0; // Check if it's the first page
+    bool isFirstPage = currentIndex == 0;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Column(
@@ -50,8 +51,12 @@ class _SplashScreenState extends State<SplashScreen> {
                       child: Column(
                         children: [
                           const Expanded(
-                            child: SizedBox(
-                              height: 100,
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: SizedBox(
+                                width: 50,
+                                height: 700,
+                              ),
                             ),
                           ),
                           Padding(
@@ -127,14 +132,14 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ],
           ),
-          if (isFirstPage) // Conditionally show "Skip" button only on the first page
+          if (isFirstPage)
             Positioned(
               top: 0,
               right: 0,
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  padding: const EdgeInsets.all(35.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
@@ -164,7 +169,7 @@ class _SplashScreenState extends State<SplashScreen> {
       margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: MYcolors[index], // Set color based on index
+        color: MYcolors[index],
       ),
     );
   }
