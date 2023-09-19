@@ -79,8 +79,10 @@ class _LoginFormState extends State<LoginForm> {
                 width: 20,
               ),
               TextButton(
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.pushNamed(context, 'forgetpassword');
+                },
+                child: Text(
                   'Forgot Password?',
                   style: TextStyle(color: Colors.black54),
                 ),
@@ -96,10 +98,12 @@ class _LoginFormState extends State<LoginForm> {
 
                 print('Email: $email');
                 print('Password: $password');
+
+                Navigator.pushNamed(context, 'mappage');
               }
             },
             child: const Text('Log In'),
-          ),
+          )
         ],
       ),
     );

@@ -110,7 +110,7 @@ class _SignupFormState extends State<SignupForm> {
               ),
               TextButton(
                 onPressed: () {
-                  // Navigate to the login screen here
+                  Navigator.pushNamed(context, 'login');
                 },
                 child: const Text(
                   'Log In',
@@ -130,10 +130,12 @@ class _SignupFormState extends State<SignupForm> {
                 print('Full Name: $fullName');
                 print('Email: $email');
                 print('Password: $password');
-              }
+
+                Navigator.pushNamed(context, 'mappage');
+              } else {}
             },
             child: const Text('Sign Up'),
-          ),
+          )
         ],
       ),
     );

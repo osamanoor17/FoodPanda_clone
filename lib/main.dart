@@ -1,8 +1,10 @@
+import 'package:ecommerce_clone/MapPage/mappage.dart';
 import 'package:ecommerce_clone/auth/signupscreen/signupscreen.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:ecommerce_clone/welocme/welcome_page.dart';
 import 'package:flutter/material.dart';
 
+import 'auth/forgetpassword/forgetpassword.dart';
 import 'auth/loginscreen/loginscreen.dart';
 
 void main() {
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
           'welcome': (context) => WelcomePage(),
           'login': (context) => LoginScreen(),
           'signup': (context) => SignupScreen(),
+          'forgetpassword': (context) => ForgetPassword(),
+          'mappage': (context) => MapPage(),
         });
   }
 }

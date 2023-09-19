@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           Row(
                             children: [
                               Text(
-                                contents[i].title1, // Use title data here
+                                contents[i].title1,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           Row(
                             children: [
                               Text(
-                                contents[i].title2, // Use title data here
+                                contents[i].title2,
                                 style: const TextStyle(
                                   fontSize: 35,
                                   fontWeight: FontWeight.bold,
@@ -142,9 +142,7 @@ class _SplashScreenState extends State<SplashScreen> {
               top: 0,
               right: 0,
               child: GestureDetector(
-                onTap: () {
-                  // Handle the "Skip" button tap
-                },
+                onTap: () {},
                 child: Container(
                   padding: const EdgeInsets.all(35.0),
                   child: Padding(
