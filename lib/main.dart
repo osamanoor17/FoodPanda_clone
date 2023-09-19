@@ -1,4 +1,4 @@
-import 'package:ecommerce_clone/splash_screen/sidebar.dart';
+import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: SideBar(),
+      home: SplashScreen(),
     );
   }
 }
