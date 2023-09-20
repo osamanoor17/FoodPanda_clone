@@ -19,11 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData.light(
           useMaterial3: true,
-        ), // Light mode theme
-        darkTheme: ThemeData.dark(
-          useMaterial3: true,
-        ), // Dark mode theme
-        themeMode: ThemeMode.system, //
+        ),
+        themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         routes: {

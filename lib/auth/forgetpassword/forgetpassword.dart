@@ -31,91 +31,118 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 140,
-              width: 400,
-              child: Image.asset("assets/icons/icon5.png"),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Column(children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    const Row(
-                      children: [
-                        Text(
-                          "FORGET YOUR",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                      ],
-                    ),
-                    const Row(
-                      children: [
-                        Text(
-                          "PASSWORD",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 35),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Row(
-                      children: [
-                        Text(
-                          "Select which contact details should we use to \n"
-                          "reset your password",
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: TextFormField(
-                        controller: _phoneNumberController,
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.phone_android),
-                          labelText: 'Via Sms',
-                          hintText: "+92 3987654321",
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: TextFormField(
-                        controller: _emailController,
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.phone_android),
-                          labelText: 'Via Email',
-                          hintText: "foods12@gmail.com",
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'login');
-                      },
-                      child: const Text('Reset'),
-                    ),
-                  ],
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Stack(children: [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: SizedBox(
+                    height: 180,
+                    width: 380,
+                    child: Image.asset("assets/icons/icon5.png"),
+                  ),
                 ),
-              ),
-            ]),
-          ],
+                const SizedBox(
+                  height: 30,
+                ),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        const Row(
+                          children: [
+                            Text(
+                              "FORGET YOUR",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 23),
+                            ),
+                          ],
+                        ),
+                        const Row(
+                          children: [
+                            Text(
+                              "PASSWORD",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 35),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Row(
+                          children: [
+                            Text(
+                              "Select which contact details should we use to \n"
+                              "reset your password",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: TextFormField(
+                            controller: _phoneNumberController,
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.phone_android),
+                              labelText: 'Via Sms',
+                              hintText: "+92 3987654321",
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.phone_android),
+                              labelText: 'Via Email',
+                              hintText: "foods12@gmail.com",
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset("assets/icons/sidebar_grey.png"),
+                ),
+                Positioned(
+                  top: 660,
+                  right: 20,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'login');
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.transparent,
+                    ),
+                    child: const Text(
+                      'Reset',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ]),
         ),
       ),
     );

@@ -9,6 +9,8 @@ class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
+  bool _isPasswordVisible = false; // Initially set to hide the password
+
   @override
   void initState() {
     super.initState();
@@ -49,61 +51,72 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _emailController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.mail),
                 labelText: 'Enter your email',
+                hintText: "Food@gmail.com",
                 border: OutlineInputBorder(),
               ),
               validator: _validateEmail,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                labelText: '**********',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-              validator: _validatePassword,
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              alignment:
+                  Alignment.centerRight, // Align the eye icon to the right
+              children: [
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                    hintText: "**********",
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText:
+                      !_isPasswordVisible, // Toggle password visibility
+                  validator: _validatePassword,
+                ),
+                IconButton(
+                  // Eye icon button
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                  ),
+                ),
+              ],
             ),
           ),
           Row(
             children: [
               const SizedBox(
-                width: 20,
+                width: 15,
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'forgetpassword');
-                },
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.black54),
+              Padding(
+                padding: EdgeInsets.only(top: 89),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'forgetpassword');
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.black54),
+                  ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                String email = _emailController.text;
-                String password = _passwordController.text;
-
-                print('Email: $email');
-                print('Password: $password');
-
-                Navigator.pushNamed(context, 'mappage');
-              }
-            },
-            child: const Text('Log In'),
-          )
         ],
       ),
     );

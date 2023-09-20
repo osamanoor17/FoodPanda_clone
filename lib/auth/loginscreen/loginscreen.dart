@@ -12,88 +12,123 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 140,
-              width: 400,
-              child: Image.asset("assets/icons/icon5.png"),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
+        body: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          child: Stack(children: [
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 180,
+                    width: 380,
+                    child: Image.asset("assets/icons/icon5.png"),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Column(
                     children: [
-                      Text(
-                        "LOG IN",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 38),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 15.0, left: 18),
+                        child: Row(
+                          children: [
+                            Text(
+                              "LOG IN",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 35),
+                            ),
+                          ],
+                        ),
                       ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          IconButton(
+                            icon: const FaIcon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.blueAccent,
+                              size: 35,
+                            ),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          IconButton(
+                            icon: const FaIcon(
+                              FontAwesomeIcons.instagram,
+                              color: Colors.purple,
+                              size: 35,
+                            ),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          IconButton(
+                            icon: const FaIcon(
+                              FontAwesomeIcons.google,
+                              color: Colors.red,
+                              size: 35,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                      const Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 20.0, top: 5),
+                            child: Text(
+                              "Or login with your email",
+                              style: TextStyle(
+                                  fontSize: 18, color: Colors.black54),
+                            ),
+                          ),
+                        ],
+                      ),
+                      LoginForm(),
                     ],
                   ),
+                ],
+              ),
+            ),
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset("assets/icons/sidebar_grey.png"),
                 ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      width: 20,
+                Positioned(
+                  top: 660,
+                  right: 20,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'mappage');
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.transparent,
                     ),
-                    IconButton(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: Colors.blueAccent,
-                        size: 40,
+                    child: const Text(
+                      'Log in',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 16,
                       ),
-                      onPressed: () {},
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    IconButton(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.instagram,
-                        color: Colors.purple,
-                        size: 40,
-                      ),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    IconButton(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.google,
-                        color: Colors.red,
-                        size: 40,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
+                  ),
                 ),
-                const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.0, top: 15),
-                      child: Text(
-                        "Or login with your email",
-                        style: TextStyle(fontSize: 18, color: Colors.black54),
-                      ),
-                    ),
-                  ],
-                ),
-                LoginForm(),
               ],
             ),
-          ],
+          ]),
         ),
       ),
     );

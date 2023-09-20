@@ -209,10 +209,10 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Image.asset(sidebarImages[2])),
             Positioned(
                 top: currentIndex == 0
-                    ? MediaQuery.of(context).size.height * 0.828
+                    ? MediaQuery.of(context).size.height * 0.838
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.height * 0.829
-                        : MediaQuery.of(context).size.height * 0.832,
+                        ? MediaQuery.of(context).size.height * 0.838
+                        : MediaQuery.of(context).size.height * 0.838,
                 left: currentIndex == 0
                     ? MediaQuery.of(context).size.width * 0.828
                     : currentIndex == 1

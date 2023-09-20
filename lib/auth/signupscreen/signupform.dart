@@ -11,6 +11,8 @@ class _SignupFormState extends State<SignupForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
 
+  bool _isPasswordVisible = false; // Initially set to hide the password
+
   @override
   void initState() {
     super.initState();
@@ -60,82 +62,92 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _fullNameController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person),
                 labelText: 'Full Name',
+                hintText: "Foods",
                 border: OutlineInputBorder(),
               ),
               validator: _validateFullName,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _emailController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.mail),
                 labelText: 'Enter your email',
+                hintText: "foods@gmail.com",
                 border: OutlineInputBorder(),
               ),
               validator: _validateEmail,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                labelText: '**********',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-              validator: _validatePassword,
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              alignment:
+                  Alignment.centerRight, // Align the eye icon to the right
+              children: [
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                    hintText: "************",
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText:
+                      !_isPasswordVisible, // Toggle password visibility
+                  validator: _validatePassword,
+                ),
+                IconButton(
+                  // Eye icon button
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                  ),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(
-            height: 10,
           ),
           Row(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 20.0),
-                child: Text(
-                  "Already have an account?",
-                  style: TextStyle(fontSize: 16, color: Colors.black54),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'login');
-                },
-                child: const Text(
-                  'Log In',
-                  style: TextStyle(fontSize: 16, color: Colors.blue),
-                ),
+              Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 60),
+                    child: Text(
+                      "Already have an account?",
+                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 60),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'login');
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(fontSize: 12, color: Colors.blue),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-          const SizedBox(height: 5),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                String fullName = _fullNameController.text;
-                String email = _emailController.text;
-                String password = _passwordController.text;
-
-                print('Full Name: $fullName');
-                print('Email: $email');
-                print('Password: $password');
-
-                Navigator.pushNamed(context, 'mappage');
-              } else {}
-            },
-            child: const Text('Sign Up'),
-          )
         ],
       ),
     );
