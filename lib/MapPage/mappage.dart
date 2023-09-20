@@ -10,6 +10,28 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 100,
+        actions: [
+          Row(
+            children: [
+              Text("data"),
+              Text("data"),
+            ],
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Center(
+              child: Container(
+                  child: Image.asset(
+            "assets/icons/map.png",
+            scale: 0.029,
+          )))
+        ],
+      ),
+    );
   }
 }
