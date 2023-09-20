@@ -71,7 +71,9 @@ class _MapPageState extends State<MapPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'homepage');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       fixedSize: const Size(150, 50),
@@ -82,7 +84,9 @@ class _MapPageState extends State<MapPage> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'mappage');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       fixedSize: const Size(150, 50),
