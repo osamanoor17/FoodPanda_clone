@@ -31,6 +31,18 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
+  void goToNextPage() {
+    if (currentIndex < 2) {
+      _controller.animateToPage(
+        currentIndex + 1,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      Navigator.pushNamed(context, 'welcome');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,20 +53,70 @@ class _SplashScreenState extends State<SplashScreen> {
             Column(
               children: [
                 if (currentIndex == 0)
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                        padding: EdgeInsets.only(right: 20, top: 20),
-                        alignment: Alignment.bottomRight,
-                        // padding: const EdgeInsets.all(35.0),
-                        child: const Text('Skip',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ))),
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: EdgeInsets.only(right: 20, top: 10),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: const Text(
+                        'Skip',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                if (currentIndex == 1)
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: EdgeInsets.only(right: 20, top: 10),
+                    child: TextButton(
+                      onPressed: () {
+                        goToNextPage();
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: const Text(
+                        '',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                if (currentIndex == 2)
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: EdgeInsets.only(right: 20, top: 10),
+                    child: TextButton(
+                      onPressed: () {
+                        goToNextPage();
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: const Text(
+                        '',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
                   ),
                 Expanded(
                   child: PageView.builder(
@@ -64,11 +126,11 @@ class _SplashScreenState extends State<SplashScreen> {
                     itemBuilder: (_, i) {
                       return Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 30),
+                            const EdgeInsets.only(left: 30, right: 49, top: 20),
                         child: Column(
                           children: [
                             const SizedBox(
-                              height: 60,
+                              height: 50,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(15.0),
@@ -79,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                     MediaQuery.of(context).size.height * 0.28,
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 50),
                             Row(
                               children: [
                                 Text(
@@ -115,23 +177,6 @@ class _SplashScreenState extends State<SplashScreen> {
                                 ),
                               ],
                             ),
-                            if (i == 2) const SizedBox(height: 5),
-                            if (i == 2)
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, 'welcome');
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blueAccent,
-                                ),
-                                child: const Text(
-                                  'Get Started',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ),
                           ],
                         ),
                       );
@@ -148,12 +193,6 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ),
-                // Container(
-                //   height: 3,
-                //   margin: const EdgeInsets.all(40),
-                //   width: double.infinity,
-                //   color: MYcolors[currentIndex],
-                // ),
               ],
             ),
             if (currentIndex == 0)
@@ -170,18 +209,29 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Image.asset(sidebarImages[2])),
             Positioned(
                 top: currentIndex == 0
-                    ? MediaQuery.of(context).size.height * 0.875
+                    ? MediaQuery.of(context).size.height * 0.828
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.height * 0.845
-                        : MediaQuery.of(context).size.height * 0.846,
+                        ? MediaQuery.of(context).size.height * 0.829
+                        : MediaQuery.of(context).size.height * 0.832,
                 left: currentIndex == 0
-                    ? MediaQuery.of(context).size.width * 0.79
+                    ? MediaQuery.of(context).size.width * 0.828
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.width * 0.79
-                        : MediaQuery.of(context).size.width * 0.72,
+                        ? MediaQuery.of(context).size.width * 0.84
+                        : MediaQuery.of(context).size.width * 0.70,
                 child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_forward, color: Colors.white)))
+                    onPressed: () {
+                      goToNextPage();
+                    },
+                    icon: currentIndex == 2
+                        ? const Text(
+                            'Get Started',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          )
+                        : const Icon(Icons.arrow_forward, color: Colors.white)))
           ],
         ),
       ),
