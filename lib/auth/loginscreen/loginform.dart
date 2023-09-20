@@ -9,7 +9,7 @@ class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
-  bool _isPasswordVisible = false; // Initially set to hide the password
+  bool _isPasswordVisible = false;
 
   @override
   void initState() {
@@ -66,8 +66,7 @@ class _LoginFormState extends State<LoginForm> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
-              alignment:
-                  Alignment.centerRight, // Align the eye icon to the right
+              alignment: Alignment.centerRight,
               children: [
                 TextFormField(
                   controller: _passwordController,
@@ -77,8 +76,7 @@ class _LoginFormState extends State<LoginForm> {
                     hintText: "**********",
                     border: OutlineInputBorder(),
                   ),
-                  obscureText:
-                      !_isPasswordVisible, // Toggle password visibility
+                  obscureText: !_isPasswordVisible,
                   validator: _validatePassword,
                 ),
                 IconButton(

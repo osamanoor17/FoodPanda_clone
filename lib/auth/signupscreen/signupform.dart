@@ -11,7 +11,7 @@ class _SignupFormState extends State<SignupForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
 
-  bool _isPasswordVisible = false; // Initially set to hide the password
+  bool _isPasswordVisible = false;
 
   @override
   void initState() {
@@ -90,8 +90,7 @@ class _SignupFormState extends State<SignupForm> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
-              alignment:
-                  Alignment.centerRight, // Align the eye icon to the right
+              alignment: Alignment.centerRight,
               children: [
                 TextFormField(
                   controller: _passwordController,
@@ -101,8 +100,7 @@ class _SignupFormState extends State<SignupForm> {
                     hintText: "************",
                     border: OutlineInputBorder(),
                   ),
-                  obscureText:
-                      !_isPasswordVisible, // Toggle password visibility
+                  obscureText: !_isPasswordVisible,
                   validator: _validatePassword,
                 ),
                 IconButton(
@@ -133,7 +131,7 @@ class _SignupFormState extends State<SignupForm> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 60),
+                    padding: const EdgeInsets.only(top: 60),
                     child: TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, 'login');

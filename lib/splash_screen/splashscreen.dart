@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (currentIndex < 2) {
       _controller.animateToPage(
         currentIndex + 1,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     } else {
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 0)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(right: 20, top: 10),
+                    padding: const EdgeInsets.only(right: 20, top: 10),
                     child: TextButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -77,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 1)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(right: 20, top: 10),
+                    padding: const EdgeInsets.only(right: 20, top: 10),
                     child: TextButton(
                       onPressed: () {
                         goToNextPage();
@@ -99,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 2)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(right: 20, top: 10),
+                    padding: const EdgeInsets.only(right: 20, top: 10),
                     child: TextButton(
                       onPressed: () {
                         goToNextPage();
@@ -168,8 +168,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             Row(
                               children: [
                                 Text(
-                                  contents[i]
-                                      .description, // Use description data here
+                                  contents[i].description,
                                   style: const TextStyle(
                                     fontSize: 16,
                                     color: Colors.black54,
