@@ -57,7 +57,7 @@ class _MapPageState extends State<MapPage> {
                 markers: <Marker>{
                   const Marker(
                     markerId: MarkerId('KarachiMarkerId'),
-                    position: LatLng(24.8607, 67.0011), // Karachi coordinates
+                    position: LatLng(24.8607, 67.0011),
                     infoWindow: InfoWindow(
                       title: 'Karachi',
                     ),
@@ -65,8 +65,6 @@ class _MapPageState extends State<MapPage> {
                 },
               ),
             ),
-
-            // Buttons
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
