@@ -19,13 +19,19 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: Colors.black26,
+            color: Colors.grey[300],
           ),
-          child: const TextField(
+          child: TextField(
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.location_on_rounded),
+              prefixIcon: IconButton(
+                icon: const Icon(
+                  Icons.location_on,
+                  color: Colors.grey,
+                ),
+                onPressed: () {},
+              ),
               hintText: "152/2, Main Street, Jersey...",
-              hintStyle: TextStyle(fontSize: 14),
+              hintStyle: const TextStyle(fontSize: 14),
               border: InputBorder.none,
             ),
           ),

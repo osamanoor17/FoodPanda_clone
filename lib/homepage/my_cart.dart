@@ -9,14 +9,25 @@ class MyCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.notification_add),
           )
         ],
       ),
       drawer: CustomDrawer(),
+      body: const Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 29.0, top: 10),
+            child: Text(
+              "MY ORDERS",
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
