@@ -128,7 +128,7 @@ class _ExploreState extends State<Explore> {
                     width: 10,
                   ),
                   Container(
-                    height: 180,
+                    // height: 180,
                     width: 200,
                     child: CustomFoodContainer(
                       imagePath: 'assets/icons/biryani.png',
