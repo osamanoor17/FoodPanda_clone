@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: const Row(
                 children: [
-                  const SizedBox(width: 5),
+                  SizedBox(width: 5),
                   Text('Settings'),
                 ],
               ),
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: const Row(
                 children: [
-                  const SizedBox(width: 5),
+                  SizedBox(width: 5),
                   Text('Terms & conditions/ Privacy'),
                 ],
               ),
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: const Row(
                 children: [
-                  const SizedBox(width: 5),
+                  SizedBox(width: 5),
                   Text('Logout'),
                 ],
               ),
