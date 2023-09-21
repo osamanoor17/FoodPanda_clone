@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../appbar/appbar.dart';
+import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
 import '../customdrawer/drawer.dart';
 
@@ -33,89 +34,171 @@ class _ExploreState extends State<Explore> {
       backgroundColor: Colors.white,
       appBar: MyAppBar(),
       drawer: CustomDrawer(),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: CarouselSlider(
-              items: images.asMap().entries.map((entry) {
-                int index = entry.key;
-                String imagePath = entry.value;
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: CarouselSlider(
+                items: images.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  String imagePath = entry.value;
 
-                Color backgroundColor = backgroundColors[index];
-                return GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: backgroundColor,
+                  Color backgroundColor = backgroundColors[index];
+                  return GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: backgroundColor,
+                      ),
+                      margin: const EdgeInsets.all(5.0),
+                      child: Center(
+                        child: Image.asset(imagePath),
+                      ),
                     ),
-                    margin: const EdgeInsets.all(5.0),
-                    child: Center(
-                      child: Image.asset(imagePath),
-                    ),
-                  ),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 140.0,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                enableInfiniteScroll: true,
-                aspectRatio: 16 / 9,
-                viewportFraction: 0.8,
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  height: 140.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  enableInfiniteScroll: true,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                ),
               ),
             ),
-          ),
-          const Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 32.0, top: 5),
-                child: Text(
-                  "Today's Trending",
-                  style: TextStyle(fontSize: 21),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          CustomTextField(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 32.0, top: 10),
-                child: Text(
-                  "Hot & Spicy",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, left: 100),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "View all",
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 32.0, top: 5),
+                  child: Text(
+                    "Today's Trending",
+                    style: TextStyle(fontSize: 21),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: IconButton(
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            CustomTextField(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 32.0, top: 10),
+                  child: Text(
+                    "Hot & Spicy",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 100),
+                  child: TextButton(
                     onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 18,
-                    )),
-              )
-            ],
-          ),
-        ],
+                    child: const Text(
+                      "View all",
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 18,
+                      )),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    height: 180,
+                    width: 200,
+                    child: CustomFoodContainer(
+                      imagePath: 'assets/icons/biryani.png',
+                      foodName: 'Biryani',
+                      rating: 4.5,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    height: 180,
+                    width: 200,
+                    child: CustomFoodContainer(
+                      imagePath: 'assets/icons/pizza.png',
+                      foodName: 'Pizza',
+                      rating: 4.1,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    height: 180,
+                    width: 200,
+                    child: CustomFoodContainer(
+                      imagePath: 'assets/icons/burger.png',
+                      foodName: 'Burger',
+                      rating: 4.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 32.0, top: 10),
+                  child: Text(
+                    "Hot & Spicy",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 100),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "View all",
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 18,
+                      )),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
