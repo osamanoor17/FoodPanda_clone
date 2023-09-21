@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../customdrawer/drawer.dart';
+
 class MyCart extends StatelessWidget {
   const MyCart({super.key});
 
@@ -7,8 +9,14 @@ class MyCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Cart"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: Icon(Icons.notification_add),
+          )
+        ],
       ),
+      drawer: CustomDrawer(),
     );
   }
 }

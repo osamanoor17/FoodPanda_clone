@@ -15,9 +15,9 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     Explore(),
-    NearMe(),
-    MyCart(),
-    Profile(),
+    const NearMe(),
+    const MyCart(),
+    const Profile(),
   ];
 
   @override
@@ -27,15 +27,17 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.black,
-        selectedLabelStyle: TextStyle(color: Colors.red),
-        unselectedLabelStyle: TextStyle(color: Colors.black),
+        unselectedItemColor: Colors.grey,
+        selectedLabelStyle: const TextStyle(color: Colors.red),
+        unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         onTap: (int index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.explore),
             label: 'Explore',
