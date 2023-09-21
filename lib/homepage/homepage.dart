@@ -1,146 +1,58 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../appbar/appbar.dart';
+import 'explore.dart';
+import 'my_cart.dart';
+import 'near_me.dart';
+import 'profile.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    Explore(),
+    NearMe(),
+    MyCart(),
+    Profile(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: const BoxDecoration(),
-              child: Image.asset("assets/icons/icon5.png"),
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  const SizedBox(width: 5),
-                  const Text('Credit and payment methods'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Row(
-                children: [
-                  Transform.rotate(
-                    angle: 90 * 3.14159265359 / 180,
-                    child: const Icon(CupertinoIcons.ticket),
-                  ),
-                  const SizedBox(width: 16),
-                  const Text('Vouchers and offers'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.favorite_border_sharp),
-                  SizedBox(width: 16),
-                  Text('Favourites'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.edit_note_sharp),
-                  SizedBox(width: 16),
-                  Text('Orders and reordering'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.person),
-                  SizedBox(width: 16),
-                  Text('View Profile'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.location_on),
-                  SizedBox(width: 16),
-                  Text('Addresses'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.help_outline),
-                  SizedBox(width: 16),
-                  Text('Help Center'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(CupertinoIcons.gift),
-                  SizedBox(width: 16),
-                  Text('Invite Friends'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: const Row(
-                children: [
-                  SizedBox(width: 5),
-                  Text('Settings'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  SizedBox(width: 5),
-                  Text('Terms & conditions/ Privacy'),
-                ],
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Row(
-                children: [
-                  SizedBox(width: 5),
-                  Text('Logout'),
-                ],
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, 'login');
-              },
-            ),
-          ],
-        ),
-      ),
-      body: const Center(
-        child: Text("Home Page"),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.black,
+        selectedLabelStyle: TextStyle(color: Colors.red),
+        unselectedLabelStyle: TextStyle(color: Colors.black),
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on),
+            label: 'Near Me',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'My Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

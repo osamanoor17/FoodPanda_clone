@@ -10,7 +10,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.only(top: 20),
       child: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },
