@@ -18,18 +18,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData.light(
+        theme: ThemeData(
           useMaterial3: true,
         ),
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         routes: {
-          'welcome': (context) => WelcomePage(),
-          'login': (context) => LoginScreen(),
-          'signup': (context) => SignupScreen(),
+          'welcome': (context) => const WelcomePage(),
+          'login': (context) => const LoginScreen(),
+          'signup': (context) => const SignupScreen(),
           'forgetpassword': (context) => ForgetPassword(),
-          'mappage': (context) => MapPage(),
+          'mappage': (context) => const MapPage(),
           'homepage': (context) => HomePage(),
         });
   }
