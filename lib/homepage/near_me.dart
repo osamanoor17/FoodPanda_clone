@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../appbar/appbar.dart';
 import '../customTextfield/textfield.dart';
 import '../customdrawer/drawer.dart';
+import '../customfoodbar/customfoodbar.dart';
 
 class NearMe extends StatelessWidget {
   const NearMe({super.key});
@@ -50,6 +51,29 @@ class NearMe extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                FoodItemWidget(
+                  image: "assets/icons/burger.png",
+                  foodName: 'Burgers',
+                  foodItem: '(12)',
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                FoodItemWidget(
+                  image: "assets/icons/pizza.png",
+                  foodName: 'Pizza',
+                  foodItem: '(12)',
+                ),
+              ],
+            )
           ],
         ));
   }
