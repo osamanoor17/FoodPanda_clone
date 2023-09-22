@@ -320,8 +320,8 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Pakistani.png',
-                          foodName: 'Pakistani',
+                          imagePath: 'assets/icons/lotus.jpg',
+                          foodName: 'Lotus Court',
                           rating: 4.2,
                           onTap: () {},
                           time: '60 mins',
@@ -334,8 +334,8 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Chinese.jpg',
-                          foodName: 'Chinese',
+                          imagePath: 'assets/icons/marcopolo.jpg',
+                          foodName: 'Marcopolo',
                           rating: 4.1,
                           onTap: () {},
                           time: '10 mins',
@@ -348,8 +348,8 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Japanese.jpg',
-                          foodName: 'Japanese',
+                          imagePath: 'assets/icons/bustan.jpg',
+                          foodName: 'Al Bustan',
                           rating: 4.2,
                           onTap: () {},
                           time: '5 mins',
@@ -362,8 +362,8 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Italian.jpg',
-                          foodName: 'Italian',
+                          imagePath: 'assets/icons/beach.jpg',
+                          foodName: 'Beach Luxury Hotel',
                           rating: 4.2,
                           onTap: () {},
                           time: '20 mins',
@@ -376,8 +376,8 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Greek.jpg',
-                          foodName: 'Greek',
+                          imagePath: 'assets/icons/boatbasin.jpg',
+                          foodName: 'Boat Basin ',
                           rating: 4.2,
                           onTap: () {},
                           time: '15 mins',
@@ -390,53 +390,11 @@ class NearMe extends StatelessWidget {
                         height: 200,
                         width: 200,
                         child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Spanish.jpg',
-                          foodName: 'Spanish',
+                          imagePath: 'assets/icons/tao.jpg',
+                          foodName: 'Tao',
                           rating: 4.2,
                           onTap: () {},
                           time: '25 mins',
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Turkish.png',
-                          foodName: 'Turkish',
-                          rating: 4.2,
-                          onTap: () {},
-                          time: '2 mins',
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Thai.png',
-                          foodName: 'Thai',
-                          rating: 4.2,
-                          onTap: () {},
-                          time: '45 mins',
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CustomFoodContainer(
-                          imagePath: 'assets/icons/Indian.png',
-                          foodName: 'Indian',
-                          rating: 4.2,
-                          onTap: () {},
-                          time: '30 mins',
                         ),
                       ),
                       const SizedBox(
