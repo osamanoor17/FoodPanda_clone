@@ -53,7 +53,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Orders and reordering'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'mycart');
+            },
           ),
           ListTile(
             title: const Row(

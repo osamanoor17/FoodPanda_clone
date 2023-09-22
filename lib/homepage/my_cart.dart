@@ -16,7 +16,7 @@ class MyCart extends StatelessWidget {
           )
         ],
       ),
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.grey,
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(

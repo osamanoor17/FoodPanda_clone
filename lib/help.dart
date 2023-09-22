@@ -1,134 +1,62 @@
-// import 'package:flutter/material.dart';
+// Container(
+// padding: EdgeInsets.all(16.0),
+// child: Row(
+// mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// children: [
+// // Column 1 - Asset Image
+// Column(
+// children: [
+// Image.asset(
+// 'assets/your_image.png',
+// height: 100,
+// width: 100,
+// ),
+// ],
+// ),
 //
-// void main() => runApp(FoodDeliveryApp());
+// // Column 2 - Two Texts
+// Column(
+// crossAxisAlignment: CrossAxisAlignment.start,
+// children: [
+// Text(
+// 'Product Name',
+// style: TextStyle(
+// fontWeight: FontWeight.bold,
+// fontSize: 16.0,
+// ),
+// ),
+// SizedBox(height: 8.0),
+// Text(
+// 'Description or details here',
+// style: TextStyle(
+// fontSize: 14.0,
+// color: Colors.grey,
+// ),
+// ),
+// ],
+// ),
 //
-// class FoodDeliveryApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Food Delivery App',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: HomePage(),
-//     );
-//   }
-// }
-//
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Food Delivery App'),
-//       ),
-//       body: Center(
-//         child: Text('Home Page'),
-//       ),
-//       drawer: AppDrawer(),
-//     );
-//   }
-// }
-//
-// class AppDrawer extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Drawer(
-//       child: ListView(
-//         padding: EdgeInsets.zero,
-//         children: <Widget>[
-//           DrawerHeader(
-//             child: Text(
-//               'Settings',
-//               style: TextStyle(color: Colors.white, fontSize: 20),
-//             ),
-//             decoration: BoxDecoration(
-//               color: Colors.blue,
-//             ),
-//           ),
-//           ListTile(
-//             leading: Icon(Icons.settings),
-//             title: Text('General Settings'),
-//             onTap: () {
-//               Navigator.pop(context); // Close the drawer
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(builder: (context) => GeneralSettingsPage()),
-//               );
-//             },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-//
-// class GeneralSettingsPage extends StatefulWidget {
-//   @override
-//   _GeneralSettingsPageState createState() => _GeneralSettingsPageState();
-// }
-//
-// class _GeneralSettingsPageState extends State<GeneralSettingsPage> {
-//   bool receiveNotifications = true;
-//   bool darkMode = false;
-//   String selectedLanguage = 'English';
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('General Settings'),
-//       ),
-//       body: ListView(
-//         padding: EdgeInsets.all(16.0),
-//         children: <Widget>[
-//           ListTile(
-//             title: Text('Receive Notifications'),
-//             trailing: Switch(
-//               value: receiveNotifications,
-//               onChanged: (value) {
-//                 setState(() {
-//                   receiveNotifications = value;
-//                 });
-//               },
-//             ),
-//           ),
-//           ListTile(
-//             title: Text('Dark Mode'),
-//             trailing: Switch(
-//               value: darkMode,
-//               onChanged: (value) {
-//                 setState(() {
-//                   darkMode = value;
-//                 });
-//               },
-//             ),
-//           ),
-//           ListTile(
-//             title: Text('Language'),
-//             trailing: DropdownButton<String>(
-//               value: selectedLanguage,
-//               onChanged: (String? newValue) {
-//                 setState(() {
-//                   selectedLanguage = newValue!;
-//                 });
-//               },
-//               items: <String>[
-//                 'English',
-//                 'Spanish',
-//                 'French',
-//                 'German',
-//                 // Add more language options here
-//               ].map<DropdownMenuItem<String>>((String value) {
-//                 return DropdownMenuItem<String>(
-//                   value: value,
-//                   child: Text(value),
-//                 );
-//               }).toList(),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+// // Column 3 - Icon, Text, and Icon
+// Column(
+// children: [
+// Row(
+// children: [
+// Icon(Icons.remove),
+// Text('1'), // Replace with your dynamic quantity
+// Icon(Icons.add),
+// ],
+// ),
+// SizedBox(height: 8.0),
+// Text(
+// '\$19.99', // Replace with your dynamic price
+// style: TextStyle(
+// fontWeight: FontWeight.bold,
+// fontSize: 16.0,
+// color: Colors.green,
+// ),
+// ),
+// ],
+// ),
+// ],
+// ),
+// ),
