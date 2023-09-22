@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../appbar/appbar.dart';
+import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
 import '../customdrawer/drawer.dart';
 import '../customfoodbar/customfoodbar.dart';
@@ -14,67 +15,439 @@ class NearMe extends StatelessWidget {
         backgroundColor: Colors.black12,
         appBar: MyAppBar(),
         drawer: CustomDrawer(),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextField(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 32.0, top: 10),
-                  child: Text(
-                    "By Type of Food",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextField(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 32.0, top: 10),
+                    child: Text(
+                      "By Type of Food",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 65),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, left: 88),
+                    child: Text(
                       "View all",
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 18,
+                        )),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 15,
+                    ),
+                    FoodItemWidget(
+                      image: "assets/icons/burger.png",
+                      foodName: 'Burgers',
+                      foodItem: '(12)',
+                      onTap: () {},
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    FoodItemWidget(
+                      image: "assets/icons/pizza.png",
+                      foodName: 'Pizzas',
+                      foodItem: '(5)',
+                      onTap: () {},
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    FoodItemWidget(
+                      image: "assets/icons/soups.png",
+                      foodName: 'Soups',
+                      foodItem: '(10)',
+                      onTap: () {},
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    FoodItemWidget(
+                      image: "assets/icons/sandwich.png",
+                      foodName: 'Sandwich',
+                      foodItem: '(10)',
+                      onTap: () {},
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 18,
-                      )),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 10,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 32.0, top: 10),
+                    child: Text(
+                      "Near By Restaurants",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, left: 51),
+                    child: Text(
+                      "View all",
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 18,
+                        )),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 220,
+                width: 500,
+                padding: const EdgeInsets.only(bottom: 8.0, left: 15),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Pakistani.png',
+                          foodName: 'Pakistani',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '60 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Chinese.jpg',
+                          foodName: 'Chinese',
+                          rating: 4.1,
+                          onTap: () {},
+                          time: '10 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Japanese.jpg',
+                          foodName: 'Japanese',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '5 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Italian.jpg',
+                          foodName: 'Italian',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '20 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Greek.jpg',
+                          foodName: 'Greek',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '15 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Spanish.jpg',
+                          foodName: 'Spanish',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '25 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Turkish.png',
+                          foodName: 'Turkish',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '2 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Thai.png',
+                          foodName: 'Thai',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '45 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Indian.png',
+                          foodName: 'Indian',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '30 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
                 ),
-                FoodItemWidget(
-                  image: "assets/icons/burger.png",
-                  foodName: 'Burgers',
-                  foodItem: '(12)',
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 32.0, top: 10),
+                    child: Text(
+                      "Recommended",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, left: 97),
+                    child: Text(
+                      "View all",
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 18,
+                        )),
+                  )
+                ],
+              ),
+              Container(
+                height: 220,
+                width: 500,
+                padding: const EdgeInsets.only(bottom: 8.0, left: 15),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Pakistani.png',
+                          foodName: 'Pakistani',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '60 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Chinese.jpg',
+                          foodName: 'Chinese',
+                          rating: 4.1,
+                          onTap: () {},
+                          time: '10 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Japanese.jpg',
+                          foodName: 'Japanese',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '5 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Italian.jpg',
+                          foodName: 'Italian',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '20 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Greek.jpg',
+                          foodName: 'Greek',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '15 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Spanish.jpg',
+                          foodName: 'Spanish',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '25 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Turkish.png',
+                          foodName: 'Turkish',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '2 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Thai.png',
+                          foodName: 'Thai',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '45 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/Indian.png',
+                          foodName: 'Indian',
+                          rating: 4.2,
+                          onTap: () {},
+                          time: '30 mins',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  width: 5,
-                ),
-                FoodItemWidget(
-                  image: "assets/icons/pizza.png",
-                  foodName: 'Pizza',
-                  foodItem: '(12)',
-                ),
-              ],
-            )
-          ],
+              ),
+            ],
+          ),
         ));
   }
 }

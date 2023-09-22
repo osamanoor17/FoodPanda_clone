@@ -5,6 +5,7 @@ import '../appbar/appbar.dart';
 import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
 import '../customdrawer/drawer.dart';
+import '../customfoodbar/customfoodbar.dart';
 
 class Explore extends StatefulWidget {
   Explore({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _ExploreState extends State<Explore> {
     'assets/icons/biryani.png',
     'assets/icons/burger.png',
     'assets/icons/sandwich.png',
-    'assets/icons/pizza.png',
+    'assets/icons/pizza1.png',
   ];
 
   List<Color> backgroundColors = [
@@ -41,35 +42,6 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-            // CarouselSlider(
-            //   items: images.asMap().entries.map((entry) {
-            //     int index = entry.key;
-            //     String imagePath = entry.value;
-            //
-            //     Color backgroundColor = backgroundColors[index];
-            //     return GestureDetector(
-            //       onTap: () {},
-            //       child: Container(
-            //         decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(30),
-            //           color: backgroundColor,
-            //         ),
-            //         margin: const EdgeInsets.all(5.0),
-            //         child: Center(
-            //           child: Image.asset(imagePath),
-            //         ),
-            //       ),
-            //     );
-            //   }).toList(),
-            //   options: CarouselOptions(
-            //     height: 140.0,
-            //     enlargeCenterPage: true,
-            //     autoPlay: true,
-            //     enableInfiniteScroll: true,
-            //     aspectRatio: 16 / 9,
-            //     viewportFraction: 0.8,
-            //   ),
-            // ),
             CarouselSlider(
               items: images.asMap().entries.map((entry) {
                 int index = entry.key;
@@ -101,7 +73,6 @@ class _ExploreState extends State<Explore> {
                 viewportFraction: 0.8,
               ),
             ),
-
             const Row(
               children: [
                 Padding(
@@ -128,13 +99,10 @@ class _ExploreState extends State<Explore> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 100),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "View all",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
+                  padding: const EdgeInsets.only(top: 10, left: 125),
+                  child: Text(
+                    "View all",
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                 ),
                 Padding(
@@ -235,13 +203,10 @@ class _ExploreState extends State<Explore> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 100),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "View all",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
+                  padding: const EdgeInsets.only(top: 10, left: 123),
+                  child: Text(
+                    "View all",
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                 ),
                 Padding(
@@ -397,6 +362,83 @@ class _ExploreState extends State<Explore> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 32.0, top: 10),
+                  child: Text(
+                    "By Type of Food",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 85),
+                  child: Text(
+                    "View all",
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 18,
+                      )),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 15,
+                  ),
+                  FoodItemWidget(
+                    image: "assets/icons/burger.png",
+                    foodName: 'Burgers',
+                    foodItem: '(12)',
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  FoodItemWidget(
+                    image: "assets/icons/pizza.png",
+                    foodName: 'Pizzas',
+                    foodItem: '(5)',
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  FoodItemWidget(
+                    image: "assets/icons/soups.png",
+                    foodName: 'Soups',
+                    foodItem: '(10)',
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  FoodItemWidget(
+                    image: "assets/icons/sandwich.png",
+                    foodName: 'Sandwich',
+                    foodItem: '(10)',
+                    onTap: () {},
+                  ),
+                ],
               ),
             ),
             const SizedBox(
