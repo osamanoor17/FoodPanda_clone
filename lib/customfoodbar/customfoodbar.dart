@@ -1,4 +1,3 @@
-//
 // import 'package:flutter/material.dart';
 //
 // class FoodItemWidget extends StatelessWidget {
@@ -14,16 +13,17 @@
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     return Row(
+//     return Column(
 //       children: [
 //         Padding(
 //           padding: const EdgeInsets.all(8.0),
 //           child: CircleAvatar(
+//             backgroundColor: Colors.white,
 //             radius: 50,
 //             child: ClipOval(
 //               child: Image.asset(
 //                 image,
-//                 fit: BoxFit.scaleDown,
+//                 fit: BoxFit.contain,
 //               ),
 //             ),
 //           ),
@@ -33,11 +33,16 @@
 //           children: [
 //             Text(
 //               foodName,
-//               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+//               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+//               textAlign: TextAlign.center,
 //             ),
-//             Text(
-//               foodItem,
-//               style: TextStyle(fontSize: 14, color: Colors.grey),
+//             Padding(
+//               padding: const EdgeInsets.only(top: 2.0, left: 7),
+//               child: Text(
+//                 foodItem,
+//                 style: TextStyle(fontSize: 14, color: Colors.grey),
+//                 textAlign: TextAlign.center,
+//               ),
 //             ),
 //           ],
 //         ),
@@ -52,11 +57,13 @@ class FoodItemWidget extends StatelessWidget {
   final String image;
   final String foodName;
   final String foodItem;
+  final VoidCallback? onTap;
 
   FoodItemWidget({
     required this.image,
     required this.foodName,
     required this.foodItem,
+    this.onTap,
   });
 
   @override
@@ -65,12 +72,16 @@ class FoodItemWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 50,
-            child: ClipOval(
-              child: Image.asset(
-                image,
-                fit: BoxFit.cover,
+          child: GestureDetector(
+            onTap: onTap,
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 50,
+              child: ClipOval(
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),
@@ -84,7 +95,7 @@ class FoodItemWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 2.0, left: 10),
+              padding: const EdgeInsets.only(top: 2.0, left: 7),
               child: Text(
                 foodItem,
                 style: TextStyle(fontSize: 14, color: Colors.grey),
