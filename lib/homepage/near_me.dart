@@ -10,7 +10,7 @@ class NearMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black12,
         appBar: MyAppBar(),
         drawer: CustomDrawer(),
         body: Column(

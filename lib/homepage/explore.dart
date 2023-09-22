@@ -31,46 +31,77 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black12,
       appBar: MyAppBar(),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             const SizedBox(
               height: 10,
             ),
-            Container(
-              child: CarouselSlider(
-                items: images.asMap().entries.map((entry) {
-                  int index = entry.key;
-                  String imagePath = entry.value;
+            // CarouselSlider(
+            //   items: images.asMap().entries.map((entry) {
+            //     int index = entry.key;
+            //     String imagePath = entry.value;
+            //
+            //     Color backgroundColor = backgroundColors[index];
+            //     return GestureDetector(
+            //       onTap: () {},
+            //       child: Container(
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(30),
+            //           color: backgroundColor,
+            //         ),
+            //         margin: const EdgeInsets.all(5.0),
+            //         child: Center(
+            //           child: Image.asset(imagePath),
+            //         ),
+            //       ),
+            //     );
+            //   }).toList(),
+            //   options: CarouselOptions(
+            //     height: 140.0,
+            //     enlargeCenterPage: true,
+            //     autoPlay: true,
+            //     enableInfiniteScroll: true,
+            //     aspectRatio: 16 / 9,
+            //     viewportFraction: 0.8,
+            //   ),
+            // ),
+            CarouselSlider(
+              items: images.asMap().entries.map((entry) {
+                int index = entry.key;
+                String imagePath = entry.value;
 
-                  Color backgroundColor = backgroundColors[index];
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: backgroundColor,
-                      ),
-                      margin: const EdgeInsets.all(5.0),
-                      child: Center(
-                        child: Image.asset(imagePath),
-                      ),
+                Color backgroundColor = backgroundColors[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'homepage');
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: backgroundColor,
                     ),
-                  );
-                }).toList(),
-                options: CarouselOptions(
-                  height: 140.0,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  enableInfiniteScroll: true,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                ),
+                    margin: const EdgeInsets.all(5.0),
+                    child: Center(
+                      child: Image.asset(imagePath),
+                    ),
+                  ),
+                );
+              }).toList(),
+              options: CarouselOptions(
+                height: 140.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                enableInfiniteScroll: true,
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
               ),
             ),
+
             const Row(
               children: [
                 Padding(
@@ -121,8 +152,8 @@ class _ExploreState extends State<Explore> {
               height: 10,
             ),
             Container(
-              height: 200,
-              padding: const EdgeInsets.only(bottom: 18.0, left: 15),
+              height: 215,
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -132,6 +163,7 @@ class _ExploreState extends State<Explore> {
                     ),
                     SizedBox(
                       width: 200,
+                      height: 190,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/biryani.png',
                         foodName: 'Biryani',
@@ -143,8 +175,9 @@ class _ExploreState extends State<Explore> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200,
+                      height: 190,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/pizza.png',
                         foodName: 'Pizza',
@@ -156,8 +189,9 @@ class _ExploreState extends State<Explore> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200,
+                      height: 190,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/burger.png',
                         foodName: 'Burger',
@@ -169,8 +203,9 @@ class _ExploreState extends State<Explore> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200,
+                      height: 190,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/sandwich.png',
                         foodName: 'Sandwich',
@@ -195,7 +230,7 @@ class _ExploreState extends State<Explore> {
                 const Padding(
                   padding: EdgeInsets.only(left: 32.0, top: 10),
                   child: Text(
-                    "Hot & Spicy",
+                    "All Cuisines",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -219,6 +254,153 @@ class _ExploreState extends State<Explore> {
                       )),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 220,
+              width: 500,
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Pakistani.png',
+                        foodName: 'Pakistani',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '60 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Chinese.jpg',
+                        foodName: 'Chinese',
+                        rating: 4.1,
+                        onTap: () {},
+                        time: '10 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Japanese.jpg',
+                        foodName: 'Japanese',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '5 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Italian.jpg',
+                        foodName: 'Italian',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '20 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Greek.jpg',
+                        foodName: 'Greek',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '15 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Spanish.jpg',
+                        foodName: 'Spanish',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '25 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Turkish.png',
+                        foodName: 'Turkish',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '2 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Thai.png',
+                        foodName: 'Thai',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '45 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Indian.png',
+                        foodName: 'Indian',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '30 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
           ],
         ),
