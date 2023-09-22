@@ -37,7 +37,7 @@ class _ExploreState extends State<Explore> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -71,7 +71,7 @@ class _ExploreState extends State<Explore> {
                 ),
               ),
             ),
-            Row(
+            const Row(
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 32.0, top: 5),
@@ -82,7 +82,7 @@ class _ExploreState extends State<Explore> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             CustomTextField(),
@@ -110,61 +110,84 @@ class _ExploreState extends State<Explore> {
                   padding: const EdgeInsets.only(top: 10),
                   child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward_ios_rounded,
                         size: 18,
                       )),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    // height: 180,
-                    width: 200,
-                    child: CustomFoodContainer(
-                      imagePath: 'assets/icons/biryani.png',
-                      foodName: 'Biryani',
-                      rating: 4.5,
+            Container(
+              height: 200,
+              padding: const EdgeInsets.only(bottom: 18.0, left: 15),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    height: 180,
-                    width: 200,
-                    child: CustomFoodContainer(
-                      imagePath: 'assets/icons/pizza.png',
-                      foodName: 'Pizza',
-                      rating: 4.1,
+                    SizedBox(
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/biryani.png',
+                        foodName: 'Biryani',
+                        rating: 4.5,
+                        onTap: () {},
+                        time: '',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    height: 180,
-                    width: 200,
-                    child: CustomFoodContainer(
-                      imagePath: 'assets/icons/burger.png',
-                      foodName: 'Burger',
-                      rating: 4.2,
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
+                    Container(
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/pizza.png',
+                        foodName: 'Pizza',
+                        rating: 4.1,
+                        onTap: () {},
+                        time: '',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/burger.png',
+                        foodName: 'Burger',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/sandwich.png',
+                        foodName: 'Sandwich',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(
-              height: 10,
+            const SizedBox(
+              height: 5,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -190,7 +213,7 @@ class _ExploreState extends State<Explore> {
                   padding: const EdgeInsets.only(top: 10),
                   child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward_ios_rounded,
                         size: 18,
                       )),
