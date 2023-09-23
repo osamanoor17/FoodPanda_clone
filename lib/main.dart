@@ -2,7 +2,6 @@ import 'package:ecommerce_clone/MapPage/mappage.dart';
 import 'package:ecommerce_clone/addresses/addresses.dart';
 import 'package:ecommerce_clone/auth/signupscreen/signupscreen.dart';
 import 'package:ecommerce_clone/help_center/help_center.dart';
-import 'package:ecommerce_clone/homepage/explore.dart';
 import 'package:ecommerce_clone/homepage/homepage.dart';
 import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:ecommerce_clone/invite/invite.dart';
