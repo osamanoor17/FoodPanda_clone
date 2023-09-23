@@ -24,14 +24,14 @@ class NearMe extends StatelessWidget {
               ),
               CustomTextField(),
               CustomRowWidget(title: 'By Type of Food', onPressed: (){}),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                     FoodItemWidget(
@@ -40,7 +40,7 @@ class NearMe extends StatelessWidget {
                       foodItem: '(12)',
                       onTap: () {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     FoodItemWidget(
@@ -49,7 +49,7 @@ class NearMe extends StatelessWidget {
                       foodItem: '(5)',
                       onTap: () {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     FoodItemWidget(
@@ -58,7 +58,7 @@ class NearMe extends StatelessWidget {
                       foodItem: '(10)',
                       onTap: () {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     FoodItemWidget(
@@ -70,11 +70,11 @@ class NearMe extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               CustomRowWidget(title: 'Near By Restaurants', onPressed: (){}),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -218,7 +218,7 @@ class NearMe extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               CustomRowWidget(title: 'Recommended', onPressed: (){}),

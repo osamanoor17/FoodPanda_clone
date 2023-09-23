@@ -19,7 +19,7 @@ class _OrderConfirmState extends State<OrderConfirm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const Text(
-                'YOUR ORDER HAS BEENN PLACED',
+                'YOUR ORDER HAS BEEN PLACED',
                 style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
               ),
               const Padding(
@@ -39,7 +39,9 @@ class _OrderConfirmState extends State<OrderConfirm> {
               const SizedBox(height: 150.0),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'order_tracking');
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.black54,

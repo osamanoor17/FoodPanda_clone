@@ -16,6 +16,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'auth/forgetpassword/forgetpassword.dart';
 import 'auth/loginscreen/loginscreen.dart';
 import 'homepage/profile.dart';
+import 'order_tracking/order_tracking.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           'vouchers_offers':(context)=>VouchersOffersScreen(),
           'my_profile':(context)=>const Profile(),
           'order_confirm':(context)=>OrderConfirm(),
+          'order_tracking':(context)=>OrderTracking(),
         });
   }
 }

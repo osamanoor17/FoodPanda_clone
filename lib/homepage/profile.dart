@@ -9,7 +9,11 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
       ),
-      body: Padding(
+      body:
+      SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child:
+      Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,16 +25,14 @@ class Profile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-
             const Text(
               "FOOD Delivery",
               style: TextStyle(
-                fontSize: 28, // Increase the font size
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
-
             const Text(
               "fooddelivery@gmail.com",
               style: TextStyle(
@@ -39,12 +41,13 @@ class Profile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-
             const ListTile(
               leading: Icon(Icons.phone),
               title: Text("Phone Number"),
-              subtitle: Text(
-                "+92 123 4567891",
+              subtitle: TextField(
+                decoration: InputDecoration(
+                  hintText: "+92 123 4567891",
+                ),
                 style: TextStyle(
                   fontSize: 18,
                 ),
@@ -53,15 +56,16 @@ class Profile extends StatelessWidget {
             const ListTile(
               leading: Icon(Icons.location_on),
               title: Text("Address"),
-              subtitle: Text(
-                "123 Main St, City, Pakistan",
+              subtitle: TextField(
+                decoration: InputDecoration(
+                  hintText: "123 Main St, City, Pakistan",
+                ),
                 style: TextStyle(
                   fontSize: 18,
                 ),
               ),
             ),
             const SizedBox(height: 24),
-            // Edit profile button
             Center(
               child: ElevatedButton(
                 onPressed: () {},
@@ -69,7 +73,7 @@ class Profile extends StatelessWidget {
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blue,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 ),
                 child: const Text(
                   "Edit Profile",
@@ -82,6 +86,6 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
-    );
+      ), );
   }
 }

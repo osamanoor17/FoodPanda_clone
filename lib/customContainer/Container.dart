@@ -19,7 +19,11 @@ class CustomFoodContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
+      child:
+      SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child:
+      Container(
         padding: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40.0),
@@ -92,6 +96,6 @@ class CustomFoodContainer extends StatelessWidget {
           ],
         ),
       ),
-    );
+      ) );
   }
 }

@@ -14,22 +14,22 @@ class _WelcomePageState extends State<WelcomePage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Stack(
             children: [
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, left: 35),
+                    padding: const EdgeInsets.only(top: 100.0, left: 30),
                     child: Image.asset(
                       "assets/icons/icon4.png",
-                      height: 330,
+                      height: 280,
                     ),
                   ),
                   const Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25.0, top: 75),
+                        padding: EdgeInsets.only(left: 25.0, top: 50),
                         child: Text(
                           "WELCOME BACK TO",
                           style: TextStyle(
@@ -69,7 +69,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 90),
                   Row(
                     children: [
                       const SizedBox(width: 60),

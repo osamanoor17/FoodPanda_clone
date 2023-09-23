@@ -16,7 +16,7 @@ class MyCart extends StatelessWidget {
           )
         ],
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
@@ -52,7 +52,7 @@ class MyCart extends StatelessWidget {
                   borderRadius: BorderRadius.circular(
                     20,
                   ),
-                  color: Colors.white,
+                  color: Colors.black12,
                 ),
                 height: 225,
                 width: 260,
@@ -189,7 +189,7 @@ class MyCart extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
+                      color: Colors.black12,
                     ),
                     height: 80,
                     width: 300,
@@ -235,7 +235,7 @@ class MyCart extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
+                      color: Colors.black12,
                     ),
                     height: 80,
                     width: 300,
@@ -281,7 +281,7 @@ class MyCart extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
+                      color: Colors.black12,
                     ),
                     height: 80,
                     width: 300,
@@ -327,7 +327,7 @@ class MyCart extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
+                      color: Colors.black12,
                     ),
                     height: 80,
                     width: 300,

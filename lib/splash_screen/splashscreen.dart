@@ -60,10 +60,10 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: const EdgeInsets.only(right: 20, top: 10),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                       Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
+                        foregroundColor: Colors.grey,
                         backgroundColor: Colors.transparent,
                       ),
                       child: const Text(
@@ -138,7 +138,6 @@ class _SplashScreenState extends State<SplashScreen> {
                               padding: const EdgeInsets.only(top: 10.0, left: 15,right: 10,bottom: 10),
                               child: Image.asset(
                                 contents[i].image,
-                                // scale: 0.1,
                                 height:
                                    300
                               ),

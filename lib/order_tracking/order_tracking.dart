@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapPage extends StatefulWidget {
-  const MapPage({Key? key});
+class OrderTracking extends StatefulWidget {
+  const OrderTracking({Key? key});
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  State<OrderTracking> createState() => _OrderTrackingState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _OrderTrackingState extends State<OrderTracking> {
   late GoogleMapController mapController;
 
   @override
@@ -16,7 +16,7 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        toolbarHeight: 150,
+        toolbarHeight: 120,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,16 +25,16 @@ class _MapPageState extends State<MapPage> {
               height: 50,
             ),
             Text(
-              'FIND RESTAURANTS NEAR YOUR',
+              'YOUR ORDER IS ON',
               style: TextStyle(fontSize: 16.0),
             ),
             Text(
-              'LOCATION',
+              'THE WAY',
               style: TextStyle(fontSize: 30.0),
             ),
             Text(
-              'Please allow app access to your location',
-              style: TextStyle(fontSize: 14.0),
+              '',
+              style: TextStyle(fontSize: 10.0),
             ),
           ],
         ),
@@ -60,7 +60,7 @@ class _MapPageState extends State<MapPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -69,22 +69,11 @@ class _MapPageState extends State<MapPage> {
                     Navigator.pushNamed(context, 'homepage');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    fixedSize: const Size(150, 50),
-                  ),
-                  child: const Text(
-                    'Allow',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     fixedSize: const Size(150, 50),
                   ),
                   child: const Text(
-                    'Don\'t Allow',
+                    'Cancel Order',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

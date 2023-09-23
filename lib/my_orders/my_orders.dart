@@ -95,18 +95,25 @@ class _MyOrdersState extends State<MyOrders> {
                       children: [
                         Row(
                           children: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.remove),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.remove,color: Colors.black,),
+                              ),
                             ),
+
                             const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.add),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.add,color: Colors.black,),
+                              ),
                             ),
                           ],
                         ),
@@ -169,18 +176,24 @@ class _MyOrdersState extends State<MyOrders> {
                       children: [
                         Row(
                           children: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.remove),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.remove,color: Colors.black,),
+                              ),
                             ),
                             const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.add),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.add,color: Colors.black,),
+                              ),
                             ),
                           ],
                         ),
