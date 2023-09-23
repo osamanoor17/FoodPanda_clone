@@ -248,7 +248,9 @@ class _MyOrdersState extends State<MyOrders> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'homepage');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                 ),

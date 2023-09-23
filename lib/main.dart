@@ -1,8 +1,10 @@
 import 'package:ecommerce_clone/MapPage/mappage.dart';
 import 'package:ecommerce_clone/auth/signupscreen/signupscreen.dart';
+import 'package:ecommerce_clone/homepage/explore.dart';
 import 'package:ecommerce_clone/homepage/homepage.dart';
 import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:ecommerce_clone/my_orders/my_orders.dart';
+import 'package:ecommerce_clone/order_confirm/order_confirm.dart';
 import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
@@ -13,6 +15,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'auth/forgetpassword/forgetpassword.dart';
 import 'auth/loginscreen/loginscreen.dart';
+import 'homepage/profile.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData.light(
           useMaterial3: true,).copyWith(textTheme: GoogleFonts.abelTextTheme(Theme.of(context).textTheme)),
-        themeMode: ThemeMode.system,
+         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         routes: {
@@ -41,10 +44,12 @@ class MyApp extends StatelessWidget {
           'forgetpassword': (context) => ForgetPassword(),
           'mappage': (context) => const MapPage(),
           'homepage': (context) => HomePage(),
-          'mycart': (context) => MyCart(),
-          'myorders': (context) => MyOrders(),
+          'mycart': (context) => const MyCart(),
+          'myorders': (context) => const MyOrders(),
           'payment_screen' :(context)=>PaymentScreen(),
           'vouchers_offers':(context)=>VouchersOffersScreen(),
+          'my_profile':(context)=>const Profile(),
+          'order_confirm':(context)=>OrderConfirm(),
         });
   }
 }

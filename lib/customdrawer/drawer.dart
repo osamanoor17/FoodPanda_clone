@@ -69,7 +69,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('View Profile'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'my_profile');
+            },
           ),
           ListTile(
             title: const Row(

@@ -132,17 +132,22 @@ class _SplashScreenState extends State<SplashScreen> {
                         child: Column(
                           children: [
                             const SizedBox(
-                              height: 50,
+                              height: 20,
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.only(top: 10.0, left: 15,right: 10,bottom: 10),
                               child: Image.asset(
                                 contents[i].image,
-                                scale: 0.02,
+                                // scale: 0.1,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.28,
+                                   300
                               ),
                             ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 50.0, left: 15,right: 10),
+                        //   child: Image.asset(
+                        //          contents[i].image,
+                        //   ),),
                             const SizedBox(height: 50),
                             Row(
                               children: [
