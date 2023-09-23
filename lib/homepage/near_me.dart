@@ -1,3 +1,4 @@
+import 'package:ecommerce_clone/custom_row/custom_row.dart';
 import 'package:flutter/material.dart';
 
 import '../appbar/appbar.dart';
@@ -22,35 +23,7 @@ class NearMe extends StatelessWidget {
                 height: 10,
               ),
               CustomTextField(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 32.0, top: 10),
-                    child: Text(
-                      "By Type of Food",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 88),
-                    child: Text(
-                      "View all",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 18,
-                        )),
-                  )
-                ],
-              ),
+              CustomRowWidget(title: 'By Type of Food', onPressed: (){}),
               SizedBox(
                 height: 10,
               ),
@@ -100,35 +73,7 @@ class NearMe extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 32.0, top: 10),
-                    child: Text(
-                      "Near By Restaurants",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 51),
-                    child: Text(
-                      "View all",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 18,
-                        )),
-                  )
-                ],
-              ),
+              CustomRowWidget(title: 'Near By Restaurants', onPressed: (){}),
               SizedBox(
                 height: 10,
               ),
@@ -276,35 +221,7 @@ class NearMe extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 32.0, top: 10),
-                    child: Text(
-                      "Recommended",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 97),
-                    child: Text(
-                      "View all",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 18,
-                        )),
-                  )
-                ],
-              ),
+              CustomRowWidget(title: 'Recommended', onPressed: (){}),
               Container(
                 height: 220,
                 width: 500,

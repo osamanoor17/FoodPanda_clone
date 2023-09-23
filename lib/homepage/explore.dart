@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../appbar/appbar.dart';
 import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
+import '../custom_row/custom_row.dart';
 import '../customdrawer/drawer.dart';
 import '../customfoodbar/customfoodbar.dart';
 
@@ -88,34 +89,8 @@ class _ExploreState extends State<Explore> {
               height: 5,
             ),
             CustomTextField(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 32.0, top: 10),
-                  child: Text(
-                    "Hot & Spicy",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 125),
-                  child: Text(
-                    "View all",
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 18,
-                      )),
-                )
-              ],
-            ),
+
+            CustomRowWidget(title: 'Hot & Spicy', onPressed: () {  },),
             const SizedBox(
               height: 10,
             ),
@@ -127,7 +102,7 @@ class _ExploreState extends State<Explore> {
                 child: Row(
                   children: [
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     SizedBox(
                       width: 200,
@@ -141,7 +116,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     SizedBox(
                       width: 200,
@@ -155,7 +130,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     SizedBox(
                       width: 200,
@@ -169,7 +144,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     SizedBox(
                       width: 200,
@@ -183,7 +158,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                   ],
                 ),
@@ -192,34 +167,7 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 5,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 32.0, top: 10),
-                  child: Text(
-                    "All Cuisines",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 123),
-                  child: Text(
-                    "View all",
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 18,
-                      )),
-                )
-              ],
-            ),
+            CustomRowWidget(title: 'All Cuisines', onPressed: () {  },),
             const SizedBox(
               height: 10,
             ),
@@ -367,42 +315,16 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 32.0, top: 10),
-                  child: Text(
-                    "By Type of Food",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 85),
-                  child: Text(
-                    "View all",
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 18,
-                      )),
-                )
-              ],
-            ),
-            SizedBox(
+
+            CustomRowWidget(title: 'By Type of Food', onPressed: () {  },),
+            const SizedBox(
               height: 10,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   FoodItemWidget(
@@ -411,7 +333,7 @@ class _ExploreState extends State<Explore> {
                     foodItem: '(12)',
                     onTap: () {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   FoodItemWidget(
@@ -420,7 +342,7 @@ class _ExploreState extends State<Explore> {
                     foodItem: '(5)',
                     onTap: () {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   FoodItemWidget(
@@ -429,7 +351,7 @@ class _ExploreState extends State<Explore> {
                     foodItem: '(10)',
                     onTap: () {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   FoodItemWidget(

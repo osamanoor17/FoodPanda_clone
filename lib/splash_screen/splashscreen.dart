@@ -143,11 +143,6 @@ class _SplashScreenState extends State<SplashScreen> {
                                    300
                               ),
                             ),
-                        // Padding(
-                        //   padding: const EdgeInsets.only(top: 50.0, left: 15,right: 10),
-                        //   child: Image.asset(
-                        //          contents[i].image,
-                        //   ),),
                             const SizedBox(height: 50),
                             Row(
                               children: [
