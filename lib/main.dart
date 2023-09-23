@@ -5,6 +5,7 @@ import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:ecommerce_clone/my_orders/my_orders.dart';
 import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
+import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
 import 'package:ecommerce_clone/welocme/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           'mycart': (context) => MyCart(),
           'myorders': (context) => MyOrders(),
           'payment_screen' :(context)=>PaymentScreen(),
+          'vouchers_offers':(context)=>VouchersOffersScreen(),
         });
   }
 }

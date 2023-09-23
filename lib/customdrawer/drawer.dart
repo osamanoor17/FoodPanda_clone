@@ -19,7 +19,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Credit and payment methods'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context,  'payment_screen');
+            },
           ),
           const Divider(),
           ListTile(
@@ -33,7 +35,9 @@ class CustomDrawer extends StatelessWidget {
                 const Text('Vouchers and offers'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'vouchers_offers');
+            },
           ),
           ListTile(
             title: const Row(

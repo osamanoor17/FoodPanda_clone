@@ -48,7 +48,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Stack(
+        body:
+
+        Stack(
           children: [
             Column(
               children: [
