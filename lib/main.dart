@@ -1,12 +1,17 @@
 import 'package:ecommerce_clone/MapPage/mappage.dart';
+import 'package:ecommerce_clone/addresses/addresses.dart';
 import 'package:ecommerce_clone/auth/signupscreen/signupscreen.dart';
+import 'package:ecommerce_clone/help_center/help_center.dart';
 import 'package:ecommerce_clone/homepage/explore.dart';
 import 'package:ecommerce_clone/homepage/homepage.dart';
 import 'package:ecommerce_clone/homepage/my_cart.dart';
+import 'package:ecommerce_clone/invite/invite.dart';
 import 'package:ecommerce_clone/my_orders/my_orders.dart';
 import 'package:ecommerce_clone/order_confirm/order_confirm.dart';
 import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
+import 'package:ecommerce_clone/settings/settings.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
+import 'package:ecommerce_clone/terms/terms.dart';
 import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
 import 'package:ecommerce_clone/welocme/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +20,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'auth/forgetpassword/forgetpassword.dart';
 import 'auth/loginscreen/loginscreen.dart';
+import 'fav_screen/fav_screen.dart';
 import 'homepage/profile.dart';
 import 'order_tracking/order_tracking.dart';
 
@@ -51,7 +57,13 @@ class MyApp extends StatelessWidget {
           'vouchers_offers':(context)=>VouchersOffersScreen(),
           'my_profile':(context)=>const Profile(),
           'order_confirm':(context)=>OrderConfirm(),
-          'order_tracking':(context)=>OrderTracking(),
+          'order_tracking':(context)=>const OrderTracking(),
+          'fav_screen':(context)=>FavoritesScreen(),
+          'addresses':(context)=> const Addresses(),
+          'help':(context)=>HelpCenterScreen(),
+          'invite':(context)=>InviteFriendScreen(),
+          'settings':(context)=>SettingsScreen(),
+          'terms':(context)=>TermsAndConditionsScreen(),
         });
   }
 }

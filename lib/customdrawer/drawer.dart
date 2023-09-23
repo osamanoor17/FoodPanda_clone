@@ -47,7 +47,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Favourites'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'fav_screen');
+            },
           ),
           ListTile(
             title: const Row(
@@ -81,7 +83,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Addresses'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'addresses');
+            },
           ),
           ListTile(
             title: const Row(
@@ -91,7 +95,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Help Center'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context,  'help');
+            },
           ),
           ListTile(
             title: const Row(
@@ -101,7 +107,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Invite Friends'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'invite');
+            },
           ),
           const Divider(),
           ListTile(
@@ -111,7 +119,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Settings'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'settings');
+            },
           ),
           ListTile(
             title: const Row(
@@ -120,7 +130,9 @@ class CustomDrawer extends StatelessWidget {
                 Text('Terms & conditions/ Privacy'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'terms');
+            },
           ),
           ListTile(
             title: const Row(
