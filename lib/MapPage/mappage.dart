@@ -78,9 +78,7 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'mappage');
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     fixedSize: const Size(150, 50),

@@ -14,7 +14,7 @@ class _MyOrdersState extends State<MyOrders> {
       appBar: AppBar(
         toolbarHeight: 60,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
           ),
@@ -24,7 +24,7 @@ class _MyOrdersState extends State<MyOrders> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(children: [
           const Column(children: [
             Padding(
@@ -45,13 +45,13 @@ class _MyOrdersState extends State<MyOrders> {
               ),
             ),
           ]),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Column(
             children: [
               Container(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -71,7 +71,7 @@ class _MyOrdersState extends State<MyOrders> {
                         )
                       ],
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -97,21 +97,21 @@ class _MyOrdersState extends State<MyOrders> {
                           children: [
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.remove),
+                              icon: const Icon(Icons.remove),
                             ),
-                            Text(
+                            const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.add),
+                              icon: const Icon(Icons.add),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8.0),
-                        Text(
+                        const SizedBox(height: 8.0),
+                        const Text(
                           '\$23.97',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class _MyOrdersState extends State<MyOrders> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -145,7 +145,7 @@ class _MyOrdersState extends State<MyOrders> {
                         )
                       ],
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -171,21 +171,21 @@ class _MyOrdersState extends State<MyOrders> {
                           children: [
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.remove),
+                              icon: const Icon(Icons.remove),
                             ),
-                            Text(
+                            const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.add),
+                              icon: const Icon(Icons.add),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8.0),
-                        Text(
+                        const SizedBox(height: 8.0),
+                        const Text(
                           '\$3.98',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -258,7 +258,9 @@ class _MyOrdersState extends State<MyOrders> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'payment_screen');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                 ),
