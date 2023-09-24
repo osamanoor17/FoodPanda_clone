@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 0)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: const EdgeInsets.only(right: 20, top: 10),
+                    padding: const EdgeInsets.only(right: 20, top: 0),
                     child: TextButton(
                       onPressed: () {
                        Navigator.pop(context);
@@ -128,7 +128,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     itemBuilder: (_, i) {
                       return Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 49, top: 20),
+                            const EdgeInsets.only(left: 30, right: 30, top: 20),
                         child: Column(
                           children: [
                             const SizedBox(
