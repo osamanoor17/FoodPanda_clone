@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
@@ -28,10 +29,7 @@ class CustomTextField extends StatelessWidget {
             hintText: 'Search your favourite foods',
             border: InputBorder.none,
             suffixIcon: IconButton(
-              icon: const Icon(
-                Icons.filter_list_outlined,
-                color: Colors.red,
-              ),
+              icon:  FaIcon(FontAwesomeIcons.sliders, color: Colors.red,size: 20,),
               onPressed: () {},
             ),
           ),
