@@ -89,7 +89,6 @@ class _ExploreState extends State<Explore> {
               height: 5,
             ),
             CustomTextField(),
-
             CustomRowWidget(title: 'Hot & Spicy', onPressed: () {  },),
             const SizedBox(
               height: 10,
@@ -111,7 +110,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/biryani.png',
                         foodName: 'Biryani',
                         rating: 4.5,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '',
                       ),
                     ),
@@ -125,7 +126,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/pizza.png',
                         foodName: 'Pizza',
                         rating: 4.1,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '',
                       ),
                     ),
@@ -139,7 +142,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/burger.png',
                         foodName: 'Burger',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '',
                       ),
                     ),
@@ -153,7 +158,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/sandwich.png',
                         foodName: 'Sandwich',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '',
                       ),
                     ),

@@ -11,6 +11,7 @@ import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
 import 'package:ecommerce_clone/settings/settings.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:ecommerce_clone/terms/terms.dart';
+import 'package:ecommerce_clone/view_product/view_product.dart';
 import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
 import 'package:ecommerce_clone/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]).then((value) => runApp(MyApp()));
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
           'invite':(context)=>InviteFriendScreen(),
           'settings':(context)=>SettingsScreen(),
           'terms':(context)=>TermsAndConditionsScreen(),
+          'view_product':(context)=>ViewProduct(),
         });
   }
 }

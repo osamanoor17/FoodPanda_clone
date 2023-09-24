@@ -15,7 +15,7 @@ class _VouchersOffersScreenState extends State<VouchersOffersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Vouchers & Offers'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
       ),
       body: ListView.builder(
         itemCount: vouchers.length,
@@ -59,7 +59,7 @@ class _VouchersOffersScreenState extends State<VouchersOffersScreen> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: Colors.blue,
+          color: Colors.grey,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
