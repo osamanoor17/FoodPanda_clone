@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import '../appbar/appbar.dart';
 import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
@@ -29,12 +28,12 @@ class _ExploreState extends State<Explore> {
     Colors.green,
     Colors.red,
   ];
-
+  ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black12,
-      appBar: MyAppBar(),
+      appBar: MyAppBar(itemCountNotifier:itemCountNotifier ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -366,6 +365,150 @@ class _ExploreState extends State<Explore> {
             ),
             const SizedBox(
               height: 10,
+            ),
+
+            CustomRowWidget(title: 'Near By Restaurants', onPressed: (){}),
+
+            Container(
+              height: 275,
+              width: 550,
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/kolachi.jpg',
+                        foodName: 'Kolachi Restaurant',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '60 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Xanders.jpg',
+                        foodName: 'Xander’s Clifton',
+                        rating: 4.1,
+                        onTap: () {},
+                        time: '10 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Jardin.jpg',
+                        foodName: 'Jardin',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '5 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/Dynasty.jpg',
+                        foodName: 'Dynasty',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '20 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/ChefsTable.jpg',
+                        foodName: 'Chef’s Table',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '15 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/CafeFlo.jpg',
+                        foodName: 'Cafe Flo',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '25 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/TheEastEnd.jpg',
+                        foodName: 'The East End',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '2 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/lalqila.jpg',
+                        foodName: 'LalQila Restaurant',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '45 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      height: 230,
+                      width: 200,
+                      child: CustomFoodContainer(
+                        imagePath: 'assets/icons/bbq.jpg',
+                        foodName: 'BBQ Tonight',
+                        rating: 4.2,
+                        onTap: () {},
+                        time: '30 mins',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

@@ -16,7 +16,6 @@ import 'package:ecommerce_clone/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'auth/forgetpassword/forgetpassword.dart';
 import 'auth/loginscreen/loginscreen.dart';
 import 'fav_screen/fav_screen.dart';

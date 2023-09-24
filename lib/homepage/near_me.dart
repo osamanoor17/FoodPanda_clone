@@ -12,9 +12,10 @@ class NearMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
     return Scaffold(
         backgroundColor: Colors.black12,
-        appBar: MyAppBar(),
+        appBar: MyAppBar(itemCountNotifier:itemCountNotifier ),
         drawer: CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
@@ -217,9 +218,6 @@ class NearMe extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
               ),
               CustomRowWidget(title: 'Recommended', onPressed: (){}),
               Container(
