@@ -96,7 +96,7 @@ class _ExploreState extends State<Explore> {
               height: 10,
             ),
             Container(
-              height: 215,
+              height: 270,
               padding: const EdgeInsets.only(bottom: 8.0, left: 15),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -107,7 +107,7 @@ class _ExploreState extends State<Explore> {
                     ),
                     SizedBox(
                       width: 200,
-                      height: 190,
+                      height: 240,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/biryani.png',
                         foodName: 'Biryani',
@@ -121,7 +121,7 @@ class _ExploreState extends State<Explore> {
                     ),
                     SizedBox(
                       width: 200,
-                      height: 190,
+                      height: 240,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/pizza.png',
                         foodName: 'Pizza',
@@ -135,7 +135,7 @@ class _ExploreState extends State<Explore> {
                     ),
                     SizedBox(
                       width: 200,
-                      height: 190,
+                      height: 240,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/burger.png',
                         foodName: 'Burger',
@@ -149,7 +149,7 @@ class _ExploreState extends State<Explore> {
                     ),
                     SizedBox(
                       width: 200,
-                      height: 190,
+                      height: 240,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/sandwich.png',
                         foodName: 'Sandwich',
@@ -173,8 +173,8 @@ class _ExploreState extends State<Explore> {
               height: 10,
             ),
             Container(
-              height: 220,
-              width: 500,
+              height: 275,
+              width: 550,
               padding: const EdgeInsets.only(bottom: 8.0, left: 15),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -184,7 +184,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Pakistani.png',
@@ -198,7 +198,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Chinese.jpg',
@@ -212,7 +212,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Japanese.jpg',
@@ -226,7 +226,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Italian.jpg',
@@ -240,7 +240,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Greek.jpg',
@@ -254,7 +254,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Spanish.jpg',
@@ -268,7 +268,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Turkish.png',
@@ -282,7 +282,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Thai.png',
@@ -296,7 +296,7 @@ class _ExploreState extends State<Explore> {
                       width: 15,
                     ),
                     SizedBox(
-                      height: 200,
+                      height: 230,
                       width: 200,
                       child: CustomFoodContainer(
                         imagePath: 'assets/icons/Indian.png',

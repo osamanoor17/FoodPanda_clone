@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomFoodContainer extends StatelessWidget {
@@ -19,16 +20,12 @@ class CustomFoodContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child:
-      SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child:
-      Container(
-        padding: EdgeInsets.all(12.0),
+      child: Container(
+        padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40.0),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               spreadRadius: 2,
               blurRadius: 5,
@@ -41,7 +38,7 @@ class CustomFoodContainer extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 80.0,
+              height: 120.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 image: DecorationImage(
@@ -50,52 +47,53 @@ class CustomFoodContainer extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 14.0),
+            const SizedBox(height: 14.0),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
                 foodName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.white,
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.star,
-                    size: 16.0,
-                    color: Colors.orange,
-                  ),
-                  SizedBox(width: 4.0),
-                  Text(
-                    rating.toStringAsFixed(1),
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
+            const SizedBox(height: 14.0),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      size: 16.0,
+                      color: Colors.orange,
                     ),
-                  ),
-                  SizedBox(width: 4.0),
-                  Text(
-                    time,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
+                    const SizedBox(width: 4.0),
+                    Text(
+                      rating.toStringAsFixed(1),
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(width: 10.0),
+        const SizedBox(height: 4.0),
+        Text(
+          time,
+          style: const TextStyle(
+            fontSize: 16.0,
+            color: Colors.grey,
+          ),),
+                  ],
+                ),
+
+              ],
             ),
           ],
         ),
       ),
-      ) );
+    );
   }
 }

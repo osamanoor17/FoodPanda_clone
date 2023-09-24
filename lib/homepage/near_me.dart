@@ -78,8 +78,8 @@ class NearMe extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                height: 220,
-                width: 500,
+                height: 275,
+                width: 550,
                 padding: const EdgeInsets.only(bottom: 8.0, left: 15),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -89,7 +89,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/kolachi.jpg',
@@ -103,7 +103,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/Xanders.jpg',
@@ -117,7 +117,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/Jardin.jpg',
@@ -131,7 +131,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/Dynasty.jpg',
@@ -145,7 +145,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/ChefsTable.jpg',
@@ -159,7 +159,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/CafeFlo.jpg',
@@ -173,7 +173,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/TheEastEnd.jpg',
@@ -187,7 +187,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/lalqila.jpg',
@@ -201,7 +201,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/bbq.jpg',
@@ -223,8 +223,8 @@ class NearMe extends StatelessWidget {
               ),
               CustomRowWidget(title: 'Recommended', onPressed: (){}),
               Container(
-                height: 220,
-                width: 500,
+                height: 275,
+                width: 550,
                 padding: const EdgeInsets.only(bottom: 8.0, left: 15),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -234,7 +234,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/lotus.jpg',
@@ -248,7 +248,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/marcopolo.jpg',
@@ -262,7 +262,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/bustan.jpg',
@@ -276,7 +276,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/beach.jpg',
@@ -290,7 +290,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/boatbasin.jpg',
@@ -304,7 +304,7 @@ class NearMe extends StatelessWidget {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 230,
                         width: 200,
                         child: CustomFoodContainer(
                           imagePath: 'assets/icons/tao.jpg',
