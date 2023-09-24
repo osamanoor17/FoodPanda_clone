@@ -14,7 +14,8 @@ class _ViewProductState extends State<ViewProduct> {
     return Scaffold(
       appBar: CustomAppBar(
         onFavoritePressed: () {},
-        onAddToCartPressed: () {}, onUploadImagePressed: () {}, images: [
+        onAddToCartPressed: () {}, onUploadImagePressed: () {},
+        images:[
         'assets/icons/biryani.png',
         'assets/icons/pizza.png',
           'assets/icons/burger.png',
@@ -87,7 +88,7 @@ class _ViewProductState extends State<ViewProduct> {
                 ),
               ],
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
     );
