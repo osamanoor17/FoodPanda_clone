@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueNotifier<int> itemCountNotifier;
@@ -45,9 +47,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Stack(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.notifications),
+                  icon:  FaIcon(FontAwesomeIcons.sliders, color: Colors.red,),
                   onPressed: () {
-
                     itemCountNotifier.value++;
                   },
                 ),
@@ -61,7 +62,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                       itemCountNotifier.value.toString(),
                       style: const TextStyle(
                         fontSize: 12,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),
