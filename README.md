@@ -1,2 +1,2 @@
-# ecommerce_clone
+# FoodPanda_clone
 A new Flutter project.
