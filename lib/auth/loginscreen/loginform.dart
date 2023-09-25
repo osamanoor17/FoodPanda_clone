@@ -101,12 +101,12 @@ class _LoginFormState extends State<LoginForm> {
                 width: 15,
               ),
               Padding(
-                padding: EdgeInsets.only(top: 89),
+                padding: const EdgeInsets.only(top: 89),
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, 'forgetpassword');
                   },
-                  child: Text(
+                  child: const Text(
                     'Forgot Password?',
                     style: TextStyle(color: Colors.black54),
                   ),

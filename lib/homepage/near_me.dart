@@ -14,7 +14,7 @@ class NearMe extends StatelessWidget {
   Widget build(BuildContext context) {
     ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
     return Scaffold(
-        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
         drawer: CustomDrawer(),
         body: SingleChildScrollView(

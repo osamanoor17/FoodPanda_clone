@@ -33,7 +33,7 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
@@ -69,7 +69,7 @@ class _ExploreState extends State<Explore> {
                 height: 140.0,
                 enlargeCenterPage: true,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 1),
+                autoPlayInterval: const Duration(seconds: 1),
                 enableInfiniteScroll: true,
                 aspectRatio: 16 / 9,
                 viewportFraction: 0.8,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class OrderConfirm extends StatefulWidget {
@@ -29,9 +28,8 @@ class _OrderConfirmState extends State<OrderConfirm> {
                   style: TextStyle(fontSize: 42.0, fontWeight: FontWeight.bold),
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 50.0, left: 15,right: 10),
+                padding: const EdgeInsets.only(top: 50.0, left: 15, right: 10),
                 child: Image.asset(
                   "assets/icons/icon6.png",
                 ),
@@ -45,9 +43,12 @@ class _OrderConfirmState extends State<OrderConfirm> {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.black54,
-                    minimumSize: Size(150, 50),
+                    minimumSize: const Size(150, 50),
                   ),
-                  child: const Text('Track Order',style: TextStyle(fontWeight: FontWeight.bold),),
+                  child: const Text(
+                    'Track Order',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ],
@@ -57,4 +58,3 @@ class _OrderConfirmState extends State<OrderConfirm> {
     );
   }
 }
-

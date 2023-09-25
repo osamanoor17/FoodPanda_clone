@@ -21,9 +21,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         title: const Text("Favorites"),
       ),
       body: favoriteFoods.isEmpty
@@ -32,7 +32,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             )
           : ListView.separated(
               itemCount: favoriteFoods.length,
-              separatorBuilder: (context, index) => Divider(),
+              separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) {
                 final foodItem = favoriteFoods[index];
                 return Column(
@@ -51,7 +51,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                         },
                       ),
                     ),
-                    if (index == favoriteFoods.length - 1) Divider(),
+                    if (index == favoriteFoods.length - 1) const Divider(),
                   ],
                 );
               },

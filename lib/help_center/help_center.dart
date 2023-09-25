@@ -40,10 +40,10 @@ class HelpCenterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         title: const Text('Help Center'),
-        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       ),
       body: ListView.builder(
         itemCount: faqItems.length,

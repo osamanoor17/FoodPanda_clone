@@ -91,14 +91,14 @@ class FoodItemWidget extends StatelessWidget {
           children: [
             Text(
               foodName,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 2.0, left: 7),
               child: Text(
                 foodItem,
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
             ),

@@ -22,14 +22,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
             height: 24.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: selectedPaymentMethod == value ? Colors.green : Colors.grey,
+              color:
+                  selectedPaymentMethod == value ? Colors.green : Colors.grey,
             ),
             child: selectedPaymentMethod == value
                 ? Icon(
-              Icons.check,
-              color: Colors.white,
-              size: 16.0,
-            )
+                    Icons.check,
+                    color: Colors.white,
+                    size: 16.0,
+                  )
                 : null,
           ),
           SizedBox(width: 12.0),
@@ -38,7 +39,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
-               height: 2.0,
+              height: 2.0,
             ),
           ),
         ],
@@ -81,7 +82,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.greenAccent,
-                    minimumSize: Size(150, 50),
+                    minimumSize: const Size(150, 50),
                   ),
                   child: const Text('Continue'),
                 ),
@@ -93,4 +94,3 @@ class _PaymentScreenState extends State<PaymentScreen> {
     );
   }
 }
-

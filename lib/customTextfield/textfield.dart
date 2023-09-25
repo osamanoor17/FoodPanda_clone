@@ -29,7 +29,11 @@ class CustomTextField extends StatelessWidget {
             hintText: 'Search your favourite foods',
             border: InputBorder.none,
             suffixIcon: IconButton(
-              icon:  FaIcon(FontAwesomeIcons.sliders, color: Colors.red,size: 20,),
+              icon: const FaIcon(
+                FontAwesomeIcons.sliders,
+                color: Colors.red,
+                size: 20,
+              ),
               onPressed: () {},
             ),
           ),

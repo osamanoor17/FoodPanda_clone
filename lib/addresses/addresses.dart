@@ -8,7 +8,6 @@ class Addresses extends StatefulWidget {
 }
 
 class _AddressesState extends State<Addresses> {
-
   List<Address> userAddresses = [
     Address(
       name: 'Clifton Beach',
@@ -36,7 +35,7 @@ class _AddressesState extends State<Addresses> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Addresses'),
+        title: const Text('My Addresses'),
       ),
       body: ListView.builder(
         itemCount: userAddresses.length,
@@ -46,7 +45,7 @@ class _AddressesState extends State<Addresses> {
             title: Text(address.name),
             subtitle: Text(address.address),
             trailing: IconButton(
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
               onPressed: () {
                 _editAddress(address);
               },
@@ -58,16 +57,15 @@ class _AddressesState extends State<Addresses> {
         onPressed: () {
           _navigateToAddAddressScreen();
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
 
-  void _editAddress(Address address) {
-  }
-  void _navigateToAddAddressScreen() {
-  }
+  void _editAddress(Address address) {}
+  void _navigateToAddAddressScreen() {}
 }
+
 class Address {
   final String name;
   final String address;

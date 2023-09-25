@@ -80,7 +80,7 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: CustomAppBar(
         onFavoritePressed: () {},
         onAddToCartPressed: () {},

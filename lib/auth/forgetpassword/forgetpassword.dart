@@ -33,7 +33,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         body: SingleChildScrollView(
           child: Stack(children: [
             Column(

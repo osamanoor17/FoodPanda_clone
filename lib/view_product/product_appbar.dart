@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  CustomAppBar({
+  const CustomAppBar({
     Key? key,
     required this.onFavoritePressed,
     required this.onUploadImagePressed,
@@ -25,18 +25,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.topRight,
           children: [
             Positioned(
-              top: -20,
-              right: 30,
+              // top: -12,
+              top: MediaQuery.of(context).size.height / 2 - 400,
+              right: 35,
               child: Container(
                 height: 40,
                 width: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.redAccent, shape: BoxShape.circle),
                 child: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.close,
                       color: Colors.black,
                     )),
@@ -115,8 +116,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                           width: 5,
                                         ),
                                         CircleAvatar(
-                                          backgroundColor:
-                                              Color.fromRGBO(250, 250, 250, 1),
+                                          backgroundColor: const Color.fromRGBO(
+                                              250, 250, 250, 1),
                                           child: IconButton(
                                             onPressed: () {},
                                             icon: const Icon(
@@ -138,8 +139,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                           width: 5,
                                         ),
                                         CircleAvatar(
-                                          backgroundColor:
-                                              Color.fromRGBO(250, 250, 250, 1),
+                                          backgroundColor: const Color.fromRGBO(
+                                              250, 250, 250, 1),
                                           child: IconButton(
                                             onPressed: () {},
                                             icon: const Icon(
@@ -200,8 +201,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                           width: 5,
                                         ),
                                         CircleAvatar(
-                                          backgroundColor:
-                                              Color.fromRGBO(250, 250, 250, 1),
+                                          backgroundColor: const Color.fromRGBO(
+                                              250, 250, 250, 1),
                                           child: IconButton(
                                             onPressed: () {},
                                             icon: const Icon(
@@ -223,8 +224,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                           width: 5,
                                         ),
                                         CircleAvatar(
-                                          backgroundColor:
-                                              Color.fromRGBO(250, 250, 250, 1),
+                                          backgroundColor: const Color.fromRGBO(
+                                              250, 250, 250, 1),
                                           child: IconButton(
                                             onPressed: () {},
                                             icon: const Icon(
