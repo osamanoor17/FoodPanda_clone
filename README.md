@@ -39,11 +39,29 @@ Include any acknowledgments or credits for libraries, resources, or inspiration.
 This concise README file covers the essential details for your FoodPanda clone repository. Remember to replace "yourusername" with your actual GitHub username and provide more specific details as needed.
 
 ![1](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/aac64fb0-6f9e-42bd-818d-c281a12274fb)
+
+
 ![2](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/ed6d3670-95dd-4e91-863a-25c8ce6648a7)
+
+
 ![3](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/69408781-184f-49d5-be95-ee8981d07c58)
+
+
 ![4](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/06ed8b8f-25ac-4c8d-a15e-b3e57a8628be)
+
+
 ![5](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/82da97d7-a002-42d8-8930-5ae97d5aa2c0)
+
+
 ![6](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/53bcf590-4caa-4829-ab6c-71ed09e897ef)
+
+
 ![7](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/560b9333-52b0-4058-a099-6b9bee7de5fd)
+
+
 ![8](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/d07f0e68-06f7-4589-a6b8-7b30fcdb472c)
+
+
 ![9](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/3d102c5f-f36d-4dc5-84fc-af1d6cf1dc54)
+
+
