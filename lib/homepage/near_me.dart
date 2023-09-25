@@ -36,7 +36,7 @@ class NearMe extends StatelessWidget {
                       width: 15,
                     ),
                     FoodItemWidget(
-                      image: "assets/icons/burger.png",
+                      image: "assets/icons/burger1.png",
                       foodName: 'Burgers',
                       foodItem: '(12)',
                       onTap: () {},
