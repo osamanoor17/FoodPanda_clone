@@ -1,4 +1,4 @@
-import 'package:ecommerce_clone/view_product/product_appbar.dart';
+import 'package:foodie/view_product/product_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../reviews/reviews.dart';

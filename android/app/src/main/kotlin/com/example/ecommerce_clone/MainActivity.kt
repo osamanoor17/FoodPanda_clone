@@ -1,4 +1,4 @@
-package com.example.ecommerce_clone
+package com.example.foodie
 
 import io.flutter.embedding.android.FlutterActivity
 

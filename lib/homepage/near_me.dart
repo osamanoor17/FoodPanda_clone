@@ -1,4 +1,4 @@
-import 'package:ecommerce_clone/custom_row/custom_row.dart';
+import 'package:foodie/custom_row/custom_row.dart';
 import 'package:flutter/material.dart';
 
 import '../appbar/appbar.dart';
