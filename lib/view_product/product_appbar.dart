@@ -24,6 +24,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         return Stack(
           alignment: Alignment.topRight,
           children: [
+            Positioned(
+              top: -20,
+              right: 30,
+              child: Container(
+                height: 40,
+                width: 50,
+                decoration: BoxDecoration(
+                    color: Colors.redAccent, shape: BoxShape.circle),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    )),
+              ),
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
