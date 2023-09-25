@@ -1,6 +1,6 @@
 {
-    "name": "foodie",
-    "short_name": "foodie",
+    "name": "ecommerce_clone",
+    "short_name": "ecommerce_clone",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

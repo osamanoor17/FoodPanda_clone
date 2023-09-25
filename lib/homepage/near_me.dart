@@ -1,9 +1,9 @@
-import 'package:foodie/custom_row/custom_row.dart';
 import 'package:flutter/material.dart';
 
 import '../appbar/appbar.dart';
 import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
+import '../custom_row/custom_row.dart';
 import '../customdrawer/drawer.dart';
 import '../customfoodbar/customfoodbar.dart';
 

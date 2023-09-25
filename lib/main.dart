@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:foodie/payment_screen/payment_screen.dart';
-import 'package:foodie/settings/settings.dart';
-import 'package:foodie/splash_screen/splashscreen.dart';
-import 'package:foodie/terms/terms.dart';
-import 'package:foodie/view_product/view_product.dart';
-import 'package:foodie/vouchers_offers/voucher_offers.dart';
-import 'package:foodie/welcome/welcome_page.dart';
+import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
+import 'package:ecommerce_clone/settings/settings.dart';
+import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
+import 'package:ecommerce_clone/terms/terms.dart';
+import 'package:ecommerce_clone/view_product/view_product.dart';
+import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
+import 'package:ecommerce_clone/welcome/welcome_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'MapPage/mappage.dart';

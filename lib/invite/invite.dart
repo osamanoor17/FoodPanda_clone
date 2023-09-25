@@ -59,7 +59,6 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InviteFriendScreen extends StatelessWidget {
   @override
@@ -102,9 +101,7 @@ class InviteFriendScreen extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                _showSocialMediaDialog(context);
-              },
+              onPressed: () {},
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -117,46 +114,6 @@ class InviteFriendScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  void _showSocialMediaDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Share on Social Media'),
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const FaIcon(
-                  FontAwesomeIcons.facebook,
-                  color: Colors.blueAccent,
-                  size: 35,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const FaIcon(
-                  FontAwesomeIcons.instagram,
-                  color: Colors.purple,
-                  size: 35,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const FaIcon(
-                  FontAwesomeIcons.twitter,
-                  color: Colors.blueAccent,
-                  size: 35,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }
