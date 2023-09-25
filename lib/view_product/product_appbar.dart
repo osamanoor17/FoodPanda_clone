@@ -25,9 +25,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.topRight,
           children: [
             Positioned(
-              // top: -12,
-              top: MediaQuery.of(context).size.height / 2 - 400,
-              right: 35,
+              top: 5,
+              right: 20,
               child: Container(
                 height: 40,
                 width: 50,
@@ -250,7 +249,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             Navigator.pushNamed(context, 'mycart');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurpleAccent,
+                            backgroundColor: Color.fromRGBO(119, 84, 204, 1),
                           ),
                           child: const Text(
                             "Add to Order",
@@ -371,7 +370,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     SizedBox(width: 5.0),
                     Icon(
                       Icons.shopping_cart,
-                      color: Colors.purpleAccent,
+                      color: Color.fromRGBO(119, 84, 204, 1),
                     ),
                     SizedBox(width: 5.0),
                   ],

@@ -108,10 +108,16 @@ class _MyOrdersState extends State<MyOrders> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              width: 5,
+                            ),
                             const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            SizedBox(
+                              width: 5,
                             ),
                             CircleAvatar(
                               backgroundColor:
@@ -196,10 +202,16 @@ class _MyOrdersState extends State<MyOrders> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              width: 5,
+                            ),
                             const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            SizedBox(
+                              width: 5,
                             ),
                             CircleAvatar(
                               backgroundColor:

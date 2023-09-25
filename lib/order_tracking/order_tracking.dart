@@ -41,7 +41,6 @@ class _OrderTrackingState extends State<OrderTracking> {
       ),
       body: Column(
         children: <Widget>[
-
           Expanded(
             child: GoogleMap(
               initialCameraPosition: const CameraPosition(
@@ -69,12 +68,15 @@ class _OrderTrackingState extends State<OrderTracking> {
                     Navigator.pushNamed(context, 'homepage');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    side: const BorderSide(
+                      color: Colors.red,
+                    ),
                     fixedSize: const Size(150, 50),
                   ),
                   child: const Text(
                     'Cancel Order',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],

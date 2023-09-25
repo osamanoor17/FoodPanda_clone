@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../reviews/reviews.dart';
 
 class ViewProduct extends StatefulWidget {
-  const ViewProduct({Key? key}) : super(key: key);
+  ViewProduct({Key? key}) : super(key: key);
 
   @override
   State<ViewProduct> createState() => _ViewProductState();
@@ -403,6 +403,9 @@ class _ViewProductState extends State<ViewProduct> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

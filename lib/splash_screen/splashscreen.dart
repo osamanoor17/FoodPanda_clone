@@ -48,9 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body:
-
-        Stack(
+        body: Stack(
           children: [
             Column(
               children: [
@@ -60,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: const EdgeInsets.only(right: 20, top: 0),
                     child: TextButton(
                       onPressed: () {
-                       Navigator.pop(context);
+                        Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.grey,
@@ -135,12 +133,10 @@ class _SplashScreenState extends State<SplashScreen> {
                               height: 20,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0, left: 15,right: 10,bottom: 10),
-                              child: Image.asset(
-                                contents[i].image,
-                                height:
-                                   300
-                              ),
+                              padding: const EdgeInsets.only(
+                                  top: 10.0, left: 15, right: 10, bottom: 10),
+                              child:
+                                  Image.asset(contents[i].image, height: 300),
                             ),
                             const SizedBox(height: 50),
                             Row(
