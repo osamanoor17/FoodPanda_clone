@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:ecommerce_clone/payment_screen/payment_screen.dart';
 import 'package:ecommerce_clone/settings/settings.dart';
 import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
@@ -7,6 +5,8 @@ import 'package:ecommerce_clone/terms/terms.dart';
 import 'package:ecommerce_clone/view_product/view_product.dart';
 import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
 import 'package:ecommerce_clone/welcome/welcome_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'MapPage/mappage.dart';
@@ -29,8 +29,8 @@ void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]).then((value) => runApp(MyApp()));
-  runApp(MyApp());
+  ]).then((value) => runApp(const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
