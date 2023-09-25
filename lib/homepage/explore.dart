@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
 import '../appbar/appbar.dart';
 import '../customContainer/Container.dart';
 import '../customTextfield/textfield.dart';
@@ -16,24 +17,24 @@ class Explore extends StatefulWidget {
 
 class _ExploreState extends State<Explore> {
   List<String> images = [
-    'assets/icons/biryani.png',
-    'assets/icons/burger.png',
-    'assets/icons/sandwich.png',
-    'assets/icons/pizza1.png',
+    'assets/icons/biryani1.png',
+    'assets/icons/burger1.png',
+    'assets/icons/sandwich1.png',
+    'assets/icons/pizza.png',
   ];
 
   List<Color> backgroundColors = [
-    Colors.blueGrey,
-    Colors.orange,
-    Colors.green,
-    Colors.red,
+    Colors.transparent,
+    Colors.transparent,
+    Colors.transparent,
+    Colors.transparent,
   ];
   ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
-      appBar: MyAppBar(itemCountNotifier:itemCountNotifier ),
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -89,7 +90,10 @@ class _ExploreState extends State<Explore> {
               height: 5,
             ),
             CustomTextField(),
-            CustomRowWidget(title: 'Hot & Spicy', onPressed: () {  },),
+            CustomRowWidget(
+              title: 'Hot & Spicy',
+              onPressed: () {},
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -107,7 +111,7 @@ class _ExploreState extends State<Explore> {
                       width: 200,
                       height: 240,
                       child: CustomFoodContainer(
-                        imagePath: 'assets/icons/biryani.png',
+                        imagePath: 'assets/icons/biryani1.png',
                         foodName: 'Biryani',
                         rating: 4.5,
                         onTap: () {
@@ -117,7 +121,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       width: 200,
@@ -133,13 +137,13 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       width: 200,
                       height: 240,
                       child: CustomFoodContainer(
-                        imagePath: 'assets/icons/burger.png',
+                        imagePath: 'assets/icons/burger1.png',
                         foodName: 'Burger',
                         rating: 4.2,
                         onTap: () {
@@ -149,13 +153,13 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       width: 200,
                       height: 240,
                       child: CustomFoodContainer(
-                        imagePath: 'assets/icons/sandwich.png',
+                        imagePath: 'assets/icons/sandwich1.png',
                         foodName: 'Sandwich',
                         rating: 4.2,
                         onTap: () {
@@ -165,7 +169,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                   ],
                 ),
@@ -174,7 +178,10 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 5,
             ),
-            CustomRowWidget(title: 'All Cuisines', onPressed: () {  },),
+            CustomRowWidget(
+              title: 'All Cuisines',
+              onPressed: () {},
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -201,7 +208,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -215,7 +222,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -229,7 +236,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -243,7 +250,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -257,7 +264,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -271,7 +278,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -285,7 +292,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -299,7 +306,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -313,7 +320,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                   ],
                 ),
@@ -322,8 +329,10 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-
-            CustomRowWidget(title: 'By Type of Food', onPressed: () {  },),
+            CustomRowWidget(
+              title: 'By Type of Food',
+              onPressed: () {},
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -335,7 +344,7 @@ class _ExploreState extends State<Explore> {
                     width: 15,
                   ),
                   FoodItemWidget(
-                    image: "assets/icons/burger.png",
+                    image: "assets/icons/burger1.png",
                     foodName: 'Burgers',
                     foodItem: '(12)',
                     onTap: () {},
@@ -362,7 +371,7 @@ class _ExploreState extends State<Explore> {
                     width: 5,
                   ),
                   FoodItemWidget(
-                    image: "assets/icons/sandwich.png",
+                    image: "assets/icons/sandwich1.png",
                     foodName: 'Sandwich',
                     foodItem: '(10)',
                     onTap: () {},
@@ -373,9 +382,7 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-
-            CustomRowWidget(title: 'Near By Restaurants', onPressed: (){}),
-
+            CustomRowWidget(title: 'Near By Restaurants', onPressed: () {}),
             Container(
               height: 275,
               width: 550,
@@ -399,7 +406,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -413,7 +420,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -427,7 +434,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -441,7 +448,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -455,7 +462,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -469,7 +476,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -483,7 +490,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -497,7 +504,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
                       height: 230,
@@ -511,7 +518,7 @@ class _ExploreState extends State<Explore> {
                       ),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                   ],
                 ),

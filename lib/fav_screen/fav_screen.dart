@@ -21,40 +21,41 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
         title: const Text("Favorites"),
       ),
       body: favoriteFoods.isEmpty
           ? const Center(
-        child: Text("You have no favorite items."),
-      )
+              child: Text("You have no favorite items."),
+            )
           : ListView.separated(
-        itemCount: favoriteFoods.length,
-        separatorBuilder: (context, index) => Divider(),
-        itemBuilder: (context, index) {
-          final foodItem = favoriteFoods[index];
-          return Column(
-            children: [
-              ListTile(
-                title: Text(foodItem.name),
-                trailing: IconButton(
-                  icon: Icon(
-                    foodItem.isFavorite ? Icons.star : Icons.star_border,
-                    color: Colors.yellow,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      foodItem.isFavorite = !foodItem.isFavorite;
-                    });
-                  },
-                ),
-              ),
-              if (index == favoriteFoods.length - 1)
-                Divider(),
-            ],
-          );
-        },
-      ),
+              itemCount: favoriteFoods.length,
+              separatorBuilder: (context, index) => Divider(),
+              itemBuilder: (context, index) {
+                final foodItem = favoriteFoods[index];
+                return Column(
+                  children: [
+                    ListTile(
+                      title: Text(foodItem.name),
+                      trailing: IconButton(
+                        icon: Icon(
+                          foodItem.isFavorite ? Icons.star : Icons.star_border,
+                          color: Colors.yellow,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            foodItem.isFavorite = !foodItem.isFavorite;
+                          });
+                        },
+                      ),
+                    ),
+                    if (index == favoriteFoods.length - 1) Divider(),
+                  ],
+                );
+              },
+            ),
     );
   }
 }

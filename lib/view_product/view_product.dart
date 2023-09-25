@@ -80,15 +80,16 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: CustomAppBar(
         onFavoritePressed: () {},
         onAddToCartPressed: () {},
         onUploadImagePressed: () {},
         images: const [
-          'assets/icons/biryani.png',
+          'assets/icons/biryani1.png',
           'assets/icons/pizza.png',
-          'assets/icons/burger.png',
-          'assets/icons/sandwich.png'
+          'assets/icons/burger1.png',
+          'assets/icons/sandwich1.png'
         ],
       ),
       body: SingleChildScrollView(

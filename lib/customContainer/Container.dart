@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomFoodContainer extends StatelessWidget {
@@ -23,13 +22,14 @@ class CustomFoodContainer extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40.0),
+          borderRadius: BorderRadius.circular(15.0),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
+              color: Color.fromRGBO(250, 250, 250, 1),
               spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3),
+              blurRadius: 2,
+              offset: Offset(0, 0),
             ),
           ],
         ),
@@ -59,7 +59,6 @@ class CustomFoodContainer extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 14.0),
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -79,16 +78,16 @@ class CustomFoodContainer extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10.0),
-        const SizedBox(height: 4.0),
-        Text(
-          time,
-          style: const TextStyle(
-            fontSize: 16.0,
-            color: Colors.grey,
-          ),),
+                    const SizedBox(height: 4.0),
+                    Text(
+                      time,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.grey,
+                      ),
+                    ),
                   ],
                 ),
-
               ],
             ),
           ],

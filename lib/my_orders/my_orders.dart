@@ -11,7 +11,9 @@ class _MyOrdersState extends State<MyOrders> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
         toolbarHeight: 60,
         leading: IconButton(
           icon: const Icon(
@@ -96,23 +98,28 @@ class _MyOrdersState extends State<MyOrders> {
                         Row(
                           children: [
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Color.fromRGBO(250, 250, 250, 1),
                               child: IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.remove,color: Colors.black,),
+                                icon: const Icon(
+                                  Icons.remove,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
-
                             const Text(
                               '3',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Color.fromRGBO(250, 250, 250, 1),
                               child: IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.add,color: Colors.black,),
+                                icon: const Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ],
@@ -177,10 +184,13 @@ class _MyOrdersState extends State<MyOrders> {
                         Row(
                           children: [
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Color.fromRGBO(250, 250, 250, 1),
                               child: IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.remove,color: Colors.black,),
+                                icon: const Icon(
+                                  Icons.remove,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                             const Text(
@@ -189,10 +199,13 @@ class _MyOrdersState extends State<MyOrders> {
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Color.fromRGBO(250, 250, 250, 1),
                               child: IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.add,color: Colors.black,),
+                                icon: const Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ],

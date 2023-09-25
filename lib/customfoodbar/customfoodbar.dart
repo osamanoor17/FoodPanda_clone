@@ -75,7 +75,7 @@ class FoodItemWidget extends StatelessWidget {
           child: GestureDetector(
             onTap: onTap,
             child: CircleAvatar(
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.transparent,
               radius: 50,
               child: ClipOval(
                 child: Image.asset(

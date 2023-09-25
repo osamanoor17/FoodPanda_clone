@@ -14,7 +14,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
         body: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           child: Stack(children: [

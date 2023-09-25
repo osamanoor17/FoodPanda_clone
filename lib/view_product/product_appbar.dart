@@ -17,31 +17,231 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(200.0);
 
-
   void _showAddToCartBottomSheet(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return
-          const Stack(
+        return Stack(
           alignment: Alignment.topRight,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: 200.0,
+                  height: 340.0,
                   child: Center(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:[
-                        Text(
-                          'Add to Cart',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Row(
+                          children: [
+                            SizedBox(
+                              width: 20,
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Add to Cart',
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        'Spicy Fries',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        'Full 1 x item',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        CircleAvatar(
+                                          backgroundColor:
+                                              Color.fromRGBO(250, 250, 250, 1),
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.remove,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        const Text(
+                                          '3',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        CircleAvatar(
+                                          backgroundColor:
+                                              Color.fromRGBO(250, 250, 250, 1),
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.add,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        'Hot Burger',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        'Large 1 x item',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        CircleAvatar(
+                                          backgroundColor:
+                                              Color.fromRGBO(250, 250, 250, 1),
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.remove,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        const Text(
+                                          '2',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        CircleAvatar(
+                                          backgroundColor:
+                                              Color.fromRGBO(250, 250, 250, 1),
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.add,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, 'mycart');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.deepPurpleAccent,
+                          ),
+                          child: const Text(
+                            "Add to Order",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
                         ),
                       ],
                     ),
@@ -54,9 +254,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios),
         onPressed: () {
@@ -77,7 +279,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
       flexibleSpace: SizedBox(
-        height: 900.0,
+        height: 930.0,
         child: PageView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: images.length,
@@ -119,7 +321,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Icons.favorite,
                   color: Colors.red,
                 ),
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, 'fav_screen');
                 },
               ),

@@ -16,7 +16,7 @@ class MyCart extends StatelessWidget {
           )
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
@@ -164,7 +164,7 @@ class MyCart extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

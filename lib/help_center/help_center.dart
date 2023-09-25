@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HelpCenterScreen extends StatelessWidget {
@@ -25,7 +24,8 @@ class HelpCenterScreen extends StatelessWidget {
     ),
     FAQItem(
       question: 'What is the delivery time?',
-      answer: 'Delivery times may vary but are typically between 30-45 minutes.',
+      answer:
+          'Delivery times may vary but are typically between 30-45 minutes.',
     ),
     FAQItem(
       question: 'Do you offer vegetarian options?',
@@ -35,14 +35,15 @@ class HelpCenterScreen extends StatelessWidget {
       question: 'How can I contact customer support?',
       answer: 'You can reach our customer support team at support@example.com.',
     ),
-   
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         title: const Text('Help Center'),
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       ),
       body: ListView.builder(
         itemCount: faqItems.length,
@@ -65,6 +66,7 @@ class HelpCenterScreen extends StatelessWidget {
     );
   }
 }
+
 class FAQItem {
   final String question;
   final String answer;

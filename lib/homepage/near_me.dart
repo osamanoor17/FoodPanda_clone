@@ -14,8 +14,8 @@ class NearMe extends StatelessWidget {
   Widget build(BuildContext context) {
     ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
     return Scaffold(
-        backgroundColor: Colors.black12,
-        appBar: MyAppBar(itemCountNotifier:itemCountNotifier ),
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
         drawer: CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
@@ -24,7 +24,7 @@ class NearMe extends StatelessWidget {
                 height: 10,
               ),
               CustomTextField(),
-              CustomRowWidget(title: 'By Type of Food', onPressed: (){}),
+              CustomRowWidget(title: 'By Type of Food', onPressed: () {}),
               const SizedBox(
                 height: 10,
               ),
@@ -63,7 +63,7 @@ class NearMe extends StatelessWidget {
                       width: 5,
                     ),
                     FoodItemWidget(
-                      image: "assets/icons/sandwich.png",
+                      image: "assets/icons/sandwich1.png",
                       foodName: 'Sandwich',
                       foodItem: '(10)',
                       onTap: () {},
@@ -74,7 +74,7 @@ class NearMe extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              CustomRowWidget(title: 'Near By Restaurants', onPressed: (){}),
+              CustomRowWidget(title: 'Near By Restaurants', onPressed: () {}),
               const SizedBox(
                 height: 10,
               ),
@@ -101,7 +101,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -115,7 +115,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -129,7 +129,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -143,7 +143,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -157,7 +157,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -171,7 +171,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -185,7 +185,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -199,7 +199,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -213,13 +213,13 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                     ],
                   ),
                 ),
               ),
-              CustomRowWidget(title: 'Recommended', onPressed: (){}),
+              CustomRowWidget(title: 'Recommended', onPressed: () {}),
               Container(
                 height: 275,
                 width: 550,
@@ -243,7 +243,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -257,7 +257,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -271,7 +271,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -285,7 +285,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -299,7 +299,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                       SizedBox(
                         height: 230,
@@ -313,7 +313,7 @@ class NearMe extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 25,
                       ),
                     ],
                   ),
