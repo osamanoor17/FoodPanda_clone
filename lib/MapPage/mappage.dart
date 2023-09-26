@@ -44,15 +44,15 @@ class _MapPageState extends State<MapPage> {
           Expanded(
             child: GoogleMap(
               initialCameraPosition: const CameraPosition(
-                target: LatLng(24.8607, 67.0011),
+                target: LatLng(24.9313752, 67.1366372),
                 zoom: 12.0,
               ),
               markers: <Marker>{
                 const Marker(
                   markerId: MarkerId('KarachiMarkerId'),
-                  position: LatLng(24.8607, 67.0011),
+                  position: LatLng(24.9313752, 67.1366372),
                   infoWindow: InfoWindow(
-                    title: 'Karachi',
+                    title: 'my location',
                   ),
                 ),
               },
