@@ -219,7 +219,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Chinese.jpg',
                         foodName: 'Chinese',
                         rating: 4.1,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '10 mins',
                       ),
                     ),
@@ -233,7 +235,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Japanese.jpg',
                         foodName: 'Japanese',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '5 mins',
                       ),
                     ),
@@ -247,7 +251,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Italian.jpg',
                         foodName: 'Italian',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '20 mins',
                       ),
                     ),
@@ -261,7 +267,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Greek.jpg',
                         foodName: 'Greek',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '15 mins',
                       ),
                     ),
@@ -275,7 +283,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Spanish.jpg',
                         foodName: 'Spanish',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '25 mins',
                       ),
                     ),
@@ -289,7 +299,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Turkish.png',
                         foodName: 'Turkish',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '2 mins',
                       ),
                     ),
@@ -303,7 +315,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Thai.png',
                         foodName: 'Thai',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '45 mins',
                       ),
                     ),
@@ -317,7 +331,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Indian.png',
                         foodName: 'Indian',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '30 mins',
                       ),
                     ),
