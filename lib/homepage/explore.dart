@@ -365,7 +365,9 @@ class _ExploreState extends State<Explore> {
                     image: "assets/icons/burger1.png",
                     foodName: 'Burgers',
                     foodItem: '(12)',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, 'view_product');
+                    },
                   ),
                   const SizedBox(
                     width: 5,
@@ -374,7 +376,9 @@ class _ExploreState extends State<Explore> {
                     image: "assets/icons/pizza.png",
                     foodName: 'Pizzas',
                     foodItem: '(5)',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, 'view_product');
+                    },
                   ),
                   const SizedBox(
                     width: 5,
@@ -383,7 +387,9 @@ class _ExploreState extends State<Explore> {
                     image: "assets/icons/soups.png",
                     foodName: 'Soups',
                     foodItem: '(10)',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, 'view_product');
+                    },
                   ),
                   const SizedBox(
                     width: 5,
@@ -392,7 +398,9 @@ class _ExploreState extends State<Explore> {
                     image: "assets/icons/sandwich1.png",
                     foodName: 'Sandwich',
                     foodItem: '(10)',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, 'view_product');
+                    },
                   ),
                 ],
               ),
