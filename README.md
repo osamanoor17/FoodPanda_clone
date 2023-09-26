@@ -44,7 +44,8 @@ This concise README file covers the essential details for your FoodPanda clone r
 ![2](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/ed6d3670-95dd-4e91-863a-25c8ce6648a7)
 
 
-![3](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/69408781-184f-49d5-be95-ee8981d07c58)
+![3](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/21115a26-232e-4f6f-8b7b-32f6f94d3bc7)
+
 
 
 ![4](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/06ed8b8f-25ac-4c8d-a15e-b3e57a8628be)
