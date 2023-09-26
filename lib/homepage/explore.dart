@@ -341,7 +341,7 @@ class _ExploreState extends State<Explore> {
               child: Row(
                 children: [
                   const SizedBox(
-                    width: 15,
+                    width: 25,
                   ),
                   FoodItemWidget(
                     image: "assets/icons/burger1.png",
