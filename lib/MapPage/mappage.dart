@@ -41,7 +41,6 @@ class _MapPageState extends State<MapPage> {
       ),
       body: Column(
         children: <Widget>[
-
           Expanded(
             child: GoogleMap(
               initialCameraPosition: const CameraPosition(
