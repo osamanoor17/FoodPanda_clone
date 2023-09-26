@@ -203,7 +203,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Pakistani.png',
                         foodName: 'Pakistani',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '60 mins',
                       ),
                     ),
