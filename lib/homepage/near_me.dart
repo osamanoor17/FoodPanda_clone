@@ -264,7 +264,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/lotus.jpg',
                           foodName: 'Lotus Court',
                           rating: 4.2,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '60 mins',
                         ),
                       ),
@@ -278,7 +280,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/marcopolo.jpg',
                           foodName: 'Marcopolo',
                           rating: 4.1,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '10 mins',
                         ),
                       ),
@@ -292,7 +296,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/bustan.jpg',
                           foodName: 'Al Bustan',
                           rating: 4.2,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '5 mins',
                         ),
                       ),
@@ -306,7 +312,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/beach.jpg',
                           foodName: 'Beach Luxury Hotel',
                           rating: 4.2,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '20 mins',
                         ),
                       ),
@@ -320,7 +328,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/boatbasin.jpg',
                           foodName: 'Boat Basin ',
                           rating: 4.2,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '15 mins',
                         ),
                       ),
@@ -334,7 +344,9 @@ class NearMe extends StatelessWidget {
                           imagePath: 'assets/icons/tao.jpg',
                           foodName: 'Tao',
                           rating: 4.2,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
                           time: '25 mins',
                         ),
                       ),
