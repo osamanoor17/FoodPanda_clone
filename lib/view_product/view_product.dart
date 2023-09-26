@@ -89,7 +89,12 @@ class _ViewProductState extends State<ViewProduct> {
           'assets/icons/biryani1.png',
           'assets/icons/pizza.png',
           'assets/icons/burger1.png',
-          'assets/icons/sandwich1.png'
+          'assets/icons/sandwich1.png',
+          'assets/icons/Chinese1.png',
+          'assets/icons/fries1.png',
+          'assets/icons/Thai.png',
+          'assets/icons/Turkish.png',
+          'assets/icons/soups.png'
         ],
       ),
       body: SingleChildScrollView(
