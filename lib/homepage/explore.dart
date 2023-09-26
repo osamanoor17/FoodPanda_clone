@@ -427,7 +427,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/kolachi.jpg',
                         foodName: 'Kolachi Restaurant',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '60 mins',
                       ),
                     ),
@@ -441,7 +443,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Xanders.jpg',
                         foodName: 'Xander’s Clifton',
                         rating: 4.1,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '10 mins',
                       ),
                     ),
@@ -455,7 +459,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Jardin.jpg',
                         foodName: 'Jardin',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '5 mins',
                       ),
                     ),
@@ -469,7 +475,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/Dynasty.jpg',
                         foodName: 'Dynasty',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '20 mins',
                       ),
                     ),
@@ -483,7 +491,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/ChefsTable.jpg',
                         foodName: 'Chef’s Table',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '15 mins',
                       ),
                     ),
@@ -497,7 +507,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/CafeFlo.jpg',
                         foodName: 'Cafe Flo',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '25 mins',
                       ),
                     ),
@@ -511,7 +523,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/TheEastEnd.jpg',
                         foodName: 'The East End',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '2 mins',
                       ),
                     ),
@@ -525,7 +539,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/lalqila.jpg',
                         foodName: 'LalQila Restaurant',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '45 mins',
                       ),
                     ),
@@ -539,7 +555,9 @@ class _ExploreState extends State<Explore> {
                         imagePath: 'assets/icons/bbq.jpg',
                         foodName: 'BBQ Tonight',
                         rating: 4.2,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'view_product');
+                        },
                         time: '30 mins',
                       ),
                     ),
