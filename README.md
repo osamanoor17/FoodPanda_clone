@@ -4,11 +4,15 @@ A clone of the FoodPanda food delivery and ordering platform.
 
 ## Features
 
+- Live location for user to find nearest restaurants.
 - User registration and authentication.
 - Restaurant and dish listings.
 - Order placement and payment processing.
 - Real-time order tracking.
 - Ratings and reviews for restaurants and dishes.
+- Invite friends, voucher/offers, help center/ favourite your dishes & restaurants.
+- Multle order placements.
+- Multple Addresses.
 
 ## Technologies
 
@@ -38,7 +42,8 @@ Include any acknowledgments or credits for libraries, resources, or inspiration.
 
 This concise README file covers the essential details for your FoodPanda clone repository. Remember to replace "yourusername" with your actual GitHub username and provide more specific details as needed.
 
-![1](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/aac64fb0-6f9e-42bd-818d-c281a12274fb)
+![1](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/12889966-2031-4e7c-bdef-4a4844d4340b)
+
 
 
 ![2](https://github.com/Meizzosama/FoodPanda_clone/assets/100303780/ed6d3670-95dd-4e91-863a-25c8ce6648a7)
