@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../my_orders/my_orders.dart';
 import 'explore.dart';
-import 'my_cart.dart';
 import 'near_me.dart';
 import 'profile.dart';
 
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     Explore(),
     const NearMe(),
-    const MyCart(),
+    const MyOrders(),
     const Profile(),
   ];
 

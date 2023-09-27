@@ -153,7 +153,7 @@ class MyCart extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, 'myorders');
+                        // Navigator.pushNamed(context, 'myorders');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurpleAccent,

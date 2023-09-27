@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../customRatings/customRatings.dart';
 import '../reviews/reviews.dart';
 
 class ViewProduct extends StatefulWidget {
-  ViewProduct({Key? key}) : super(key: key);
+  const ViewProduct({Key? key}) : super(key: key);
 
   @override
   State<ViewProduct> createState() => _ViewProductState();
@@ -277,11 +278,11 @@ class _ViewProductState extends State<ViewProduct> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'mycart');
+                                Navigator.pushNamed(context, 'myorders');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    Color.fromRGBO(119, 84, 204, 1),
+                                    const Color.fromRGBO(119, 84, 204, 1),
                               ),
                               child: const Text(
                                 "Add to Order",
@@ -376,7 +377,7 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         leading: IconButton(
@@ -410,8 +411,8 @@ class _ViewProductState extends State<ViewProduct> {
                     Container(
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(16),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 20.0),
                       ),
                     ),
                   ],
@@ -422,17 +423,17 @@ class _ViewProductState extends State<ViewProduct> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
-                Container(
+                SizedBox(
                     height: 120,
                     width: 300,
                     child: Image.asset(
@@ -441,7 +442,7 @@ class _ViewProductState extends State<ViewProduct> {
                     )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             PreferredSize(
@@ -649,6 +650,20 @@ class _ViewProductState extends State<ViewProduct> {
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                   MYcolor: Colors.redAccent,
                 )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FloatingActionButton(
+                  onPressed: () {
+                    const TextField();
+                  },
+                  child: const Icon(Icons.add),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+              ],
+            ),
             const Divider(),
             const Padding(
               padding: EdgeInsets.only(left: 20, bottom: 10),
@@ -660,138 +675,7 @@ class _ViewProductState extends State<ViewProduct> {
                 ),
               ),
             ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 50,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black12),
-                  width: 50,
-                  height: 30,
-                  child: const Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "1",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black12),
-                  width: 50,
-                  height: 30,
-                  child: const Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "2",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black12),
-                  width: 50,
-                  height: 30,
-                  child: const Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "3",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.greenAccent),
-                  width: 50,
-                  height: 30,
-                  child: const Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "4",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black12),
-                  width: 50,
-                  height: 30,
-                  child: const Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "5",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-              ],
-            ),
+            const StarRating(),
             const SizedBox(
               height: 10,
             ),

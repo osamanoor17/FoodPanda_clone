@@ -35,12 +35,6 @@ class _MyOrdersState extends State<MyOrders> {
       itemCount: 0,
       imageAsset: 'assets/icons/burger1.png',
     ),
-    OrderItem(
-      name: 'Ice Cream',
-      price: 5.20,
-      itemCount: 0,
-      imageAsset: 'assets/icons/ice cream.png',
-    ),
   ];
 
   @override
@@ -48,17 +42,9 @@ class _MyOrdersState extends State<MyOrders> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         toolbarHeight: 60,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       ),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -69,7 +55,7 @@ class _MyOrdersState extends State<MyOrders> {
                 Padding(
                   padding: EdgeInsets.only(top: 20, right: 100),
                   child: Text(
-                    "MY ORDERS",
+                    "MY Order",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -86,7 +72,7 @@ class _MyOrdersState extends State<MyOrders> {
               ],
             ),
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
             ListView.builder(
               itemCount: orderItems.length,
@@ -240,6 +226,9 @@ class _MyOrdersState extends State<MyOrders> {
                   ],
                 ),
               ],
+            ),
+            SizedBox(
+              height: 10,
             ),
           ],
         ),
