@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class OrderTracking extends StatefulWidget {
@@ -10,6 +11,48 @@ class OrderTracking extends StatefulWidget {
 
 class _OrderTrackingState extends State<OrderTracking> {
   late GoogleMapController mapController;
+  double _latitude = 0.0;
+  double _longitude = 0.0;
+  bool _locationLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserLocation();
+  }
+
+  Future<void> getUserLocation() async {
+    var isEnable = await checkPermission();
+    if (isEnable) {
+      Position location = await Geolocator.getCurrentPosition();
+      setState(() {
+        _latitude = location.latitude;
+        _longitude = location.longitude;
+        _locationLoaded = true;
+      });
+    }
+  }
+
+  Future<bool> checkPermission() async {
+    bool isEnable = await Geolocator.isLocationServiceEnabled();
+    if (!isEnable) {
+      return false;
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return false;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return false;
+    }
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +85,28 @@ class _OrderTrackingState extends State<OrderTracking> {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: GoogleMap(
-              initialCameraPosition: const CameraPosition(
-                target: LatLng(24.9313752, 67.1366372),
-                zoom: 12.0,
-              ),
-              markers: <Marker>{
-                const Marker(
-                  markerId: MarkerId('KarachiMarkerId'),
-                  position: LatLng(24.9313752, 67.1366372),
-                  infoWindow: InfoWindow(
-                    title: 'my location',
+            child: _locationLoaded
+                ? GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(_latitude, _longitude),
+                      zoom: 15.0,
+                    ),
+                    markers: <Marker>{
+                      Marker(
+                        markerId: MarkerId('UserLocation'),
+                        position: LatLng(_latitude, _longitude),
+                        infoWindow: InfoWindow(
+                          title: 'Your Location',
+                        ),
+                      ),
+                    },
+                    onMapCreated: (GoogleMapController controller) {
+                      mapController = controller;
+                    },
+                  )
+                : Center(
+                    child: CircularProgressIndicator(),
                   ),
-                ),
-              },
-            ),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),

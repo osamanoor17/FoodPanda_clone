@@ -15,14 +15,28 @@ class _ViewProductState extends State<ViewProduct> {
   List<String> img = [
     'assets/icons/biryani1.png',
   ];
-  int spicyFriesCount = 1;
+  int Biryani = 1;
   int hotBurgerCount = 1;
+
   void _showAddToCartBottomSheet(BuildContext context) {
+    int spicyFriesCount = 1;
+    int hotBurgerCount = 1;
+
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
+            void _removeItem(String itemName) {
+              setState(() {
+                if (itemName == 'Biryani' && spicyFriesCount > 0) {
+                  spicyFriesCount--;
+                } else if (itemName == 'Hot Burger' && hotBurgerCount > 0) {
+                  hotBurgerCount--;
+                }
+              });
+            }
+
             return Stack(
               alignment: Alignment.topRight,
               children: [
@@ -33,15 +47,18 @@ class _ViewProductState extends State<ViewProduct> {
                     height: 40,
                     width: 50,
                     decoration: const BoxDecoration(
-                        color: Colors.redAccent, shape: BoxShape.circle),
+                      color: Colors.redAccent,
+                      shape: BoxShape.circle,
+                    ),
                     child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.close,
-                          color: Colors.black,
-                        )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                 ),
                 Column(
@@ -73,208 +90,219 @@ class _ViewProductState extends State<ViewProduct> {
                                 ),
                               ],
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.all(16.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8.0),
-                                          child: Text(
-                                            'Spicy Fries',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16.0,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 8.0),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8.0),
-                                          child: Text(
-                                            'Full 1 x item',
-                                            style: TextStyle(
-                                              fontSize: 14.0,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const SizedBox(
-                                              width: 5,
-                                            ),
-                                            CircleAvatar(
-                                              backgroundColor:
-                                                  const Color.fromRGBO(
-                                                      250, 250, 250, 1),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    if (spicyFriesCount > 0) {
-                                                      spicyFriesCount--;
-                                                    }
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.remove,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              '$spicyFriesCount',
-                                              style: const TextStyle(
+                            Visibility(
+                              visible: Biryani > 0,
+                              child: Container(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 8.0),
+                                            child: Text(
+                                              'Biryani',
+                                              style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
+                                                fontSize: 16.0,
                                               ),
                                             ),
-                                            const SizedBox(
-                                              width: 5,
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 8.0),
+                                            child: Text(
+                                              'Full 1 x item',
+                                              style: TextStyle(
+                                                fontSize: 14.0,
+                                                color: Colors.grey,
+                                              ),
                                             ),
-                                            CircleAvatar(
-                                              backgroundColor:
-                                                  const Color.fromRGBO(
-                                                      250, 250, 250, 1),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    spicyFriesCount++;
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.add,
-                                                  color: Colors.black,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              CircleAvatar(
+                                                backgroundColor:
+                                                    const Color.fromRGBO(
+                                                        250, 250, 250, 1),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      if (Biryani > 0) {
+                                                        Biryani--;
+                                                      }
+                                                    });
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.remove,
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Visibility(
+                                                visible: spicyFriesCount >
+                                                    0, // Check if count is greater than 0
+                                                child: Text(
+                                                  '$spicyFriesCount',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              CircleAvatar(
+                                                backgroundColor:
+                                                    const Color.fromRGBO(
+                                                        250, 250, 250, 1),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      spicyFriesCount++;
+                                                    });
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.add,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.all(16.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8.0),
-                                          child: Text(
-                                            'Hot Burger',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16.0,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 8.0),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8.0),
-                                          child: Text(
-                                            'Large 1 x item',
-                                            style: TextStyle(
-                                              fontSize: 14.0,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const SizedBox(
-                                              width: 5,
-                                            ),
-                                            CircleAvatar(
-                                              backgroundColor:
-                                                  const Color.fromRGBO(
-                                                      250, 250, 250, 1),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    if (hotBurgerCount > 0) {
-                                                      hotBurgerCount--;
-                                                    }
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.remove,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              '$hotBurgerCount',
-                                              style: const TextStyle(
+                            Visibility(
+                              visible: hotBurgerCount >
+                                  0, // Check if count is greater than 0
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 8.0),
+                                            child: Text(
+                                              'Hot Burger',
+                                              style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
+                                                fontSize: 16.0,
                                               ),
                                             ),
-                                            const SizedBox(
-                                              width: 5,
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 8.0),
+                                            child: Text(
+                                              'Large 1 x item',
+                                              style: TextStyle(
+                                                fontSize: 14.0,
+                                                color: Colors.grey,
+                                              ),
                                             ),
-                                            CircleAvatar(
-                                              backgroundColor:
-                                                  const Color.fromRGBO(
-                                                      250, 250, 250, 1),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    hotBurgerCount++;
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.add,
-                                                  color: Colors.black,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              CircleAvatar(
+                                                backgroundColor:
+                                                    const Color.fromRGBO(
+                                                        250, 250, 250, 1),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    _removeItem('Hot Burger');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.remove,
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Visibility(
+                                                visible: hotBurgerCount >
+                                                    0, // Check if count is greater than 0
+                                                child: Text(
+                                                  '$hotBurgerCount',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              CircleAvatar(
+                                                backgroundColor:
+                                                    const Color.fromRGBO(
+                                                        250, 250, 250, 1),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      hotBurgerCount++;
+                                                    });
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.add,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 5,
                             ),
                             ElevatedButton(
                               onPressed: () {
@@ -650,20 +678,6 @@ class _ViewProductState extends State<ViewProduct> {
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                   MYcolor: Colors.redAccent,
                 )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    const TextField();
-                  },
-                  child: const Icon(Icons.add),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
             const Divider(),
             const Padding(
               padding: EdgeInsets.only(left: 20, bottom: 10),
