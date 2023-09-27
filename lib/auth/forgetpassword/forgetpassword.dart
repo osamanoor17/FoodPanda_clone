@@ -89,7 +89,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           child: TextFormField(
                             controller: _phoneNumberController,
                             decoration: const InputDecoration(
-                              prefixIcon: Icon(Icons.phone_android),
+                              prefixIcon: Icon(Icons.message),
                               labelText: 'Via Sms',
                               hintText: "+92 3987654321",
                               border: OutlineInputBorder(),
@@ -101,7 +101,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           child: TextFormField(
                             controller: _emailController,
                             decoration: const InputDecoration(
-                              prefixIcon: Icon(Icons.phone_android),
+                              prefixIcon: Icon(Icons.email),
                               labelText: 'Via Email',
                               hintText: "foods12@gmail.com",
                               border: OutlineInputBorder(),

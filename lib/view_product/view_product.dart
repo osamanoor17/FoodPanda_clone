@@ -80,12 +80,12 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: CustomAppBar(
         onFavoritePressed: () {},
         onAddToCartPressed: () {},
         onUploadImagePressed: () {},
-        images: const [
+        images: [
           'assets/icons/biryani1.png',
           'assets/icons/pizza.png',
           'assets/icons/burger1.png',
