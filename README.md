@@ -13,7 +13,6 @@ A clone of the FoodPanda food delivery and ordering platform.
 - Invite friends, voucher/offers, help center/ favourite your dishes & restaurants.
 - Multle order placements.
 - Multple Addresses.
-- Authentication Through different social media accounts.
 
 ## Technologies
 
