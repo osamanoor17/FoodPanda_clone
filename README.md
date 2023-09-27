@@ -4,11 +4,16 @@ A clone of the FoodPanda food delivery and ordering platform.
 
 ## Features
 
+- Live location for user to find nearest restaurants.
 - User registration and authentication.
 - Restaurant and dish listings.
 - Order placement and payment processing.
 - Real-time order tracking.
 - Ratings and reviews for restaurants and dishes.
+- Invite friends, voucher/offers, help center/ favourite your dishes & restaurants.
+- Multle order placements.
+- Multple Addresses.
+- Authentication Through different social media accounts.
 
 ## Technologies
 
