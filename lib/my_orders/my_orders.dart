@@ -55,7 +55,7 @@ class _MyOrdersState extends State<MyOrders> {
                 Padding(
                   padding: EdgeInsets.only(top: 20, right: 100),
                   child: Text(
-                    "MY Order",
+                    "MY Orders",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
