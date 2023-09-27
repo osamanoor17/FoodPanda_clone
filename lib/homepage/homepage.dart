@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../my_orders/my_orders.dart';
 import 'explore.dart';
+import 'my_orders.dart';
 import 'near_me.dart';
 import 'profile.dart';
 
