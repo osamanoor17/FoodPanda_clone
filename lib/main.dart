@@ -17,10 +17,10 @@ import 'auth/signupscreen/signupscreen.dart';
 import 'fav_screen/fav_screen.dart';
 import 'help_center/help_center.dart';
 import 'homepage/homepage.dart';
-import 'my_orders/my_cart.dart';
+import 'homepage/my_cart.dart';
 import 'homepage/profile.dart';
 import 'invite/invite.dart';
-import 'homepage/my_orders.dart';
+import 'my_orders/my_order.dart';
 import 'order_confirm/order_confirm.dart';
 import 'order_tracking/order_tracking.dart';
 

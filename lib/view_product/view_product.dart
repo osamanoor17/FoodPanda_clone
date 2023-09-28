@@ -4,6 +4,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../customRatings/customRatings.dart';
 import '../reviews/reviews.dart';
 
+class Product {
+  final String name;
+  final double price;
+  int itemCount;
+
+  Product({
+    required this.name,
+    required this.price,
+    required this.itemCount,
+  });
+}
+
 class ViewProduct extends StatefulWidget {
   const ViewProduct({Key? key}) : super(key: key);
 
@@ -15,27 +27,25 @@ class _ViewProductState extends State<ViewProduct> {
   List<String> img = [
     'assets/icons/biryani1.png',
   ];
-  int Biryani = 1;
-  int hotBurgerCount = 1;
 
-  void _showAddToCartBottomSheet(BuildContext context) {
-    int spicyFriesCount = 1;
-    int hotBurgerCount = 1;
+  void _showAddToCartBottomSheet(BuildContext context, Product product) {
+    int itemCount = product.itemCount;
 
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            void _removeItem(String itemName) {
+            void _removeItem() {
               setState(() {
-                if (itemName == 'Biryani' && spicyFriesCount > 0) {
-                  spicyFriesCount--;
-                } else if (itemName == 'Hot Burger' && hotBurgerCount > 0) {
-                  hotBurgerCount--;
+                if (itemCount > 0) {
+                  itemCount--;
                 }
               });
             }
+
+            bool isCartEmpty = itemCount ==
+                0; // cart ki value agr empty hogi toh idhr se check karengy
 
             return Stack(
               alignment: Alignment.topRight,
@@ -91,34 +101,35 @@ class _ViewProductState extends State<ViewProduct> {
                               ],
                             ),
                             Visibility(
-                              visible: Biryani > 0,
+                              visible: itemCount > 0,
                               child: Container(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Padding(
-                                      padding: EdgeInsets.all(16.0),
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(left: 8.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
                                             child: Text(
-                                              'Biryani',
-                                              style: TextStyle(
+                                              product.name,
+                                              style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16.0,
                                               ),
                                             ),
                                           ),
-                                          SizedBox(height: 8.0),
-                                          Padding(
+                                          const SizedBox(height: 8.0),
+                                          const Padding(
                                             padding: EdgeInsets.only(left: 8.0),
                                             child: Text(
-                                              'Full 1 x item',
+                                              '1 x item',
                                               style: TextStyle(
                                                 fontSize: 14.0,
                                                 color: Colors.grey,
@@ -144,9 +155,7 @@ class _ViewProductState extends State<ViewProduct> {
                                                 child: IconButton(
                                                   onPressed: () {
                                                     setState(() {
-                                                      if (Biryani > 0) {
-                                                        Biryani--;
-                                                      }
+                                                      _removeItem();
                                                     });
                                                   },
                                                   icon: const Icon(
@@ -159,10 +168,10 @@ class _ViewProductState extends State<ViewProduct> {
                                                 width: 5,
                                               ),
                                               Visibility(
-                                                visible: spicyFriesCount >
-                                                    0, // Check if count is greater than 0
+                                                visible: itemCount >
+                                                    0, // agr count me zero se ziada values hongi toh idhr se check karega
                                                 child: Text(
-                                                  '$spicyFriesCount',
+                                                  '$itemCount',
                                                   style: const TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 20,
@@ -179,7 +188,7 @@ class _ViewProductState extends State<ViewProduct> {
                                                 child: IconButton(
                                                   onPressed: () {
                                                     setState(() {
-                                                      spicyFriesCount++;
+                                                      itemCount++;
                                                     });
                                                   },
                                                   icon: const Icon(
@@ -190,110 +199,6 @@ class _ViewProductState extends State<ViewProduct> {
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: hotBurgerCount >
-                                  0, // Check if count is greater than 0
-                              child: Container(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 8.0),
-                                            child: Text(
-                                              'Hot Burger',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16.0,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 8.0),
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 8.0),
-                                            child: Text(
-                                              'Large 1 x item',
-                                              style: TextStyle(
-                                                fontSize: 14.0,
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    const Color.fromRGBO(
-                                                        250, 250, 250, 1),
-                                                child: IconButton(
-                                                  onPressed: () {
-                                                    _removeItem('Hot Burger');
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.remove,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Visibility(
-                                                visible: hotBurgerCount >
-                                                    0, // Check if count is greater than 0
-                                                child: Text(
-                                                  '$hotBurgerCount',
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 20,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    const Color.fromRGBO(
-                                                        250, 250, 250, 1),
-                                                child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      hotBurgerCount++;
-                                                    });
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.add,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          )
                                         ],
                                       ),
                                     ),
@@ -305,9 +210,11 @@ class _ViewProductState extends State<ViewProduct> {
                               height: 5,
                             ),
                             ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'myorders');
-                              },
+                              onPressed: isCartEmpty
+                                  ? null // button gayab hojaega jab cart mein koi item nhn hoga..
+                                  : () {
+                                      Navigator.pushNamed(context, 'myorders');
+                                    },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     const Color.fromRGBO(119, 84, 204, 1),
@@ -476,58 +383,62 @@ class _ViewProductState extends State<ViewProduct> {
             PreferredSize(
               preferredSize: const Size.fromHeight(70.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black12,
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.favorite,
-                        color: Colors.red,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black12,
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'fav_screen');
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black12,
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        _showAddToCartBottomSheet(context);
-                      },
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          SizedBox(width: 10.0),
-                          Text(
-                            "Add to Cart",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(width: 5.0),
-                          Icon(
-                            Icons.shopping_cart,
-                            color: Color.fromRGBO(119, 84, 204, 1),
-                          ),
-                          SizedBox(width: 5.0),
-                        ],
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'fav_screen');
+                        },
                       ),
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(width: 16.0),
+                    Container(
+                        height: 45,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.black12,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            _showAddToCartBottomSheet(
+                                context,
+                                Product(
+                                  name: 'Biryani',
+                                  price: 7.99,
+                                  itemCount: 1,
+                                ));
+                          },
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(width: 10.0),
+                              Text(
+                                "Add to Cart",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(width: 5.0),
+                              Icon(
+                                Icons.shopping_cart,
+                                color: Color.fromRGBO(119, 84, 204, 1),
+                              ),
+                              SizedBox(width: 5.0),
+                            ],
+                          ),
+                        )),
+                  ]),
             ),
             const SizedBox(
               height: 20,
