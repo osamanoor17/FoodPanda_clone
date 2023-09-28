@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../customdrawer/drawer.dart';
-
 class OrderItem {
   final String name;
   final double price;
@@ -32,9 +30,18 @@ class _MyOrdersState extends State<MyOrders> {
       imageAsset: 'assets/icons/biryani1.png',
     ),
   ];
+  double total = 0; // Initialize the total variable
+
+  @override
+  void initState() {
+    super.initState();
+    total = calculateTotalPrice();
+  }
 
   @override
   Widget build(BuildContext context) {
+    double total = calculateTotalPrice();
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
@@ -42,7 +49,6 @@ class _MyOrdersState extends State<MyOrders> {
         automaticallyImplyLeading: true,
         backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       ),
-      drawer: CustomDrawer(),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -71,120 +77,124 @@ class _MyOrdersState extends State<MyOrders> {
             const SizedBox(
               height: 10,
             ),
-            ListView.builder(
-              itemCount: orderItems.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                final item = orderItems[index];
-                return Visibility(
-                  visible:
-                      item.itemCount > 0, // Set visibility based on itemCount
-                  child: Container(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
+            StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                return ListView.builder(
+                  itemCount: orderItems.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final item = orderItems[index];
+                    return Visibility(
+                      visible: item.itemCount > 0,
+                      child: Container(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.transparent,
-                              radius: 40,
-                              child: ClipOval(
-                                child: Image.asset(
-                                  item.imageAsset,
-                                  width: 80,
-                                  height: 80,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                            const SizedBox(height: 8.0),
-                            Text(
-                              '${item.itemCount} item x \$${item.price.toStringAsFixed(2)}',
-                              style: const TextStyle(
-                                fontSize: 14.0,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
+                            Column(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor:
-                                      const Color.fromRGBO(250, 250, 250, 1),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if (item.itemCount > 0) {
-                                          item.itemCount--;
-                                        }
-                                      });
-                                    },
-                                    icon: const Icon(
-                                      Icons.remove,
-                                      color: Colors.black,
+                                  backgroundColor: Colors.transparent,
+                                  radius: 40,
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      item.imageAsset,
+                                      width: 80,
+                                      height: 80,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
+                                )
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
                                 Text(
-                                  '${item.itemCount}',
+                                  item.name,
                                   style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0,
+                                  ),
                                 ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                CircleAvatar(
-                                  backgroundColor:
-                                      const Color.fromRGBO(250, 250, 250, 1),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        item.itemCount++;
-                                      });
-                                    },
-                                    icon: const Icon(
-                                      Icons.add,
-                                      color: Colors.black,
-                                    ),
+                                const SizedBox(height: 8.0),
+                                Text(
+                                  '${item.itemCount} item x \$${item.price.toStringAsFixed(2)}',
+                                  style: const TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8.0),
-                            Text(
-                              '\$${(item.price * item.itemCount).toStringAsFixed(2)}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.0,
-                                color: Colors.green,
-                              ),
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: const Color.fromRGBO(
+                                          250, 250, 250, 1),
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            if (item.itemCount > 0) {
+                                              item.itemCount--;
+                                            }
+                                          });
+                                        },
+                                        icon: const Icon(
+                                          Icons.remove,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      '${item.itemCount}',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    CircleAvatar(
+                                      backgroundColor: const Color.fromRGBO(
+                                          250, 250, 250, 1),
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            item.itemCount++;
+                                          });
+                                        },
+                                        icon: const Icon(
+                                          Icons.add,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8.0),
+                                Text(
+                                  '\$${(item.price * item.itemCount).toStringAsFixed(2)}',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 );
               },
             ),
@@ -221,7 +231,7 @@ class _MyOrdersState extends State<MyOrders> {
                       height: 6,
                     ),
                     Text(
-                      "\$${calculateTotalPrice().toStringAsFixed(2)}",
+                      "\$${total.toStringAsFixed(2)}",
                       style: const TextStyle(
                           color: Colors.green, fontWeight: FontWeight.bold),
                     ),
@@ -229,7 +239,7 @@ class _MyOrdersState extends State<MyOrders> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],

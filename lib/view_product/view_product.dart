@@ -28,7 +28,8 @@ class _ViewProductState extends State<ViewProduct> {
   List<String> img = [
     'assets/icons/biryani1.png',
   ];
-  void _showAddToCartBottomSheet(BuildContext context, List<Product> products) {
+  void _showAddToCartBottomSheet(
+      BuildContext context, List<Product> products, updateItemCount) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
@@ -199,6 +200,13 @@ class _ViewProductState extends State<ViewProduct> {
     );
   }
 
+  void updateItemCount(Product product, int itemCount) {
+    // Update the item count for the specified product
+    setState(() {
+      product.itemCount = itemCount;
+    });
+  }
+
   String selectedquantitysize = 'full';
 
   Widget customRadioButton(
@@ -352,7 +360,8 @@ class _ViewProductState extends State<ViewProduct> {
                         ),
                         child: GestureDetector(
                             onTap: () {
-                              _showAddToCartBottomSheet(context, products);
+                              _showAddToCartBottomSheet(
+                                  context, products, updateItemCount);
                             },
                             child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
