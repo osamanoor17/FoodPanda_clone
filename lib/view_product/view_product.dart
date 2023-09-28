@@ -109,24 +109,23 @@ class _ViewProductState extends State<ViewProduct> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
+                                            padding: EdgeInsets.only(left: 8.0),
                                             child: Text(
                                               product.name,
-                                              style: const TextStyle(
+                                              style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16.0,
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(height: 8.0),
-                                          const Padding(
+                                          SizedBox(height: 8.0),
+                                          Padding(
                                             padding: EdgeInsets.only(left: 8.0),
                                             child: Text(
                                               '1 x item',
