@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../customdrawer/drawer.dart';
+
 class OrderItem {
   final String name;
   final double price;
@@ -43,9 +45,10 @@ class _MyOrdersState extends State<MyOrders> {
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         toolbarHeight: 60,
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       ),
+      drawer: CustomDrawer(),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(

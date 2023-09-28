@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../customdrawer/drawer.dart';
-
 class MyCart extends StatelessWidget {
   const MyCart({super.key});
 
@@ -17,7 +15,6 @@ class MyCart extends StatelessWidget {
         ],
       ),
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
-      drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
