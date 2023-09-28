@@ -130,15 +130,18 @@ class _SplashScreenState extends State<SplashScreen> {
                         child: Column(
                           children: [
                             const SizedBox(
-                              height: 20,
+                              height: 15,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 10.0, left: 15, right: 10, bottom: 10),
-                              child:
-                                  Image.asset(contents[i].image, height: 300),
+                              child: Image.asset(contents[i].image,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.27),
                             ),
-                            const SizedBox(height: 50),
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.06),
                             Row(
                               children: [
                                 Text(
@@ -205,15 +208,15 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Image.asset(sidebarImages[2])),
             Positioned(
                 top: currentIndex == 0
-                    ? MediaQuery.of(context).size.height * 0.838
+                    ? MediaQuery.of(context).size.height * 0.843
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.height * 0.838
-                        : MediaQuery.of(context).size.height * 0.838,
+                        ? MediaQuery.of(context).size.height * 0.841
+                        : MediaQuery.of(context).size.height * 0.843,
                 left: currentIndex == 0
-                    ? MediaQuery.of(context).size.width * 0.828
+                    ? MediaQuery.of(context).size.width * 0.827
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.width * 0.84
-                        : MediaQuery.of(context).size.width * 0.70,
+                        ? MediaQuery.of(context).size.width * 0.81
+                        : MediaQuery.of(context).size.width * 0.72,
                 child: IconButton(
                     onPressed: () {
                       goToNextPage();
