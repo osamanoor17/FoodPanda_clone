@@ -31,12 +31,6 @@ class _MyOrdersState extends State<MyOrders> {
       itemCount: 1,
       imageAsset: 'assets/icons/biryani1.png',
     ),
-    OrderItem(
-      name: 'Hot Burger',
-      price: 1.99,
-      itemCount: 1,
-      imageAsset: 'assets/icons/burger1.png',
-    ),
   ];
 
   @override

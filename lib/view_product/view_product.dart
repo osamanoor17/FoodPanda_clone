@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../customRatings/customRatings.dart';
 import '../reviews/reviews.dart';
 
 class Product {
   final String name;
-  final double price;
   int itemCount;
 
   Product({
     required this.name,
-    required this.price,
     required this.itemCount,
   });
 }
@@ -24,218 +21,178 @@ class ViewProduct extends StatefulWidget {
 }
 
 class _ViewProductState extends State<ViewProduct> {
+  List<Product> products = [
+    Product(name: 'Biryani', itemCount: 1),
+  ];
+
   List<String> img = [
     'assets/icons/biryani1.png',
   ];
-
-  void _showAddToCartBottomSheet(BuildContext context, Product product) {
-    int itemCount = product.itemCount;
-
+  void _showAddToCartBottomSheet(BuildContext context, List<Product> products) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            void _removeItem() {
-              setState(() {
-                if (itemCount > 0) {
-                  itemCount--;
-                }
-              });
-            }
-
-            bool isCartEmpty = itemCount ==
-                0; // cart ki value agr empty hogi toh idhr se check karengy
-
-            return Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Positioned(
-                  top: 5,
-                  right: 20,
-                  child: Container(
-                    height: 40,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      color: Colors.redAccent,
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.close,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 340.0,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Row(
-                              children: [
-                                SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Add to Cart',
-                                    style: TextStyle(
-                                      fontSize: 30.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Visibility(
-                              visible: itemCount > 0,
-                              child: Container(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 8.0),
-                                            child: Text(
-                                              product.name,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16.0,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 8.0),
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 8.0),
-                                            child: Text(
-                                              '1 x item',
-                                              style: TextStyle(
-                                                fontSize: 14.0,
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    const Color.fromRGBO(
-                                                        250, 250, 250, 1),
-                                                child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      _removeItem();
-                                                    });
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.remove,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Visibility(
-                                                visible: itemCount >
-                                                    0, // agr count me zero se ziada values hongi toh idhr se check karega
-                                                child: Text(
-                                                  '$itemCount',
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 20,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    const Color.fromRGBO(
-                                                        250, 250, 250, 1),
-                                                child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      itemCount++;
-                                                    });
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.add,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ElevatedButton(
-                              onPressed: isCartEmpty
-                                  ? null // button gayab hojaega jab cart mein koi item nhn hoga..
-                                  : () {
-                                      Navigator.pushNamed(context, 'myorders');
-                                    },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromRGBO(119, 84, 204, 1),
-                              ),
-                              child: const Text(
-                                "Add to Order",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                          ],
+            return SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Stack(alignment: Alignment.topRight, children: [
+                    Positioned(
+                      top: 5,
+                      right: 20,
+                      child: Container(
+                        height: 40,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          color: Colors.redAccent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ],
-            );
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                              height: 240.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    const Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 20,
+                                          height: 20,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.all(8.0),
+                                          child: Text(
+                                            'Add to Cart',
+                                            style: TextStyle(
+                                              fontSize: 30.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.start,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: products.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        Product product = products[index];
+                                        int itemCount = product.itemCount;
+                                        return Column(
+                                          children: [
+                                            ListTile(
+                                              title: Text(
+                                                product.name,
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                              subtitle: Text(
+                                                '$itemCount x item',
+                                                style: const TextStyle(
+                                                  fontSize: 14.0,
+                                                  color: Colors.grey,
+                                                ),
+                                              ),
+                                              trailing: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Visibility(
+                                                    visible: itemCount > 1,
+                                                    child: IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          if (itemCount > 0) {
+                                                            itemCount--;
+                                                            product.itemCount =
+                                                                itemCount;
+                                                          }
+                                                          if (itemCount <= 1) {
+                                                            product.itemCount =
+                                                                1;
+                                                          }
+                                                        });
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons.remove,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    '$itemCount',
+                                                    style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        itemCount++;
+                                                        product.itemCount =
+                                                            itemCount;
+                                                      });
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.add,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const Divider(),
+                                          ],
+                                        );
+                                      },
+                                    ),
+                                    const SizedBox(height: 20.0),
+                                    Center(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, 'myorders');
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color.fromRGBO(
+                                              119, 84, 204, 1),
+                                        ),
+                                        child: const Text(
+                                          "Add to Order",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    // const SizedBox(height: 30.0),
+                                  ],
+                                ),
+                              ))
+                        ])
+                  ])
+                ]));
           },
         );
       },
@@ -320,21 +277,7 @@ class _ViewProductState extends State<ViewProduct> {
             Navigator.of(context).pop();
           },
         ),
-        actions: [
-          IconButton(
-            icon: const FaIcon(
-              FontAwesomeIcons.upload,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
         flexibleSpace: SizedBox(
-          height: 930.0,
           child: PageView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
@@ -380,7 +323,7 @@ class _ViewProductState extends State<ViewProduct> {
               height: 10,
             ),
             PreferredSize(
-              preferredSize: const Size.fromHeight(70.0),
+              preferredSize: const Size.fromHeight(30.0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -402,41 +345,34 @@ class _ViewProductState extends State<ViewProduct> {
                     const SizedBox(width: 16.0),
                     Container(
                         height: 45,
+                        margin: const EdgeInsets.all(16.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.black12,
                         ),
                         child: GestureDetector(
-                          onTap: () {
-                            _showAddToCartBottomSheet(
-                                context,
-                                Product(
-                                  name: 'Biryani',
-                                  price: 7.99,
-                                  itemCount: 1,
-                                ));
-                          },
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              SizedBox(width: 10.0),
-                              Text(
-                                "Add to Cart",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(width: 5.0),
-                              Icon(
-                                Icons.shopping_cart,
-                                color: Color.fromRGBO(119, 84, 204, 1),
-                              ),
-                              SizedBox(width: 5.0),
-                            ],
-                          ),
-                        )),
+                            onTap: () {
+                              _showAddToCartBottomSheet(context, products);
+                            },
+                            child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SizedBox(width: 10.0),
+                                  Text(
+                                    "Add to Cart",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5.0),
+                                  Icon(
+                                    Icons.shopping_cart,
+                                    color: Color.fromRGBO(119, 84, 204, 1),
+                                  ),
+                                  SizedBox(width: 5.0),
+                                ])))
                   ]),
             ),
             const SizedBox(
