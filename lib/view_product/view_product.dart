@@ -5,10 +5,12 @@ import '../reviews/reviews.dart';
 
 class Product {
   final String name;
+  double price;
   int itemCount;
 
   Product({
     required this.name,
+    required this.price,
     required this.itemCount,
   });
 }
@@ -22,178 +24,181 @@ class ViewProduct extends StatefulWidget {
 
 class _ViewProductState extends State<ViewProduct> {
   List<Product> products = [
-    Product(name: 'Biryani', itemCount: 1),
+    Product(name: 'Biryani', price: 7.99, itemCount: 1),
   ];
 
   List<String> img = [
     'assets/icons/biryani1.png',
   ];
-  void _showAddToCartBottomSheet(
-      BuildContext context, List<Product> products, updateItemCount) {
+  void _showAddToCartBottomSheet(BuildContext context, product) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
+            double total = 0.0;
+            for (var product in products) {
+              total += product.price * product.itemCount;
+            }
+            List<Product> selectedItems =
+                products.where((product) => product.itemCount > 0).toList();
             return SingleChildScrollView(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Stack(
+                    alignment: Alignment.topRight,
                     children: [
-                  Stack(alignment: Alignment.topRight, children: [
-                    Positioned(
-                      top: 5,
-                      right: 20,
-                      child: Container(
-                        height: 40,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                          color: Colors.redAccent,
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.close,
-                            color: Colors.black,
+                      Positioned(
+                        top: 5,
+                        right: 20,
+                        child: Container(
+                          height: 40,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                            color: Colors.redAccent,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.close,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(
-                              height: 240.0,
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    const Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 20,
-                                          height: 20,
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text(
-                                            'Add to Cart',
-                                            style: TextStyle(
-                                              fontSize: 30.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                            textAlign: TextAlign.start,
+                            height: 240.0,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 20,
+                                        height: 20,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          'Add to Cart',
+                                          style: TextStyle(
+                                            fontSize: 30.0,
+                                            fontWeight: FontWeight.bold,
                                           ),
+                                          textAlign: TextAlign.start,
                                         ),
-                                      ],
-                                    ),
-                                    ListView.builder(
-                                      shrinkWrap: true,
-                                      itemCount: products.length,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        Product product = products[index];
-                                        int itemCount = product.itemCount;
-                                        return Column(
-                                          children: [
-                                            ListTile(
-                                              title: Text(
-                                                product.name,
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16.0,
-                                                ),
+                                      ),
+                                    ],
+                                  ),
+                                  ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: products.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      Product product = products[index];
+                                      return Column(
+                                        children: [
+                                          ListTile(
+                                            title: Text(
+                                              "${product.name} (\$${product.price.toStringAsFixed(2)})",
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16.0,
                                               ),
-                                              subtitle: Text(
-                                                '$itemCount x item',
-                                                style: const TextStyle(
-                                                  fontSize: 14.0,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              trailing: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  Visibility(
-                                                    visible: itemCount > 1,
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          if (itemCount > 0) {
-                                                            itemCount--;
-                                                            product.itemCount =
-                                                                itemCount;
-                                                          }
-                                                          if (itemCount <= 1) {
-                                                            product.itemCount =
-                                                                1;
-                                                          }
-                                                        });
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons.remove,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    '$itemCount',
-                                                    style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 20,
-                                                    ),
-                                                  ),
+                                            ),
+                                            trailing: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                if (product.itemCount > 1)
                                                   IconButton(
                                                     onPressed: () {
                                                       setState(() {
-                                                        itemCount++;
-                                                        product.itemCount =
-                                                            itemCount;
+                                                        if (product.itemCount >
+                                                            1) {
+                                                          product.itemCount--;
+                                                        }
                                                       });
                                                     },
                                                     icon: const Icon(
-                                                      Icons.add,
+                                                      Icons.remove,
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                Text(
+                                                  '${product.itemCount}',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      product.itemCount++;
+                                                    });
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.add,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            const Divider(),
-                                          ],
-                                        );
-                                      },
-                                    ),
-                                    const SizedBox(height: 20.0),
-                                    Center(
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, 'myorders');
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color.fromRGBO(
-                                              119, 84, 204, 1),
-                                        ),
-                                        child: const Text(
-                                          "Add to Order",
-                                          style: TextStyle(
-                                            color: Colors.white,
                                           ),
+                                          const Divider(),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                  const SizedBox(height: 20.0),
+                                  Center(
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        // Pass selectedItems as route arguments
+                                        Navigator.pushNamed(context, 'myorders',
+                                            arguments: selectedItems);
+
+                                        print(
+                                            "Selected Items: ${selectedItems.length}");
+                                        double total = 0.0;
+                                        for (var item in selectedItems) {
+                                          total += item.price * item.itemCount;
+                                        }
+                                        print(
+                                            "Total Price: \$${total.toStringAsFixed(2)}");
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromRGBO(
+                                            119, 84, 204, 1),
+                                      ),
+                                      child: const Text(
+                                        "Add to Order",
+                                        style: TextStyle(
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ),
-                                    // const SizedBox(height: 30.0),
-                                  ],
-                                ),
-                              ))
-                        ])
-                  ])
-                ]));
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            );
           },
         );
       },
@@ -201,7 +206,6 @@ class _ViewProductState extends State<ViewProduct> {
   }
 
   void updateItemCount(Product product, int itemCount) {
-    // Update the item count for the specified product
     setState(() {
       product.itemCount = itemCount;
     });
@@ -333,63 +337,66 @@ class _ViewProductState extends State<ViewProduct> {
             PreferredSize(
               preferredSize: const Size.fromHeight(30.0),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.black12,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black12,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
                       ),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, 'fav_screen');
-                        },
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'fav_screen');
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16.0),
+                  Container(
+                    height: 45,
+                    margin: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black12,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        _showAddToCartBottomSheet(context, products);
+                      },
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(width: 10.0),
+                          Text(
+                            "Add to Cart",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(width: 5.0),
+                          Icon(
+                            Icons.shopping_cart,
+                            color: Color.fromRGBO(119, 84, 204, 1),
+                          ),
+                          SizedBox(width: 5.0),
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 16.0),
-                    Container(
-                        height: 45,
-                        margin: const EdgeInsets.all(16.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.black12,
-                        ),
-                        child: GestureDetector(
-                            onTap: () {
-                              _showAddToCartBottomSheet(
-                                  context, products, updateItemCount);
-                            },
-                            child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SizedBox(width: 10.0),
-                                  Text(
-                                    "Add to Cart",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(width: 5.0),
-                                  Icon(
-                                    Icons.shopping_cart,
-                                    color: Color.fromRGBO(119, 84, 204, 1),
-                                  ),
-                                  SizedBox(width: 5.0),
-                                ])))
-                  ]),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
-            Row(
+            const Row(
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
                     "Biryani",
@@ -399,7 +406,7 @@ class _ViewProductState extends State<ViewProduct> {
                     ),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 170),
                   child: Text(
                     "\$7.99",

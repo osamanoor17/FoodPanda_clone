@@ -34,7 +34,7 @@ class _OrderConfirmState extends State<OrderConfirm> {
                   "assets/icons/icon6.png",
                 ),
               ),
-              const SizedBox(height: 150.0),
+              const SizedBox(height: 130.0),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
