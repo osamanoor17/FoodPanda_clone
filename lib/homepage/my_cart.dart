@@ -23,15 +23,17 @@ class MyOrders extends StatefulWidget {
 
 class _MyOrdersState extends State<MyOrders> {
   List<Product> products = [];
+  double total = 0;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     final List<Product>? selectedProducts =
         ModalRoute.of(context)?.settings.arguments as List<Product>?;
     if (selectedProducts != null) {
       products.addAll(selectedProducts);
     }
+    total = calculateTotalPrice();
   }
 
   @override
@@ -93,11 +95,14 @@ class _MyOrdersState extends State<MyOrders> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  item.name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16.0,
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    item.name,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: 8.0),
@@ -122,6 +127,7 @@ class _MyOrdersState extends State<MyOrders> {
                                           setState(() {
                                             if (item.itemCount > 0) {
                                               item.itemCount--;
+                                              updateTotal();
                                             }
                                           });
                                         },
@@ -151,6 +157,7 @@ class _MyOrdersState extends State<MyOrders> {
                                         onPressed: () {
                                           setState(() {
                                             item.itemCount++;
+                                            updateTotal();
                                           });
                                         },
                                         icon: const Icon(
@@ -262,10 +269,16 @@ class _MyOrdersState extends State<MyOrders> {
   }
 
   double calculateTotalPrice() {
-    double total = 0;
+    double totalPrice = 0;
     for (final item in products) {
-      total += item.price * item.itemCount;
+      totalPrice += item.price * item.itemCount;
     }
-    return total;
+    return totalPrice;
+  }
+
+  void updateTotal() {
+    setState(() {
+      total = calculateTotalPrice();
+    });
   }
 }

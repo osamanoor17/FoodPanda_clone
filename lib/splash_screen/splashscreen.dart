@@ -208,15 +208,15 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Image.asset(sidebarImages[2])),
             Positioned(
                 top: currentIndex == 0
-                    ? MediaQuery.of(context).size.height * 0.813
+                    ? MediaQuery.of(context).size.height * 0.839
                     : currentIndex == 1
-                        ? MediaQuery.of(context).size.height * 0.815
-                        : MediaQuery.of(context).size.height * 0.813,
+                        ? MediaQuery.of(context).size.height * 0.839
+                        : MediaQuery.of(context).size.height * 0.839,
                 left: currentIndex == 0
-                    ? MediaQuery.of(context).size.width * 0.827
+                    ? MediaQuery.of(context).size.width * 0.821
                     : currentIndex == 1
                         ? MediaQuery.of(context).size.width * 0.81
-                        : MediaQuery.of(context).size.width * 0.72,
+                        : MediaQuery.of(context).size.width * 0.70,
                 child: IconButton(
                     onPressed: () {
                       goToNextPage();

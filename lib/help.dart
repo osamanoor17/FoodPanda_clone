@@ -1,45 +1,43 @@
 // import 'package:flutter/material.dart';
 //
+// import '../view_product/view_product.dart';
+//
 // class OrderItem {
 //   final String name;
 //   final double price;
 //   int itemCount;
-//   final String imageAsset;
 //
 //   OrderItem({
 //     required this.name,
 //     required this.price,
 //     required this.itemCount,
-//     required this.imageAsset,
 //   });
 // }
 //
 // class MyOrders extends StatefulWidget {
-//   const MyOrders({super.key});
+//   const MyOrders({Key? key}) : super(key: key);
 //
 //   @override
 //   State<MyOrders> createState() => _MyOrdersState();
 // }
 //
 // class _MyOrdersState extends State<MyOrders> {
-//   List<OrderItem> orderItems = [
-//     OrderItem(
-//       name: 'Biryani',
-//       price: 7.99,
-//       itemCount: 1,
-//       imageAsset: 'assets/icons/biryani1.png',
-//     ),
-//   ];
-//   double total = 0;
+//   List<Product> products = [];
 //
 //   @override
-//   void initState() {
-//     super.initState();
-//     total = calculateTotalPrice();
+//   void didChangeDependencies() {
+//     super.didChangeDependencies();
+//     final List<Product>? selectedProducts =
+//         ModalRoute.of(context)?.settings.arguments as List<Product>?;
+//     if (selectedProducts != null) {
+//       products.addAll(selectedProducts);
+//     }
 //   }
 //
 //   @override
 //   Widget build(BuildContext context) {
+//     final List<Product>? selectedProducts =
+//         ModalRoute.of(context)?.settings.arguments as List<Product>?;
 //     double total = calculateTotalPrice();
 //
 //     return Scaffold(
@@ -80,42 +78,29 @@
 //             StatefulBuilder(
 //               builder: (BuildContext context, StateSetter setState) {
 //                 return ListView.builder(
-//                   itemCount: orderItems.length,
+//                   itemCount: selectedProducts?.length,
 //                   shrinkWrap: true,
 //                   physics: const NeverScrollableScrollPhysics(),
 //                   itemBuilder: (context, index) {
-//                     final item = orderItems[index];
+//                     final item = selectedProducts?[index];
 //                     return Visibility(
-//                       visible: item.itemCount > 0,
+//                       visible: item!.itemCount > 0,
 //                       child: Container(
 //                         padding: const EdgeInsets.all(12.0),
 //                         child: Row(
 //                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                           children: [
 //                             Column(
-//                               children: [
-//                                 CircleAvatar(
-//                                   backgroundColor: Colors.transparent,
-//                                   radius: 40,
-//                                   child: ClipOval(
-//                                     child: Image.asset(
-//                                       item.imageAsset,
-//                                       width: 80,
-//                                       height: 80,
-//                                       fit: BoxFit.contain,
-//                                     ),
-//                                   ),
-//                                 )
-//                               ],
-//                             ),
-//                             Column(
 //                               crossAxisAlignment: CrossAxisAlignment.start,
 //                               children: [
-//                                 Text(
-//                                   item.name,
-//                                   style: const TextStyle(
-//                                     fontWeight: FontWeight.bold,
-//                                     fontSize: 16.0,
+//                                 Padding(
+//                                   padding: const EdgeInsets.all(8.0),
+//                                   child: Text(
+//                                     item.name,
+//                                     style: const TextStyle(
+//                                       fontWeight: FontWeight.bold,
+//                                       fontSize: 16.0,
+//                                     ),
 //                                   ),
 //                                 ),
 //                                 const SizedBox(height: 8.0),
@@ -281,7 +266,7 @@
 //
 //   double calculateTotalPrice() {
 //     double total = 0;
-//     for (final item in orderItems) {
+//     for (final item in products) {
 //       total += item.price * item.itemCount;
 //     }
 //     return total;
