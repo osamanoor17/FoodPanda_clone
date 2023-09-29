@@ -330,7 +330,7 @@ class _MyOrdersState extends State<MyOrders> {
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         toolbarHeight: 60,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       ),
       body: SingleChildScrollView(
