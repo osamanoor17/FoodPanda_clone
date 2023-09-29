@@ -27,9 +27,7 @@ class _ViewProductState extends State<ViewProduct> {
     Product(name: 'Biryani', price: 7.99, itemCount: 1),
   ];
 
-  List<String> img = [
-    'assets/icons/biryani1.png',
-  ];
+  List<String> img = ['assets/icons/biryani1.png'];
   void _showAddToCartBottomSheet(BuildContext context, product) {
     showModalBottomSheet<void>(
       context: context,
