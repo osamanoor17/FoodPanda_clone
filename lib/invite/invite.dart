@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
 class InviteFriendScreen extends StatelessWidget {
+  const InviteFriendScreen({super.key});
+
   void _shareOnSocialMedia(BuildContext context) {
-    String text = 'Check out our awesome app! Download it now: https://play.google.com/store/apps/details?id=com.global.foodpanda.android';
+    String text =
+        'Check out our awesome app! Download it now: https://play.google.com/store/apps/details?id=com.global.foodpanda.android';
     Share.share(text, subject: 'App Sharing Subject');
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

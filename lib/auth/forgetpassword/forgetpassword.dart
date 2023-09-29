@@ -1,32 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {
-  ForgetPassword({super.key});
+  const ForgetPassword({super.key});
 
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
-  TextEditingController _phoneNumberController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void dispose() {
     _phoneNumberController.dispose();
     _emailController.dispose();
     super.dispose();
-  }
-
-  void _verifyPassword() {
-    String phoneNumber = _phoneNumberController.text;
-    String email = _emailController.text;
-
-    if (phoneNumber == 'validPhoneNumber' && email == 'validEmail') {
-      print('Password verification successful');
-    } else {
-      print('Password verification failed');
-    }
   }
 
   @override

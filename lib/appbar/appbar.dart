@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueNotifier<int> itemCountNotifier;
-  MyAppBar({required this.itemCountNotifier});
+  const MyAppBar({super.key, required this.itemCountNotifier});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
@@ -47,25 +47,24 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 IconButton(
                   icon: const Icon(Icons.notifications),
                   onPressed: () {
-
                     itemCountNotifier.value++;
                   },
                 ),
                 itemCountNotifier.value > 0
                     ? Positioned(
-                  right: 0,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.red,
-                    radius: 9,
-                    child: Text(
-                      itemCountNotifier.value.toString(),
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                )
+                        right: 0,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.red,
+                          radius: 9,
+                          child: Text(
+                            itemCountNotifier.value.toString(),
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      )
                     : const SizedBox.shrink(),
               ],
             ),

@@ -93,9 +93,9 @@ class _MapPageState extends State<MapPage> {
                     ),
                     markers: <Marker>{
                       Marker(
-                        markerId: MarkerId('UserLocation'),
+                        markerId: const MarkerId('UserLocation'),
                         position: LatLng(_latitude, _longitude),
-                        infoWindow: InfoWindow(
+                        infoWindow: const InfoWindow(
                           title: 'Your Location',
                         ),
                       ),
@@ -104,7 +104,7 @@ class _MapPageState extends State<MapPage> {
                       mapController = controller;
                     },
                   )
-                : Center(
+                : const Center(
                     child: CircularProgressIndicator(),
                   ),
           ),

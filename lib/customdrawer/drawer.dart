@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -20,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pushNamed(context,  'payment_screen');
+              Navigator.pushNamed(context, 'payment_screen');
             },
           ),
           const Divider(),
@@ -96,7 +98,7 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pushNamed(context,  'help');
+              Navigator.pushNamed(context, 'help');
             },
           ),
           ListTile(

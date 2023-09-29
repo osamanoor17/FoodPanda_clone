@@ -59,7 +59,8 @@ class FoodItemWidget extends StatelessWidget {
   final String foodItem;
   final VoidCallback? onTap;
 
-  FoodItemWidget({
+  const FoodItemWidget({
+    super.key,
     required this.image,
     required this.foodName,
     required this.foodItem,

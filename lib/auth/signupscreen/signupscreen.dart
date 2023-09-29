@@ -90,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ],
                       ),
-                      SignupForm(),
+                      const SignupForm(),
                     ],
                   ),
                 ],

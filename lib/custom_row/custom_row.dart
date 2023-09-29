@@ -4,7 +4,8 @@ class CustomRowWidget extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
 
-  CustomRowWidget({required this.title, required this.onPressed});
+  const CustomRowWidget(
+      {super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

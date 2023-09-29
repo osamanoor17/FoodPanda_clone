@@ -16,14 +16,14 @@ class NearMe extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(
                 height: 10,
               ),
-              CustomTextField(),
+              const CustomTextField(),
               CustomRowWidget(title: 'By Type of Food', onPressed: () {}),
               const SizedBox(
                 height: 10,

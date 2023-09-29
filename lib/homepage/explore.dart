@@ -9,7 +9,7 @@ import '../customdrawer/drawer.dart';
 import '../customfoodbar/customfoodbar.dart';
 
 class Explore extends StatefulWidget {
-  Explore({Key? key}) : super(key: key);
+  const Explore({Key? key}) : super(key: key);
 
   @override
   _ExploreState createState() => _ExploreState();
@@ -35,7 +35,7 @@ class _ExploreState extends State<Explore> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -89,7 +89,7 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 5,
             ),
-            CustomTextField(),
+            const CustomTextField(),
             CustomRowWidget(
               title: 'Hot & Spicy',
               onPressed: () {},
@@ -110,14 +110,16 @@ class _ExploreState extends State<Explore> {
                     SizedBox(
                       width: 200,
                       height: 240,
-                      child: CustomFoodContainer(
-                        imagePath: 'assets/icons/biryani1.png',
-                        foodName: 'Biryani',
-                        rating: 4.5,
-                        onTap: () {
-                          Navigator.pushNamed(context, 'view_product');
-                        },
-                        time: '',
+                      child: GestureDetector(
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/biryani1.png',
+                          foodName: 'Biryani',
+                          rating: 4.5,
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
+                          time: '',
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -126,14 +128,16 @@ class _ExploreState extends State<Explore> {
                     SizedBox(
                       width: 200,
                       height: 240,
-                      child: CustomFoodContainer(
-                        imagePath: 'assets/icons/pizza.png',
-                        foodName: 'Pizza',
-                        rating: 4.1,
-                        onTap: () {
-                          Navigator.pushNamed(context, 'view_product');
-                        },
-                        time: '',
+                      child: GestureDetector(
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/pizza.png',
+                          foodName: 'Pizza',
+                          rating: 4.1,
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
+                          time: '',
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -142,14 +146,16 @@ class _ExploreState extends State<Explore> {
                     SizedBox(
                       width: 200,
                       height: 240,
-                      child: CustomFoodContainer(
-                        imagePath: 'assets/icons/burger1.png',
-                        foodName: 'Burger',
-                        rating: 4.2,
-                        onTap: () {
-                          Navigator.pushNamed(context, 'view_product');
-                        },
-                        time: '',
+                      child: GestureDetector(
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/burger1.png',
+                          foodName: 'Burger',
+                          rating: 4.2,
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
+                          time: '',
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -158,14 +164,16 @@ class _ExploreState extends State<Explore> {
                     SizedBox(
                       width: 200,
                       height: 240,
-                      child: CustomFoodContainer(
-                        imagePath: 'assets/icons/sandwich1.png',
-                        foodName: 'Sandwich',
-                        rating: 4.2,
-                        onTap: () {
-                          Navigator.pushNamed(context, 'view_product');
-                        },
-                        time: '',
+                      child: GestureDetector(
+                        child: CustomFoodContainer(
+                          imagePath: 'assets/icons/sandwich1.png',
+                          foodName: 'Sandwich',
+                          rating: 4.2,
+                          onTap: () {
+                            Navigator.pushNamed(context, 'view_product');
+                          },
+                          time: '',
+                        ),
                       ),
                     ),
                     const SizedBox(

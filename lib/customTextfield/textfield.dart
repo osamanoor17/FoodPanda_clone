@@ -4,7 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
-  CustomTextField({
+  const CustomTextField({
+    super.key,
     this.onChanged,
   });
 

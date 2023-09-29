@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class VouchersOffersScreen extends StatefulWidget {
+  const VouchersOffersScreen({super.key});
+
   @override
   _VouchersOffersScreenState createState() => _VouchersOffersScreenState();
 }
@@ -49,7 +51,9 @@ class _VouchersOffersScreenState extends State<VouchersOffersScreen> {
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
-                    color: selectedVoucher == voucher ? Colors.white : Colors.black,
+                    color: selectedVoucher == voucher
+                        ? Colors.white
+                        : Colors.black,
                   ),
                 ),
               ),
@@ -75,6 +79,7 @@ class _VouchersOffersScreenState extends State<VouchersOffersScreen> {
       ),
     );
   }
+
   void applyVoucher() {
     if (selectedVoucher == "SAVE10") {
       totalPrice -= (totalPrice * 0.10);
@@ -83,6 +88,7 @@ class _VouchersOffersScreenState extends State<VouchersOffersScreen> {
       totalPrice -= 50.0;
     }
   }
+
   double calculateTotalPrice() {
     return totalPrice;
   }

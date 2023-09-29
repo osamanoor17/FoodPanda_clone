@@ -6,6 +6,8 @@ import 'near_me.dart';
 import 'profile.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -14,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    Explore(),
+    const Explore(),
     const NearMe(),
     const MyOrders(),
     const Profile(),

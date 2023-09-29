@@ -49,12 +49,12 @@ class _StarRatingState extends State<StarRating> {
         height: 30,
         child: Row(
           children: [
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               starNumber.toString(),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
-            Icon(
+            const Icon(
               Icons.star,
               color: Colors.white,
             ),
@@ -76,7 +76,7 @@ class _StarRatingState extends State<StarRating> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(width: 50),
+        const SizedBox(width: 50),
         for (int i = 1; i <= 5; i++)
           Padding(
             padding: const EdgeInsets.only(right: 5),

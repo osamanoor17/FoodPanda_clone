@@ -37,6 +37,8 @@ class HelpCenterScreen extends StatelessWidget {
     ),
   ];
 
+  HelpCenterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -36,10 +36,7 @@ class _ViewProductState extends State<ViewProduct> {
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            double total = 0.0;
-            for (var product in products) {
-              total += product.price * product.itemCount;
-            }
+            for (var product in products) {}
             List<Product> selectedItems =
                 products.where((product) => product.itemCount > 0).toList();
             return SingleChildScrollView(
@@ -163,7 +160,6 @@ class _ViewProductState extends State<ViewProduct> {
                                   Center(
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        // Pass selectedItems as route arguments
                                         Navigator.pushNamed(context, 'myorders',
                                             arguments: selectedItems);
 
@@ -514,7 +510,7 @@ class _ViewProductState extends State<ViewProduct> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
                 height: 175,
                 width: 350,
                 child: CustomReviews(
@@ -528,7 +524,7 @@ class _ViewProductState extends State<ViewProduct> {
                   MYcolor: Colors.greenAccent,
                 )),
             const Divider(),
-            SizedBox(
+            const SizedBox(
                 height: 130,
                 width: 350,
                 child: CustomReviews(
@@ -541,7 +537,7 @@ class _ViewProductState extends State<ViewProduct> {
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                     MYcolor: Colors.greenAccent)),
             const Divider(),
-            SizedBox(
+            const SizedBox(
                 height: 130,
                 width: 350,
                 child: CustomReviews(

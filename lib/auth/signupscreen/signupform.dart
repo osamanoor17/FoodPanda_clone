@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignupForm extends StatefulWidget {
+  const SignupForm({super.key});
+
   @override
   _SignupFormState createState() => _SignupFormState();
 }

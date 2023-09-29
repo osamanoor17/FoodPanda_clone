@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PaymentScreen extends StatefulWidget {
+  const PaymentScreen({super.key});
+
   @override
   _PaymentScreenState createState() => _PaymentScreenState();
 }
@@ -26,17 +28,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   selectedPaymentMethod == value ? Colors.green : Colors.grey,
             ),
             child: selectedPaymentMethod == value
-                ? Icon(
+                ? const Icon(
                     Icons.check,
                     color: Colors.white,
                     size: 16.0,
                   )
                 : null,
           ),
-          SizedBox(width: 12.0),
+          const SizedBox(width: 12.0),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
               height: 2.0,

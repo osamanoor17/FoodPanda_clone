@@ -9,8 +9,9 @@ class CustomReviews extends StatelessWidget {
   final String description;
   final MYcolor;
 
-  CustomReviews(
-      {required this.imageperson,
+  const CustomReviews(
+      {super.key,
+      required this.imageperson,
       required this.title,
       required this.user,
       required this.rating,

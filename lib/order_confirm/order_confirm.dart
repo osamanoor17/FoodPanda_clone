@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OrderConfirm extends StatefulWidget {
+  const OrderConfirm({super.key});
+
   @override
   _OrderConfirmState createState() => _OrderConfirmState();
 }
