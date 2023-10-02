@@ -16,7 +16,17 @@ class Product {
 }
 
 class ViewProduct extends StatefulWidget {
-  const ViewProduct({Key? key}) : super(key: key);
+  final String imagePath;
+  final String foodName;
+  final double rating;
+  final double price;
+
+  ViewProduct({
+    required this.imagePath,
+    required this.foodName,
+    required this.rating,
+    required this.price,
+  });
 
   @override
   State<ViewProduct> createState() => _ViewProductState();
@@ -320,7 +330,7 @@ class _ViewProductState extends State<ViewProduct> {
                     height: 120,
                     width: 300,
                     child: Image.asset(
-                      img[0],
+                      widget.imagePath,
                       fit: BoxFit.fill,
                     )),
               ],
@@ -388,28 +398,34 @@ class _ViewProductState extends State<ViewProduct> {
             const SizedBox(
               height: 20,
             ),
-            const Row(
+            Row(
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
-                    "Biryani",
+                    widget.foodName,
                     style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 24.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 170),
-                  child: Text(
-                    "\$7.99",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                    padding: EdgeInsets.only(left: 170),
+                    child: Row(children: [
+                      Text(
+                        "\$",
+                        style: TextStyle(fontSize: 16.0, color: Colors.black),
+                      ),
+                      Text(
+                        widget.price.toStringAsFixed(2),
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ])),
               ],
             ),
             const SizedBox(height: 8),
@@ -436,8 +452,8 @@ class _ViewProductState extends State<ViewProduct> {
                     onPressed: () {},
                   ),
                 ),
-                const Text(
-                  "4.8",
+                Text(
+                  widget.rating.toStringAsFixed(1),
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
