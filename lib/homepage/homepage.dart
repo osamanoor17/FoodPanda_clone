@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     Explore(),
-    const NearMe(),
+    NearMe(),
     const MyOrders(),
     const Profile(),
   ];

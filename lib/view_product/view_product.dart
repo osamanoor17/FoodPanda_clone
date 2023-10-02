@@ -26,6 +26,7 @@ class ViewProduct extends StatefulWidget {
     required this.foodName,
     required this.rating,
     required this.price,
+    required String time,
   });
 
   @override
@@ -36,8 +37,6 @@ class _ViewProductState extends State<ViewProduct> {
   List<Product> products = [
     Product(name: 'Biryani', price: 7.99, itemCount: 1),
   ];
-
-  List<String> img = ['assets/icons/biryani1.png'];
   void _showAddToCartBottomSheet(BuildContext context, product) {
     showModalBottomSheet<void>(
       context: context,
@@ -114,10 +113,10 @@ class _ViewProductState extends State<ViewProduct> {
                                         children: [
                                           ListTile(
                                             title: Text(
-                                              "${product.name} (\$${product.price.toStringAsFixed(2)})",
+                                              "${product.name}",
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16.0,
+                                                fontSize: 18.0,
                                               ),
                                             ),
                                             trailing: Row(
@@ -327,11 +326,11 @@ class _ViewProductState extends State<ViewProduct> {
                   width: 20,
                 ),
                 SizedBox(
-                    height: 120,
+                    height: 150,
                     width: 300,
                     child: Image.asset(
                       widget.imagePath,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     )),
               ],
             ),
@@ -401,25 +400,29 @@ class _ViewProductState extends State<ViewProduct> {
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20),
                   child: Text(
                     widget.foodName,
-                    style: TextStyle(
-                      fontSize: 24.0,
+                    style: const TextStyle(
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(left: 170),
+                    padding: const EdgeInsets.only(left: 130),
                     child: Row(children: [
-                      Text(
+                      const Text(
                         "\$",
-                        style: TextStyle(fontSize: 16.0, color: Colors.black),
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                       ),
+                      const SizedBox(width: 3),
                       Text(
                         widget.price.toStringAsFixed(2),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -454,7 +457,7 @@ class _ViewProductState extends State<ViewProduct> {
                 ),
                 Text(
                   widget.rating.toStringAsFixed(1),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),

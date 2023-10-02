@@ -20,6 +20,36 @@ class ExploreItem {
       required this.price});
 }
 
+class NearBy {
+  final String imagePath;
+  final String title;
+  final double rating;
+  final double price;
+  final String time;
+
+  NearBy(
+      {required this.imagePath,
+      required this.title,
+      required this.rating,
+      required this.price,
+      required this.time});
+}
+
+class Cuisines {
+  final String imagePath;
+  final String title;
+  final double rating;
+  final double price;
+  final String time;
+
+  Cuisines(
+      {required this.imagePath,
+      required this.title,
+      required this.rating,
+      required this.price,
+      required this.time});
+}
+
 class Explore extends StatefulWidget {
   const Explore({Key? key}) : super(key: key);
 
@@ -28,7 +58,6 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-  // Define your data
   List<ExploreItem> exploreItems = [
     ExploreItem(
       imagePath: 'assets/icons/biryani1.png',
@@ -54,8 +83,143 @@ class _ExploreState extends State<Explore> {
       rating: 4.2,
       price: 2.99,
     ),
+    ExploreItem(
+      imagePath: 'assets/icons/ice cream.png',
+      title: 'Ice Cream',
+      rating: 5.0,
+      price: 10.0,
+    ),
   ];
-
+  List<Cuisines> cuisines = [
+    Cuisines(
+      imagePath: 'assets/icons/Pakistani.png',
+      title: 'Pakistani',
+      rating: 4.2,
+      time: '60 mins',
+      price: 4.99,
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Chinese.jpg',
+      title: 'Chinese',
+      rating: 4.1,
+      price: 4.99,
+      time: '10 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Japanese.jpg',
+      title: 'Japanese',
+      rating: 4.2,
+      price: 4.99,
+      time: '5 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Italian.jpg',
+      title: 'Italian',
+      rating: 4.2,
+      price: 4.99,
+      time: '20 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Greek.jpg',
+      title: 'Greek',
+      rating: 4.2,
+      price: 4.99,
+      time: '15 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Spanish.jpg',
+      title: 'Spanish',
+      rating: 4.2,
+      price: 4.99,
+      time: '25 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Turkish.png',
+      title: 'Turkish',
+      rating: 4.2,
+      price: 4.99,
+      time: '2 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Thai.png',
+      title: 'Thai',
+      rating: 4.2,
+      price: 4.99,
+      time: '45 mins',
+    ),
+    Cuisines(
+      imagePath: 'assets/icons/Indian.png',
+      title: 'Indian',
+      rating: 4.2,
+      price: 4.99,
+      time: '30 mins',
+    ),
+  ];
+  List<NearBy> nearby = [
+    NearBy(
+      imagePath: 'assets/icons/kolachi.jpg',
+      title: 'Kolachi Restaurant',
+      rating: 4.2,
+      price: 7.99,
+      time: '60 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/Xanders.jpg',
+      title: 'Xander’s Clifton',
+      rating: 4.1,
+      price: 4.99,
+      time: '10 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/Jardin.jpg',
+      title: 'Jardin',
+      rating: 4.2,
+      price: 4.99,
+      time: '5 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/Dynasty.jpg',
+      title: 'Dynasty',
+      rating: 4.2,
+      price: 4.99,
+      time: '20 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/ChefsTable.jpg',
+      title: 'Chef’s Table',
+      rating: 4.2,
+      price: 4.99,
+      time: '15 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/CafeFlo.jpg',
+      title: 'Cafe Flo',
+      rating: 4.2,
+      price: 4.99,
+      time: '25 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/TheEastEnd.jpg',
+      title: 'The East End',
+      rating: 4.2,
+      price: 4.99,
+      time: '2 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/lalqila.jpg',
+      title: 'LalQila Restaurant',
+      rating: 4.2,
+      price: 4.99,
+      time: '45 mins',
+    ),
+    NearBy(
+      imagePath: 'assets/icons/bbq.jpg',
+      title: 'BBQ Tonight',
+      rating: 4.2,
+      price: 4.99,
+      time: '30 mins',
+    ),
+  ];
   List<String> images = [
     'assets/icons/biryani1.png',
     'assets/icons/burger1.png',
@@ -136,9 +300,261 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-
-            Container(
-              height: 300, // Set a fixed height
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: exploreItems.length,
+                itemBuilder: (context, index) {
+                  ExploreItem item = exploreItems[index];
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewProduct(
+                              imagePath: item.imagePath,
+                              foodName: item.title,
+                              rating: item.rating,
+                              price: item.price,
+                              time: '',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                          margin:
+                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                          child: Column(children: [
+                            SizedBox(
+                              width: 200,
+                              height: 230,
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  color: Colors.white,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(250, 250, 250, 1),
+                                      spreadRadius: 2,
+                                      blurRadius: 2,
+                                      offset: Offset(0, 0),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      height: 120.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        image: DecorationImage(
+                                          image: AssetImage(item.imagePath),
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        item.title,
+                                        style: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.star,
+                                              size: 16.0,
+                                              color: Colors.orange,
+                                            ),
+                                            const SizedBox(width: 4.0),
+                                            Text(
+                                              item.rating.toStringAsFixed(1),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10.0),
+                                            const SizedBox(height: 4.0),
+                                            const Text(
+                                              "\$",
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            Text(
+                                              item.price.toStringAsFixed(2),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ])));
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            CustomRowWidget(
+              title: 'All Cuisines',
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: cuisines.length,
+                itemBuilder: (context, index) {
+                  Cuisines item = cuisines[index];
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewProduct(
+                                imagePath: item.imagePath,
+                                foodName: item.title,
+                                rating: item.rating,
+                                price: item.price,
+                                time: item.time),
+                          ),
+                        );
+                      },
+                      child: Container(
+                          margin:
+                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                          child: Column(children: [
+                            SizedBox(
+                              width: 200,
+                              height: 230,
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  color: Colors.white,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(250, 250, 250, 1),
+                                      spreadRadius: 2,
+                                      blurRadius: 2,
+                                      offset: Offset(0, 0),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      height: 120.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        image: DecorationImage(
+                                          image: AssetImage(item.imagePath),
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        item.title,
+                                        style: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.star,
+                                              size: 16.0,
+                                              color: Colors.orange,
+                                            ),
+                                            const SizedBox(width: 4.0),
+                                            Text(
+                                              item.rating.toStringAsFixed(1),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10.0),
+                                            const SizedBox(height: 4.0),
+                                            const Text(
+                                              "\$",
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            Text(
+                                              item.price.toStringAsFixed(2),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ])));
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomRowWidget(
+              title: 'By Type of Food',
+              onPressed: () {},
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 145,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: exploreItems.length,
@@ -150,480 +566,181 @@ class _ExploreState extends State<Explore> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => ViewProduct(
-                              imagePath: item.imagePath,
-                              foodName: item.title,
-                              rating: item.rating,
-                              price: item.price),
+                            imagePath: item.imagePath,
+                            foodName: item.title,
+                            rating: item.rating,
+                            price: item.price,
+                            time: '',
+                          ),
                         ),
                       );
                     },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 15.0, right: 15.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 200,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: const Color.fromRGBO(250, 250, 250, 1),
-                              borderRadius: BorderRadius.circular(15.0),
-                              image: DecorationImage(
-                                image: AssetImage(item.imagePath),
-                                fit: BoxFit.contain,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 25.0),
+                          child: GestureDetector(
+                            child: CircleAvatar(
+                              backgroundColor: Colors.transparent,
+                              radius: 50,
+                              child: ClipOval(
+                                child: Image.asset(
+                                  item.imagePath,
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             ),
                           ),
-                          const SizedBox(height: 14.0),
-                          Text(
-                            item.title,
-                            style: const TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              item.title,
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
                             ),
-                          ),
-                          const SizedBox(height: 14.0),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                size: 16.0,
-                                color: Colors.orange,
-                              ),
-                              const SizedBox(width: 4.0),
-                              Text(
-                                item.rating.toStringAsFixed(1),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0, left: 7),
+                              child: Text(
+                                item.price.toString(),
                                 style: const TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.grey,
-                                ),
+                                    fontSize: 14, color: Colors.black),
+                                textAlign: TextAlign.center,
                               ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "\$",
-                                style: TextStyle(
-                                    fontSize: 16.0, color: Colors.black),
-                              ),
-                              Text(
-                                item.price.toStringAsFixed(2),
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              const SizedBox(width: 10.0),
-                              const SizedBox(height: 4.0),
-                              const Text(
-                                '',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   );
                 },
               ),
             ),
-
-            const SizedBox(
-              height: 5,
-            ),
-            CustomRowWidget(
-              title: 'All Cuisines',
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // Container(
-            //   height: 275,
-            //   width: 550,
-            //   padding: const EdgeInsets.only(bottom: 8.0, left: 15),
-            //   child: SingleChildScrollView(
-            //     scrollDirection: Axis.horizontal,
-            //     child: Row(
-            //       children: [
-            //         const SizedBox(
-            //           width: 15,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Pakistani.png',
-            //             foodName: 'Pakistani',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '60 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Chinese.jpg',
-            //             foodName: 'Chinese',
-            //             rating: 4.1,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '10 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Japanese.jpg',
-            //             foodName: 'Japanese',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '5 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Italian.jpg',
-            //             foodName: 'Italian',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '20 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Greek.jpg',
-            //             foodName: 'Greek',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '15 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Spanish.jpg',
-            //             foodName: 'Spanish',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '25 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Turkish.png',
-            //             foodName: 'Turkish',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '2 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Thai.png',
-            //             foodName: 'Thai',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '45 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Indian.png',
-            //             foodName: 'Indian',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '30 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomRowWidget(
-              title: 'By Type of Food',
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // SingleChildScrollView(
-            //   scrollDirection: Axis.horizontal,
-            //   child: Row(
-            //     children: [
-            //       const SizedBox(
-            //         width: 25,
-            //       ),
-            //       FoodItemWidget(
-            //         image: "assets/icons/burger1.png",
-            //         foodName: 'Burgers',
-            //         foodItem: '(12)',
-            //         onTap: () {
-            //           Navigator.pushNamed(context, 'view_product');
-            //         },
-            //       ),
-            //       const SizedBox(
-            //         width: 5,
-            //       ),
-            //       FoodItemWidget(
-            //         image: "assets/icons/pizza.png",
-            //         foodName: 'Pizzas',
-            //         foodItem: '(5)',
-            //         onTap: () {
-            //           Navigator.pushNamed(context, 'view_product');
-            //         },
-            //       ),
-            //       const SizedBox(
-            //         width: 5,
-            //       ),
-            //       FoodItemWidget(
-            //         image: "assets/icons/soups.png",
-            //         foodName: 'Soups',
-            //         foodItem: '(10)',
-            //         onTap: () {
-            //           Navigator.pushNamed(context, 'view_product');
-            //         },
-            //       ),
-            //       const SizedBox(
-            //         width: 5,
-            //       ),
-            //       FoodItemWidget(
-            //         image: "assets/icons/sandwich1.png",
-            //         foodName: 'Sandwich',
-            //         foodItem: '(10)',
-            //         onTap: () {
-            //           Navigator.pushNamed(context, 'view_product');
-            //         },
-            //       ),
-            //     ],
-            //   ),
-            // ),
             const SizedBox(
               height: 10,
             ),
             CustomRowWidget(title: 'Near By Restaurants', onPressed: () {}),
-            // Container(
-            //   height: 275,
-            //   width: 550,
-            //   padding: const EdgeInsets.only(bottom: 8.0, left: 15),
-            //   child: SingleChildScrollView(
-            //     scrollDirection: Axis.horizontal,
-            //     child: Row(
-            //       children: [
-            //         const SizedBox(
-            //           width: 15,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/kolachi.jpg',
-            //             foodName: 'Kolachi Restaurant',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '60 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Xanders.jpg',
-            //             foodName: 'Xander’s Clifton',
-            //             rating: 4.1,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '10 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Jardin.jpg',
-            //             foodName: 'Jardin',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '5 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/Dynasty.jpg',
-            //             foodName: 'Dynasty',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '20 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/ChefsTable.jpg',
-            //             foodName: 'Chef’s Table',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '15 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/CafeFlo.jpg',
-            //             foodName: 'Cafe Flo',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '25 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/TheEastEnd.jpg',
-            //             foodName: 'The East End',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '2 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/lalqila.jpg',
-            //             foodName: 'LalQila Restaurant',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '45 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //         SizedBox(
-            //           height: 230,
-            //           width: 200,
-            //           child: CustomFoodContainer(
-            //             imagePath: 'assets/icons/bbq.jpg',
-            //             foodName: 'BBQ Tonight',
-            //             rating: 4.2,
-            //             onTap: () {
-            //               Navigator.pushNamed(context, 'view_product');
-            //             },
-            //             time: '30 mins',
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           width: 25,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: nearby.length,
+                itemBuilder: (context, index) {
+                  NearBy item = nearby[index];
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewProduct(
+                                imagePath: item.imagePath,
+                                foodName: item.title,
+                                rating: item.rating,
+                                price: item.price,
+                                time: item.time),
+                          ),
+                        );
+                      },
+                      child: Container(
+                          margin:
+                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                          child: Column(children: [
+                            SizedBox(
+                              width: 200,
+                              height: 230,
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  color: Colors.white,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(250, 250, 250, 1),
+                                      spreadRadius: 2,
+                                      blurRadius: 2,
+                                      offset: Offset(0, 0),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      height: 120.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        image: DecorationImage(
+                                          image: AssetImage(item.imagePath),
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        item.title,
+                                        style: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14.0),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.star,
+                                              size: 16.0,
+                                              color: Colors.orange,
+                                            ),
+                                            const SizedBox(width: 4.0),
+                                            Text(
+                                              item.rating.toStringAsFixed(1),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10.0),
+                                            const SizedBox(height: 4.0),
+                                            const Text(
+                                              "\$",
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            Text(
+                                              item.price.toStringAsFixed(2),
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ])));
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
