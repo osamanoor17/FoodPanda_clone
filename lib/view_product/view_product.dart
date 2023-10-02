@@ -7,7 +7,6 @@ class Product {
   final String name;
   double price;
   int itemCount;
-
   Product({
     required this.name,
     required this.price,
@@ -20,7 +19,6 @@ class ViewProduct extends StatefulWidget {
   final String foodName;
   final double rating;
   final double price;
-
   ViewProduct({
     required this.imagePath,
     required this.foodName,
@@ -113,7 +111,7 @@ class _ViewProductState extends State<ViewProduct> {
                                         children: [
                                           ListTile(
                                             title: Text(
-                                              "${product.name}",
+                                              product.name,
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 18.0,

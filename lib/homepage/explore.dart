@@ -12,7 +12,6 @@ class ExploreItem {
   final String title;
   final double rating;
   final double price;
-
   ExploreItem(
       {required this.imagePath,
       required this.title,
@@ -26,7 +25,6 @@ class NearBy {
   final double rating;
   final double price;
   final String time;
-
   NearBy(
       {required this.imagePath,
       required this.title,
@@ -41,7 +39,6 @@ class Cuisines {
   final double rating;
   final double price;
   final String time;
-
   Cuisines(
       {required this.imagePath,
       required this.title,
@@ -52,7 +49,6 @@ class Cuisines {
 
 class Explore extends StatefulWidget {
   const Explore({Key? key}) : super(key: key);
-
   @override
   _ExploreState createState() => _ExploreState();
 }
@@ -102,56 +98,56 @@ class _ExploreState extends State<Explore> {
       imagePath: 'assets/icons/Chinese.jpg',
       title: 'Chinese',
       rating: 4.1,
-      price: 4.99,
+      price: 2.5,
       time: '10 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Japanese.jpg',
       title: 'Japanese',
       rating: 4.2,
-      price: 4.99,
+      price: 4.09,
       time: '5 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Italian.jpg',
       title: 'Italian',
       rating: 4.2,
-      price: 4.99,
+      price: 5.20,
       time: '20 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Greek.jpg',
       title: 'Greek',
       rating: 4.2,
-      price: 4.99,
+      price: 2.25,
       time: '15 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Spanish.jpg',
       title: 'Spanish',
       rating: 4.2,
-      price: 4.99,
+      price: 10.01,
       time: '25 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Turkish.png',
       title: 'Turkish',
       rating: 4.2,
-      price: 4.99,
+      price: 1.5,
       time: '2 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Thai.png',
       title: 'Thai',
       rating: 4.2,
-      price: 4.99,
+      price: 4.55,
       time: '45 mins',
     ),
     Cuisines(
       imagePath: 'assets/icons/Indian.png',
       title: 'Indian',
       rating: 4.2,
-      price: 4.99,
+      price: 4.50,
       time: '30 mins',
     ),
   ];
@@ -160,63 +156,63 @@ class _ExploreState extends State<Explore> {
       imagePath: 'assets/icons/kolachi.jpg',
       title: 'Kolachi Restaurant',
       rating: 4.2,
-      price: 7.99,
+      price: 1.99,
       time: '60 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/Xanders.jpg',
       title: 'Xander’s Clifton',
       rating: 4.1,
-      price: 4.99,
+      price: 2.99,
       time: '10 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/Jardin.jpg',
       title: 'Jardin',
       rating: 4.2,
-      price: 4.99,
+      price: 3.50,
       time: '5 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/Dynasty.jpg',
       title: 'Dynasty',
       rating: 4.2,
-      price: 4.99,
+      price: 5.00,
       time: '20 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/ChefsTable.jpg',
       title: 'Chef’s Table',
       rating: 4.2,
-      price: 4.99,
+      price: 6.25,
       time: '15 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/CafeFlo.jpg',
       title: 'Cafe Flo',
       rating: 4.2,
-      price: 4.99,
+      price: 1.9,
       time: '25 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/TheEastEnd.jpg',
       title: 'The East End',
       rating: 4.2,
-      price: 4.99,
+      price: 2.60,
       time: '2 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/lalqila.jpg',
       title: 'LalQila Restaurant',
       rating: 4.2,
-      price: 4.99,
+      price: 9.90,
       time: '45 mins',
     ),
     NearBy(
       imagePath: 'assets/icons/bbq.jpg',
       title: 'BBQ Tonight',
       rating: 4.2,
-      price: 4.99,
+      price: 8.00,
       time: '30 mins',
     ),
   ];
