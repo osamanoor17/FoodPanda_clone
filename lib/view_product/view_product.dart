@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../customRatings/customRatings.dart';
 import '../reviews/reviews.dart';
@@ -32,9 +36,29 @@ class ViewProduct extends StatefulWidget {
 }
 
 class _ViewProductState extends State<ViewProduct> {
-  List<Product> products = [
-    Product(name: 'Biryani', price: 7.99, itemCount: 1),
-  ];
+  List<Product> products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the products list here using widget properties
+    products = [
+      // Product(name: widget.foodName, price: widget.price, itemCount: 1),
+    ];
+  }
+
+  Future<void> saveOrderData(List<Product> products) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final List<Map<String, dynamic>> orderData = products.map((product) {
+      return {
+        'name': product.name,
+        'price': product.price,
+        'itemCount': product.itemCount,
+      };
+    }).toList();
+    await prefs.setString('orderData', jsonEncode(orderData));
+  }
+
   void _showAddToCartBottomSheet(BuildContext context, product) {
     showModalBottomSheet<void>(
       context: context,
@@ -127,6 +151,8 @@ class _ViewProductState extends State<ViewProduct> {
                                                         if (product.itemCount >
                                                             1) {
                                                           product.itemCount--;
+                                                          saveOrderData(
+                                                              products); // Save data when item count is decreased
                                                         }
                                                       });
                                                     },
@@ -146,6 +172,7 @@ class _ViewProductState extends State<ViewProduct> {
                                                   onPressed: () {
                                                     setState(() {
                                                       product.itemCount++;
+                                                      saveOrderData(products);
                                                     });
                                                   },
                                                   icon: const Icon(
@@ -164,10 +191,19 @@ class _ViewProductState extends State<ViewProduct> {
                                   const SizedBox(height: 20.0),
                                   Center(
                                     child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.pushNamed(context, 'myorders',
-                                            arguments: selectedItems);
+                                      onPressed: () async {
+                                        products.add(Product(
+                                          name: widget.foodName,
+                                          price: widget.price,
+                                          itemCount: 1,
+                                        ));
+                                        await saveOrderData(products);
 
+                                        Navigator.pushNamed(
+                                          context,
+                                          'myorders',
+                                          arguments: products,
+                                        );
                                         print(
                                             "Selected Items: ${selectedItems.length}");
                                         double total = 0.0;

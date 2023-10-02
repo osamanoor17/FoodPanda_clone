@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-import '../view_product/view_product.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OrderItem {
   final String name;
@@ -15,6 +16,7 @@ class OrderItem {
 }
 
 class MyOrders extends StatefulWidget {
+  
   const MyOrders({Key? key}) : super(key: key);
 
   @override
@@ -22,25 +24,87 @@ class MyOrders extends StatefulWidget {
 }
 
 class _MyOrdersState extends State<MyOrders> {
-  List<Product> products = [];
+  List<OrderItem> orderItems = [];
   double total = 0;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final List<Product>? selectedProducts =
-        ModalRoute.of(context)?.settings.arguments as List<Product>?;
-    if (selectedProducts != null) {
-      products.addAll(selectedProducts);
+  void initState() {
+    super.initState();
+    loadOrderData();
+  }
+
+  Future<void> loadOrderData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? orderDataString = prefs.getString('orderData');
+    if (orderDataString != null) {
+      final List<dynamic> orderData = jsonDecode(orderDataString);
+      final loadedOrderItems = orderData.map((data) {
+        return OrderItem(
+          name: data['name'],
+          price: data['price'],
+          itemCount: data['itemCount'],
+        );
+      }).toList();
+      setState(() {
+        orderItems = loadedOrderItems;
+        total = calculateTotalPrice();
+      });
     }
-    total = calculateTotalPrice();
+  }
+
+  double calculateTotalPrice() {
+    double totalPrice = 0;
+    for (var item in orderItems) {
+      totalPrice += item.price * item.itemCount;
+    }
+    return totalPrice;
+  }
+
+  Future<void> saveOrderData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final List<Map<String, dynamic>> orderData = orderItems
+        .map((item) => {
+              'name': item.name,
+              'price': item.price,
+              'itemCount': item.itemCount,
+            })
+        .toList();
+    final String orderDataString = jsonEncode(orderData);
+    await prefs.setString('orderData', orderDataString);
+  }
+
+  void addToCart(OrderItem item) {
+    setState(() {
+      final existingItemIndex =
+          orderItems.indexWhere((element) => element.name == item.name);
+      if (existingItemIndex != -1) {
+        orderItems[existingItemIndex].itemCount++;
+      } else {
+        orderItems.add(item);
+      }
+      total = calculateTotalPrice();
+      saveOrderData();
+    });
+  }
+
+  void removeItem(OrderItem item) {
+    setState(() {
+      final existingItemIndex =
+          orderItems.indexWhere((element) => element.name == item.name);
+      if (existingItemIndex != -1) {
+        if (orderItems[existingItemIndex].itemCount > 1) {
+          orderItems[existingItemIndex].itemCount--;
+        } else {
+          orderItems.removeAt(existingItemIndex);
+        }
+      }
+      total = calculateTotalPrice();
+      saveOrderData();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<Product>? selectedProducts =
-        ModalRoute.of(context)?.settings.arguments as List<Product>?;
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
@@ -76,15 +140,17 @@ class _MyOrdersState extends State<MyOrders> {
             const SizedBox(
               height: 10,
             ),
-            selectedProducts != null && selectedProducts.isNotEmpty
+            orderItems.isNotEmpty
                 ? StatefulBuilder(
                     builder: (BuildContext context, StateSetter setState) {
                       return ListView.builder(
-                        itemCount: selectedProducts.length,
+                        itemCount: orderItems.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
-                          final item = selectedProducts[index];
+                          final item = orderItems[index];
+                          debugPrint("======---${orderItems[index]}");
+
                           return Visibility(
                             visible: item.itemCount > 0,
                             child: Container(
@@ -127,12 +193,7 @@ class _MyOrdersState extends State<MyOrders> {
                                                     250, 250, 250, 1),
                                             child: IconButton(
                                               onPressed: () {
-                                                setState(() {
-                                                  if (item.itemCount > 0) {
-                                                    item.itemCount--;
-                                                    updateTotal();
-                                                  }
-                                                });
+                                                removeItem(item);
                                               },
                                               icon: const Icon(
                                                 Icons.remove,
@@ -159,10 +220,7 @@ class _MyOrdersState extends State<MyOrders> {
                                                     250, 250, 250, 1),
                                             child: IconButton(
                                               onPressed: () {
-                                                setState(() {
-                                                  item.itemCount++;
-                                                  updateTotal();
-                                                });
+                                                addToCart(item);
                                               },
                                               icon: const Icon(
                                                 Icons.add,
@@ -279,19 +337,5 @@ class _MyOrdersState extends State<MyOrders> {
         ),
       ),
     );
-  }
-
-  double calculateTotalPrice() {
-    double totalPrice = 0;
-    for (final item in products) {
-      totalPrice += item.price * item.itemCount;
-    }
-    return totalPrice;
-  }
-
-  void updateTotal() {
-    setState(() {
-      total = calculateTotalPrice();
-    });
   }
 }

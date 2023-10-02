@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           'mappage': (context) => const MapPage(),
           'homepage': (context) => const HomePage(),
           'mycart': (context) => const MyCart(),
-          'myorders': (context) => const MyOrders(),
+          'myorders': (context) => MyOrders(),
           'payment_screen': (context) => const PaymentScreen(),
           'vouchers_offers': (context) => const VouchersOffersScreen(),
           'my_profile': (context) => const Profile(),
