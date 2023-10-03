@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -41,10 +39,24 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   void initState() {
     super.initState();
-    // Initialize the products list here using widget properties
-    products = [
-      // Product(name: widget.foodName, price: widget.price, itemCount: 1),
-    ];
+    // Load cart data from SharedPreferences when the widget initializes
+    loadCartData();
+  }
+
+  Future<void> loadCartData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? orderData = prefs.getString('orderData');
+    if (orderData != null) {
+      final List<dynamic> decodedData = jsonDecode(orderData);
+      products = decodedData
+          .map((data) => Product(
+                name: data['name'],
+                price: data['price'],
+                itemCount: data['itemCount'],
+              ))
+          .toList();
+      setState(() {});
+    }
   }
 
   Future<void> saveOrderData(List<Product> products) async {
@@ -59,13 +71,12 @@ class _ViewProductState extends State<ViewProduct> {
     await prefs.setString('orderData', jsonEncode(orderData));
   }
 
-  void _showAddToCartBottomSheet(BuildContext context, product) {
+  void _showAddToCartBottomSheet(BuildContext context, Product product) {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            for (var product in products) {}
             List<Product> selectedItems =
                 products.where((product) => product.itemCount > 0).toList();
             return SingleChildScrollView(
@@ -125,78 +136,66 @@ class _ViewProductState extends State<ViewProduct> {
                                       ),
                                     ],
                                   ),
-                                  ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: products.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      Product product = products[index];
-                                      return Column(
-                                        children: [
-                                          ListTile(
-                                            title: Text(
-                                              product.name,
+                                  Column(
+                                    children: [
+                                      ListTile(
+                                        title: Text(
+                                          product.name,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18.0,
+                                          ),
+                                        ),
+                                        trailing: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            if (product.itemCount > 1)
+                                              IconButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    if (product.itemCount > 1) {
+                                                      product.itemCount--;
+                                                      saveOrderData(
+                                                          products); // Save data when item count is decreased
+                                                    }
+                                                  });
+                                                },
+                                                icon: const Icon(
+                                                  Icons.remove,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            Text(
+                                              '${product.itemCount}',
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 18.0,
+                                                fontSize: 20,
                                               ),
                                             ),
-                                            trailing: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                if (product.itemCount > 1)
-                                                  IconButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        if (product.itemCount >
-                                                            1) {
-                                                          product.itemCount--;
-                                                          saveOrderData(
-                                                              products); // Save data when item count is decreased
-                                                        }
-                                                      });
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons.remove,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                Text(
-                                                  '${product.itemCount}',
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 20,
-                                                  ),
-                                                ),
-                                                IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      product.itemCount++;
-                                                      saveOrderData(products);
-                                                    });
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.add,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ],
+                                            IconButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  product.itemCount++;
+                                                  saveOrderData(products);
+                                                });
+                                              },
+                                              icon: const Icon(
+                                                Icons.add,
+                                                color: Colors.black,
+                                              ),
                                             ),
-                                          ),
-                                          const Divider(),
-                                        ],
-                                      );
-                                    },
+                                          ],
+                                        ),
+                                      ),
+                                      const Divider(),
+                                    ],
                                   ),
                                   const SizedBox(height: 20.0),
                                   Center(
                                     child: ElevatedButton(
                                       onPressed: () async {
-                                        products.add(Product(
-                                          name: widget.foodName,
-                                          price: widget.price,
-                                          itemCount: 1,
-                                        ));
+                                        // Add the current product to the cart
+                                        products.add(product);
                                         await saveOrderData(products);
 
                                         Navigator.pushNamed(
@@ -204,8 +203,7 @@ class _ViewProductState extends State<ViewProduct> {
                                           'myorders',
                                           arguments: products,
                                         );
-                                        print(
-                                            "Selected Items: ${selectedItems.length}");
+
                                         double total = 0.0;
                                         for (var item in selectedItems) {
                                           total += item.price * item.itemCount;
@@ -401,7 +399,16 @@ class _ViewProductState extends State<ViewProduct> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        _showAddToCartBottomSheet(context, products);
+                        if (products.isNotEmpty) {
+                          // Pass the current product to the bottom sheet
+                          _showAddToCartBottomSheet(
+                              context,
+                              Product(
+                                name: widget.foodName,
+                                price: widget.price,
+                                itemCount: 1,
+                              ));
+                        }
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.end,
