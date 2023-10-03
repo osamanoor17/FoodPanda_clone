@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:ecommerce_clone/homepage/my_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -127,10 +126,10 @@ class _ViewProductState extends State<ViewProduct> {
                                   ),
                                   ListView.builder(
                                     shrinkWrap: true,
-                                    itemCount: products.length,
+                                    itemCount: selectedItems.length,
                                     itemBuilder:
                                         (BuildContext context, int index) {
-                                      Product product = products[index];
+                                      Product product = selectedItems[index];
                                       return Column(
                                         children: [
                                           ListTile(
@@ -152,7 +151,7 @@ class _ViewProductState extends State<ViewProduct> {
                                                             1) {
                                                           product.itemCount--;
                                                           saveOrderData(
-                                                              products); // Save data when item count is decreased
+                                                              products);
                                                         }
                                                       });
                                                     },
@@ -371,6 +370,64 @@ class _ViewProductState extends State<ViewProduct> {
             const SizedBox(
               height: 10,
             ),
+            // PreferredSize(
+            //   preferredSize: const Size.fromHeight(30.0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     children: [
+            //       Container(
+            //         decoration: const BoxDecoration(
+            //           shape: BoxShape.circle,
+            //           color: Colors.black12,
+            //         ),
+            //         child: IconButton(
+            //           icon: const Icon(
+            //             Icons.favorite,
+            //             color: Colors.red,
+            //           ),
+            //           onPressed: () {
+            //             Navigator.pushNamed(context, 'fav_screen');
+            //           },
+            //         ),
+            //       ),
+            //       const SizedBox(width: 16.0),
+            //       Container(
+            //         height: 45,
+            //         margin: const EdgeInsets.all(16.0),
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(20),
+            //           color: Colors.black12,
+            //         ),
+            //         child: GestureDetector(
+            //           onTap: () {
+            //             _showAddToCartBottomSheet(context, products);
+            //           },
+            //           child: const Row(
+            //             mainAxisAlignment: MainAxisAlignment.end,
+            //             children: [
+            //               SizedBox(width: 10.0),
+            //               Text(
+            //                 "Add to Cart",
+            //                 textAlign: TextAlign.center,
+            //                 style: TextStyle(
+            //                   color: Colors.black,
+            //                   fontWeight: FontWeight.bold,
+            //                 ),
+            //               ),
+            //               SizedBox(width: 5.0),
+            //               Icon(
+            //                 Icons.shopping_cart,
+            //                 color: Color.fromRGBO(119, 84, 204, 1),
+            //               ),
+            //               SizedBox(width: 5.0),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
             PreferredSize(
               preferredSize: const Size.fromHeight(30.0),
               child: Row(
@@ -401,6 +458,14 @@ class _ViewProductState extends State<ViewProduct> {
                     ),
                     child: GestureDetector(
                       onTap: () {
+                        Product newProduct = Product(
+                          name: widget.foodName,
+                          price: widget.price,
+                          itemCount: 1,
+                        );
+
+                        products.add(newProduct);
+
                         _showAddToCartBottomSheet(context, products);
                       },
                       child: const Row(
