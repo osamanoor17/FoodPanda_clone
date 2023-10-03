@@ -64,7 +64,7 @@ class _ViewProductState extends State<ViewProduct> {
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            for (var product in products) {}
+            // for (var product in products) {}
             List<Product> selectedItems =
                 products.where((product) => product.itemCount > 0).toList();
             return SingleChildScrollView(
@@ -197,7 +197,6 @@ class _ViewProductState extends State<ViewProduct> {
                                           itemCount: 1,
                                         ));
                                         await saveOrderData(products);
-
                                         Navigator.pushNamed(
                                           context,
                                           'myorders',
@@ -370,64 +369,6 @@ class _ViewProductState extends State<ViewProduct> {
             const SizedBox(
               height: 10,
             ),
-            // PreferredSize(
-            //   preferredSize: const Size.fromHeight(30.0),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //     children: [
-            //       Container(
-            //         decoration: const BoxDecoration(
-            //           shape: BoxShape.circle,
-            //           color: Colors.black12,
-            //         ),
-            //         child: IconButton(
-            //           icon: const Icon(
-            //             Icons.favorite,
-            //             color: Colors.red,
-            //           ),
-            //           onPressed: () {
-            //             Navigator.pushNamed(context, 'fav_screen');
-            //           },
-            //         ),
-            //       ),
-            //       const SizedBox(width: 16.0),
-            //       Container(
-            //         height: 45,
-            //         margin: const EdgeInsets.all(16.0),
-            //         decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(20),
-            //           color: Colors.black12,
-            //         ),
-            //         child: GestureDetector(
-            //           onTap: () {
-            //             _showAddToCartBottomSheet(context, products);
-            //           },
-            //           child: const Row(
-            //             mainAxisAlignment: MainAxisAlignment.end,
-            //             children: [
-            //               SizedBox(width: 10.0),
-            //               Text(
-            //                 "Add to Cart",
-            //                 textAlign: TextAlign.center,
-            //                 style: TextStyle(
-            //                   color: Colors.black,
-            //                   fontWeight: FontWeight.bold,
-            //                 ),
-            //               ),
-            //               SizedBox(width: 5.0),
-            //               Icon(
-            //                 Icons.shopping_cart,
-            //                 color: Color.fromRGBO(119, 84, 204, 1),
-            //               ),
-            //               SizedBox(width: 5.0),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
             PreferredSize(
               preferredSize: const Size.fromHeight(30.0),
               child: Row(
@@ -458,14 +399,6 @@ class _ViewProductState extends State<ViewProduct> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        Product newProduct = Product(
-                          name: widget.foodName,
-                          price: widget.price,
-                          itemCount: 1,
-                        );
-
-                        products.add(newProduct);
-
                         _showAddToCartBottomSheet(context, products);
                       },
                       child: const Row(
