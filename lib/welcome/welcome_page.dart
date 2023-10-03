@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     padding: const EdgeInsets.only(top: 100.0, left: 30),
                     child: Image.asset(
                       "assets/icons/icon4.png",
-                      height: 280,
+                      height: 250,
                     ),
                   ),
                   const Row(
@@ -57,7 +57,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   const Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25.0, top: 10),
+                        padding: EdgeInsets.only(left: 25.0, top: 5),
                         child: Text(
                           "Lorem ipsum dolor sit amet.\n"
                           "Nam aspernatur repellendus ut velit ",
@@ -69,7 +69,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       ),
                     ],
                   ),
-                  // const SizedBox(height: 90),
+                  const SizedBox(height: 50),
                   Row(
                     children: [
                       const SizedBox(width: 60),

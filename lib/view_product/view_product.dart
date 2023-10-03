@@ -197,7 +197,6 @@ class _ViewProductState extends State<ViewProduct> {
                                         // Add the current product to the cart
                                         products.add(product);
                                         await saveOrderData(products);
-
                                         Navigator.pushNamed(
                                           context,
                                           'myorders',
