@@ -72,6 +72,12 @@ class _ViewProductState extends State<ViewProduct> {
   }
 
   void _showAddToCartBottomSheet(BuildContext context, Product product) {
+    // Check if the product is already in the cart
+    final existingProduct = products.firstWhere(
+      (p) => p.name == product.name,
+      orElse: () => null!,
+    );
+
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
@@ -149,7 +155,7 @@ class _ViewProductState extends State<ViewProduct> {
                                         trailing: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            if (product.itemCount > 1)
+                                            if (existingProduct == null)
                                               IconButton(
                                                 onPressed: () {
                                                   setState(() {
@@ -194,8 +200,14 @@ class _ViewProductState extends State<ViewProduct> {
                                   Center(
                                     child: ElevatedButton(
                                       onPressed: () async {
-                                        // Add the current product to the cart
-                                        products.add(product);
+                                        if (existingProduct != null) {
+                                          // Update the quantity if the product is already in the cart
+                                          existingProduct.itemCount +=
+                                              product.itemCount;
+                                        } else {
+                                          // Add the current product to the cart
+                                          products.add(product);
+                                        }
                                         await saveOrderData(products);
 
                                         Navigator.pushNamed(
