@@ -39,6 +39,8 @@ class _ViewProductState extends State<ViewProduct> {
   @override
   void initState() {
     super.initState();
+    // Ensure that products is not null, initialize it to an empty list if it's null
+    products ??= [];
     // Load cart data from SharedPreferences when the widget initializes
     loadCartData();
   }
@@ -72,11 +74,8 @@ class _ViewProductState extends State<ViewProduct> {
   }
 
   void _showAddToCartBottomSheet(BuildContext context, Product product) {
-    // Check if the product is already in the cart
-    final existingProduct = products.firstWhere(
-      (p) => p.name == product.name,
-      orElse: () => null!,
-    );
+    // Ensure that products is not null or initialize it to an empty list
+    products ??= [];
 
     showModalBottomSheet<void>(
       context: context,
@@ -85,6 +84,9 @@ class _ViewProductState extends State<ViewProduct> {
           builder: (BuildContext context, StateSetter setState) {
             List<Product> selectedItems =
                 products.where((product) => product.itemCount > 0).toList();
+
+            String productName = product.name; // Define productName here
+
             return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,22 +157,20 @@ class _ViewProductState extends State<ViewProduct> {
                                         trailing: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            if (existingProduct == null)
-                                              IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    if (product.itemCount > 1) {
-                                                      product.itemCount--;
-                                                      saveOrderData(
-                                                          products); // Save data when item count is decreased
-                                                    }
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.remove,
-                                                  color: Colors.black,
-                                                ),
+                                            IconButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  if (product.itemCount > 1) {
+                                                    product.itemCount--;
+                                                  }
+                                                  saveOrderData(products);
+                                                });
+                                              },
+                                              icon: const Icon(
+                                                Icons.remove,
+                                                color: Colors.black,
                                               ),
+                                            ),
                                             Text(
                                               '${product.itemCount}',
                                               style: const TextStyle(
@@ -182,7 +182,6 @@ class _ViewProductState extends State<ViewProduct> {
                                               onPressed: () {
                                                 setState(() {
                                                   product.itemCount++;
-                                                  saveOrderData(products);
                                                 });
                                               },
                                               icon: const Icon(
@@ -200,7 +199,19 @@ class _ViewProductState extends State<ViewProduct> {
                                   Center(
                                     child: ElevatedButton(
                                       onPressed: () async {
-                                        if (existingProduct != null) {
+                                        // Check if the product is already in the cart
+                                        final existingProduct =
+                                            products.firstWhere(
+                                          (p) => p.name == productName,
+                                          orElse: () => Product(
+                                            // Return an empty Product here
+                                            name: '',
+                                            price: 0.0,
+                                            itemCount: 0,
+                                          ),
+                                        );
+
+                                        if (existingProduct.name.isNotEmpty) {
                                           // Update the quantity if the product is already in the cart
                                           existingProduct.itemCount +=
                                               product.itemCount;
@@ -411,21 +422,18 @@ class _ViewProductState extends State<ViewProduct> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        if (products.isNotEmpty) {
-                          // Pass the current product to the bottom sheet
-                          _showAddToCartBottomSheet(
-                              context,
-                              Product(
-                                name: widget.foodName,
-                                price: widget.price,
-                                itemCount: 1,
-                              ));
-                        }
+                        _showAddToCartBottomSheet(
+                          context,
+                          Product(
+                            name: widget.foodName,
+                            price: widget.price,
+                            itemCount: 1,
+                          ),
+                        );
                       },
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: 10.0),
                           Text(
                             "Add to Cart",
                             textAlign: TextAlign.center,
@@ -439,11 +447,10 @@ class _ViewProductState extends State<ViewProduct> {
                             Icons.shopping_cart,
                             color: Color.fromRGBO(119, 84, 204, 1),
                           ),
-                          SizedBox(width: 5.0),
                         ],
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

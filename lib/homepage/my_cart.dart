@@ -79,7 +79,11 @@ class _MyOrdersState extends State<MyOrders> {
       if (existingItemIndex != -1) {
         orderItems[existingItemIndex].itemCount++;
       } else {
-        orderItems.add(item);
+        if (orderItems.isEmpty) {
+          orderItems.add(item);
+        } else {
+          orderItems.add(item);
+        }
       }
       total = calculateTotalPrice();
       saveOrderData();
