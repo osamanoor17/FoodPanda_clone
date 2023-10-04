@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -434,6 +435,7 @@ class _ViewProductState extends State<ViewProduct> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          SizedBox(width: 10.0),
                           Text(
                             "Add to Cart",
                             textAlign: TextAlign.center,
@@ -445,8 +447,9 @@ class _ViewProductState extends State<ViewProduct> {
                           SizedBox(width: 5.0),
                           Icon(
                             Icons.shopping_cart,
-                            color: Color.fromRGBO(119, 84, 204, 1),
+                            color: Color.fromRGBO(123, 89, 225, 1.0),
                           ),
+                          SizedBox(width: 10.0),
                         ],
                       ),
                     ),
