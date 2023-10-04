@@ -1,4 +1,9 @@
+import 'package:ecommerce_clone/settings/privacy_settings.dart';
 import 'package:flutter/material.dart';
+
+import 'about_us.dart';
+import 'account_settings.dart';
+import 'notification_settings.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -16,7 +21,11 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('Notification Settings'),
             trailing: const Icon(Icons.notifications),
             onTap: () {
-              _navigateToNotificationSettings(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationSettingsScreen()),
+              );
             },
           ),
           const Divider(),
@@ -24,7 +33,11 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('Account Settings'),
             trailing: const Icon(Icons.account_circle),
             onTap: () {
-              _navigateToAccountSettings(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AccountSettingsScreen()),
+              );
             },
           ),
           const Divider(),
@@ -32,7 +45,11 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('Privacy Policy'),
             trailing: const Icon(Icons.privacy_tip),
             onTap: () {
-              _navigateToPrivacyPolicy(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PrivacyPolicyScreen()),
+              );
             },
           ),
           const Divider(),
@@ -40,7 +57,10 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('About Us'),
             trailing: const Icon(Icons.info),
             onTap: () {
-              _navigateToAboutUs(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AboutUsScreen()),
+              );
             },
           ),
           const Divider(),
@@ -48,9 +68,4 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
-
-  void _navigateToNotificationSettings(BuildContext context) {}
-  void _navigateToAccountSettings(BuildContext context) {}
-  void _navigateToPrivacyPolicy(BuildContext context) {}
-  void _navigateToAboutUs(BuildContext context) {}
 }
