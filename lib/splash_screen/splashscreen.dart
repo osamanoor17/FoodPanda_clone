@@ -1,9 +1,10 @@
+import 'package:ecommerce_clone/responsive.dart';
 import 'package:flutter/material.dart';
-
 import 'contentpage.dart';
 
+
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -57,17 +58,20 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 0)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: const EdgeInsets.only(right: 20, top: 0),
+                    padding: EdgeInsets.only(
+                      right: ScreenSize.blockSizeHorizontal(context, 2),
+                      top: 0,
+                    ),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        // Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.grey,
                         backgroundColor: Colors.transparent,
                       ),
                       child: const Text(
-                        'Skip',
+                        '',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -79,10 +83,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 1)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: const EdgeInsets.only(right: 20, top: 10),
+                    padding: EdgeInsets.only(
+                      right: ScreenSize.blockSizeHorizontal(context, 2),
+                      top: ScreenSize.blockSizeVertical(context, 1),
+                    ),
                     child: TextButton(
                       onPressed: () {
-                        goToNextPage();
+                        // goToNextPage();
                       },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.black,
@@ -92,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         '',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 20,
                         ),
                       ),
@@ -101,10 +108,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (currentIndex == 2)
                   Container(
                     alignment: Alignment.topRight,
-                    padding: const EdgeInsets.only(right: 20, top: 10),
+                    padding: EdgeInsets.only(
+                      right: ScreenSize.blockSizeHorizontal(context, 2),
+                      top: ScreenSize.blockSizeVertical(context, 1),
+                    ),
                     child: TextButton(
                       onPressed: () {
-                        goToNextPage();
+                        // goToNextPage();
                       },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.black,
@@ -114,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         '',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 20,
                         ),
                       ),
@@ -127,29 +137,35 @@ class _SplashScreenState extends State<SplashScreen> {
                     onPageChanged: onPageChanged,
                     itemBuilder: (_, i) {
                       return Padding(
-                        padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 20),
+                        padding: EdgeInsets.only(
+                          left: ScreenSize.blockSizeHorizontal(context, 3),
+                          right: ScreenSize.blockSizeHorizontal(context, 3),
+                          top: ScreenSize.blockSizeVertical(context, 2),
+                        ),
                         child: Column(
                           children: [
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            const SizedBox(height: 20),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10.0, left: 15, right: 10, bottom: 10),
-                              child: Image.asset(contents[i].image,
-                                  height: MediaQuery.of(context).size.height *
-                                      0.40),
+                              padding: EdgeInsets.only(
+                                top: ScreenSize.blockSizeVertical(context, 1),
+                                left: ScreenSize.blockSizeHorizontal(context, 1),
+                                right: ScreenSize.blockSizeHorizontal(context, 1),
+                                bottom: ScreenSize.blockSizeVertical(context, 1),
+                              ),
+                              child: Image.asset(
+                                contents[i].image,
+                                height: ScreenSize.blockSizeVertical(context, 40),
+                              ),
                             ),
                             SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.06),
+                              height: ScreenSize.blockSizeVertical(context, 6),
+                            ),
                             Row(
                               children: [
                                 Text(
                                   contents[i].title1,
                                   style: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -172,7 +188,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                 Text(
                                   contents[i].description,
                                   style: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 20,
                                     color: Colors.black54,
                                   ),
                                 ),
@@ -181,73 +197,84 @@ class _SplashScreenState extends State<SplashScreen> {
                           ],
                         ),
                       );
-                    },
+                                        },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: ScreenSize.blockSizeVertical(context, 2),
+                  left: ScreenSize.blockSizeHorizontal(context, 3),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: List.generate(
+                    contents.length,
+                    (index) => buildDot(index, context),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20, left: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: List.generate(
-                      contents.length,
-                      (index) => buildDot(index, context),
-                    ),
-                  ),
-                ),
-              ],
+              ),
+            ],
+          ),
+          // if (currentIndex == 0)
+          //   Align(
+          //     alignment: Alignment.centerRight,
+          //     child: Image.asset(sidebarImages[0]),
+          //   ),
+          // if (currentIndex == 1)
+          //   Align(
+          //     alignment: Alignment.bottomRight,
+          //     child: Image.asset(sidebarImages[1]),
+          //   ),
+          // if (currentIndex == 2)
+          //   Align(
+          //     alignment: Alignment.bottomRight,
+          //     child: Image.asset(sidebarImages[2]),
+          //   ),
+Positioned(
+            top: currentIndex == 0
+                ? ScreenSize.blockSizeVertical(context, 84.7)
+                : currentIndex == 1
+                    ? ScreenSize.blockSizeVertical(context, 84.7)
+                    : ScreenSize.blockSizeVertical(context, 84.7),
+            left: currentIndex == 0
+                ? ScreenSize.blockSizeHorizontal(context, 82.1)
+                : currentIndex == 1
+                    ? ScreenSize.blockSizeHorizontal(context, 81.0)
+                    : ScreenSize.blockSizeHorizontal(context, 70.0),
+            child: IconButton(
+              onPressed: () {
+                goToNextPage();
+              },
+              icon: currentIndex == 2
+                  ? const Text(
+                      'Get Started',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    )
+                  : const Icon(Icons.arrow_forward, color: Colors.black,size: 25,),
             ),
-            if (currentIndex == 0)
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(sidebarImages[0])),
-            if (currentIndex == 1)
-              Align(
-                  alignment: Alignment.bottomRight,
-                  child: Image.asset(sidebarImages[1])),
-            if (currentIndex == 2)
-              Align(
-                  alignment: Alignment.bottomRight,
-                  child: Image.asset(sidebarImages[2])),
-            Positioned(
-                top: currentIndex == 0
-                    ? MediaQuery.of(context).size.height * 0.839
-                    : currentIndex == 1
-                        ? MediaQuery.of(context).size.height * 0.839
-                        : MediaQuery.of(context).size.height * 0.839,
-                left: currentIndex == 0
-                    ? MediaQuery.of(context).size.width * 0.821
-                    : currentIndex == 1
-                        ? MediaQuery.of(context).size.width * 0.81
-                        : MediaQuery.of(context).size.width * 0.70,
-                child: IconButton(
-                    onPressed: () {
-                      goToNextPage();
-                    },
-                    icon: currentIndex == 2
-                        ? const Text(
-                            'Get Started',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          )
-                        : const Icon(Icons.arrow_forward, color: Colors.white)))
-          ],
-        ),
+          ),
+      ],
       ),
-    );
-  }
-
-  Container buildDot(int index, BuildContext context) {
-    return Container(
-      height: 8,
-      width: currentIndex == index ? 25 : 10,
-      margin: const EdgeInsets.only(right: 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: currentIndex == index ? MYcolors[index] : Colors.grey,
-      ),
-    );
-  }
+    ),
+  );
 }
+
+Container buildDot(int index, BuildContext context) {
+  return Container(
+    height: 8,
+    width: currentIndex == index
+        ? ScreenSize.blockSizeHorizontal(context, 2.5)
+        : ScreenSize.blockSizeHorizontal(context, 1),
+    margin: const EdgeInsets.only(right: 5),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: currentIndex == index ? MYcolors[index] : Colors.grey,
+    ),
+  );
+}
+
+}          

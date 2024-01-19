@@ -1,7 +1,9 @@
+
+import 'package:ecommerce_clone/responsive.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({super.key});
+  const WelcomePage({Key? key});
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();
@@ -20,93 +22,115 @@ class _WelcomePageState extends State<WelcomePage> {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 100.0, left: 30),
+                    padding: EdgeInsets.only(
+                      top: ScreenSize.blockSizeVertical(context, 10),
+                      left: ScreenSize.blockSizeHorizontal(context, 5),
+                    ),
                     child: Image.asset(
                       "assets/icons/icon4.png",
-                      height: 250,
+                      height: ScreenSize.blockSizeVertical(context, 30),
                     ),
                   ),
-                  const Row(
+                  Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25.0, top: 50),
+                        padding: EdgeInsets.only(
+                          left: ScreenSize.blockSizeHorizontal(context, 5),
+                          top: ScreenSize.blockSizeVertical(context, 5),
+                        ),
                         child: Text(
                           "WELCOME BACK TO",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: ScreenSize.textMultiplier(context) * 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25.0, top: 1),
+                        padding: EdgeInsets.only(
+                          left: ScreenSize.blockSizeHorizontal(context, 5),
+                          top: ScreenSize.blockSizeVertical(context, 0.5),
+                        ),
                         child: Text(
                           "FOODS APP",
                           style: TextStyle(
-                            fontSize: 35,
+                            fontSize: ScreenSize.textMultiplier(context) * 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const Row(
+               
+                  Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25.0, top: 5),
+                        padding: EdgeInsets.only(
+                          left: ScreenSize.blockSizeHorizontal(context, 5),
+                          top: ScreenSize.blockSizeVertical(context, 0.5),
+                        ),
                         child: Text(
                           "Lorem ipsum dolor sit amet.\n"
                           "Nam aspernatur repellendus ut velit ",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: ScreenSize.textMultiplier(context) * 15,
                             color: Colors.black54,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  SizedBox(height: ScreenSize.blockSizeVertical(context, 5)),
                   Row(
                     children: [
-                      const SizedBox(width: 60),
+                      SizedBox(width: ScreenSize.blockSizeHorizontal(context, 6)),
+                       SizedBox(height: ScreenSize.blockSizeVertical(context, 30)),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, 'signup');
                         },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.red,
-                          minimumSize: const Size(120, 50),
+                          minimumSize: Size(
+                            ScreenSize.blockSizeHorizontal(context, 40),
+                            ScreenSize.blockSizeVertical(context, 8),
+                          ),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Sign Up',
                           style: TextStyle(
+                            fontSize: ScreenSize.textMultiplier(context) * 15,
                             color: Colors.white,
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      SizedBox(width: ScreenSize.blockSizeHorizontal(context, 5)),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, 'login');
                         },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.purple,
-                          minimumSize: const Size(120, 50),
+                          minimumSize: Size(
+                            ScreenSize.blockSizeHorizontal(context, 40),
+                            ScreenSize.blockSizeVertical(context, 8),
+                          ),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Log in',
                           style: TextStyle(
+                            fontSize: ScreenSize.textMultiplier(context) * 15,
                             color: Colors.white,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  SizedBox(height: ScreenSize.blockSizeVertical(context, 10)),
                 ],
               ),
             ],
@@ -116,3 +140,4 @@ class _WelcomePageState extends State<WelcomePage> {
     );
   }
 }
+

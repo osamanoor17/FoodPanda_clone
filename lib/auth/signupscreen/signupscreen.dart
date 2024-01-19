@@ -85,7 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: Text(
                               "Or login with your email",
                               style: TextStyle(
-                                  fontSize: 18, color: Colors.black54),
+                                  fontSize: 25, color: Colors.black54),
                             ),
                           ),
                         ],
@@ -96,35 +96,35 @@ class _SignupScreenState extends State<SignupScreen> {
                 ],
               ),
             ),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset("assets/icons/sidebar_grey.png"),
-                ),
-                Positioned(
-                  top: 660,
-                  right: 20,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'login');
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Stack(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.centerRight,
+            //       child: Image.asset("assets/icons/sidebar_grey.png"),
+            //     ),
+            //     Positioned(
+            //       top: 660,
+            //       right: 20,
+            //       child: TextButton(
+            //         onPressed: () {
+            //           Navigator.pushNamed(context, 'login');
+            //         },
+            //         style: TextButton.styleFrom(
+            //           foregroundColor: Colors.black,
+            //           backgroundColor: Colors.transparent,
+            //         ),
+            //         child: const Text(
+            //           'Sign Up',
+            //           style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //             fontSize: 16,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ]),
         ),
       ),

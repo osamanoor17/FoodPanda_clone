@@ -126,21 +126,21 @@ class _SignupFormState extends State<SignupForm> {
               Row(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 60),
+                    padding: EdgeInsets.only(top: 30),
                     child: Text(
                       "Already have an account?",
-                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                      style: TextStyle(fontSize: 22, color: Colors.black54),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 60),
+                    padding: const EdgeInsets.only(top: 30),
                     child: TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, 'login');
                       },
                       child: const Text(
                         'Login',
-                        style: TextStyle(fontSize: 12, color: Colors.blue),
+                        style: TextStyle(fontSize: 22, color: Colors.blue),
                       ),
                     ),
                   ),

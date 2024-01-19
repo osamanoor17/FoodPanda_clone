@@ -1,5 +1,5 @@
 final List<String> sidebarImages = [
-  'assets/icons/sidebar_red.png',
+  'assets/icons/sidebar_red1.png',
   'assets/icons/sidebar_purple.png',
   'assets/icons/sidebar_orange.png',
 ];
