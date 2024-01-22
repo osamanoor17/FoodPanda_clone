@@ -100,38 +100,59 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       ],
                     ),
                   ),
+                   ElevatedButton(
+  onPressed: () {
+     Navigator.pushNamed(context, 'login');
+  },
+  child: const Padding(
+    padding: EdgeInsets.all(10.0),
+    child: Text(
+      "Reset",
+      style: TextStyle(color: Colors.white, fontSize: 20),
+    ),
+  ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: const Size(250, 30), // Set the width and height here
+  ),
+),
                 ]),
               ],
             ),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset("assets/icons/sidebar_grey.png"),
-                ),
-                Positioned(
-                  top: 660,
-                  right: 20,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'login');
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: const Text(
-                      'Reset',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Stack(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.centerRight,
+            //       child: Image.asset("assets/icons/sidebar_grey.png"),
+            //     ),
+            //     Positioned(
+            //       top: 660,
+            //       right: 20,
+            //       child: TextButton(
+            //         onPressed: () {
+            //           Navigator.pushNamed(context, 'login');
+            //         },
+            //         style: TextButton.styleFrom(
+            //           foregroundColor: Colors.black,
+            //           backgroundColor: Colors.transparent,
+            //         ),
+            //         child: const Text(
+            //           'Reset',
+            //           style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //             fontSize: 16,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+
           ]),
         ),
       ),

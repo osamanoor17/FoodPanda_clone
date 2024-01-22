@@ -86,19 +86,22 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                   SizedBox(height: ScreenSize.blockSizeVertical(context, 5)),
                   Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(width: ScreenSize.blockSizeHorizontal(context, 6)),
+                  
                        SizedBox(height: ScreenSize.blockSizeVertical(context, 30)),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, 'signup');
                         },
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          minimumSize: Size(
-                            ScreenSize.blockSizeHorizontal(context, 40),
-                            ScreenSize.blockSizeVertical(context, 8),
-                          ),
+                         style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.red,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: const Size(150, 30), // Set the width and height here
+  
                         ),
                         child: Text(
                           'Sign Up',
@@ -113,12 +116,13 @@ class _WelcomePageState extends State<WelcomePage> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'login');
                         },
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.purple,
-                          minimumSize: Size(
-                            ScreenSize.blockSizeHorizontal(context, 40),
-                            ScreenSize.blockSizeVertical(context, 8),
-                          ),
+                        style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.purple,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: const Size(150, 30),
                         ),
                         child: Text(
                           'Log in',

@@ -91,8 +91,29 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       const SignupForm(),
+                      const SizedBox(height: 20,),
                     ],
                   ),
+                  ElevatedButton(
+  onPressed: () {
+     Navigator.pushNamed(context, 'mappage');
+  },
+  child: Padding(
+    padding: const EdgeInsets.all(10.0),
+    child: Text(
+      "Sign up",
+      style: TextStyle(color: Colors.white, fontSize: 20),
+    ),
+  ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(250, 30), // Set the width and height here
+  ),
+),
                 ],
               ),
             ),

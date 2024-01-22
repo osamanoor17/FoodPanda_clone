@@ -179,15 +179,18 @@ class _ProfileState extends State<Profile> {
                               });
                             }
                           },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.blue,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12),
-                          ),
+                         style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.blue,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(170, 50), // Set the width and height here
+  ),
                           child: const Text(
                             "Save",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 20,
                             ),
                           ),
@@ -200,14 +203,17 @@ class _ProfileState extends State<Profile> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.blue,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12),
-                          ),
+    backgroundColor: Colors.blue,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(170, 50), // Set the width and height here
+  ),
                           child: const Text(
                             "Edit Profile",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 20,
                             ),
                           ),

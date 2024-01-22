@@ -317,8 +317,13 @@ class _MyOrdersState extends State<MyOrders> {
                 Navigator.pushNamed(context, 'homepage');
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-              ),
+    backgroundColor: Colors.black,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(170, 50), // Set the width and height here
+  ),
               child: const Text(
                 "Continue Shopping",
                 style: TextStyle(color: Colors.white),
@@ -328,9 +333,14 @@ class _MyOrdersState extends State<MyOrders> {
               onPressed: () {
                 Navigator.pushNamed(context, 'payment_screen');
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-              ),
+             style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(170, 50), // Set the width and height here
+  ),
               child: const Text(
                 "Check Out",
                 style: TextStyle(color: Colors.white),

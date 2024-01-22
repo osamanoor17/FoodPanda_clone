@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class ViewProduct extends StatefulWidget {
   final String foodName;
   final double rating;
   final double price;
-  ViewProduct({
+  const ViewProduct({super.key, 
     required this.imagePath,
     required this.foodName,
     required this.rating,
@@ -41,7 +43,6 @@ class _ViewProductState extends State<ViewProduct> {
   void initState() {
     super.initState();
     // Ensure that products is not null, initialize it to an empty list if it's null
-    products ??= [];
     // Load cart data from SharedPreferences when the widget initializes
     loadCartData();
   }
@@ -76,7 +77,6 @@ class _ViewProductState extends State<ViewProduct> {
 
   void _showAddToCartBottomSheet(BuildContext context, Product product) {
     // Ensure that products is not null or initialize it to an empty list
-    products ??= [];
 
     showModalBottomSheet<void>(
       context: context,
@@ -432,7 +432,7 @@ class _ViewProductState extends State<ViewProduct> {
                           ),
                         );
                       },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(width: 10.0),

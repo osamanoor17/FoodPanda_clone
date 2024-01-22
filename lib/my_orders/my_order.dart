@@ -21,17 +21,17 @@ class MyCart extends StatelessWidget {
             const Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 20, right: 100),
+                  padding: EdgeInsets.only(top: 10, right: 100),
                   child: Text(
                     "MY ORDERS",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
                 Padding(
-                  padding: EdgeInsets.only(left: 50, right: 240, top: 20),
+                  padding: EdgeInsets.only(left: 50, right: 240, top: 10),
                   child: Text(
                     "Today",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -43,7 +43,7 @@ class MyCart extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10.0),
+              padding: const EdgeInsets.only(left: 10.0,right:10),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -52,7 +52,7 @@ class MyCart extends StatelessWidget {
                   color: Colors.black12,
                 ),
                 height: 225,
-                width: 260,
+                width: 380,
                 child: Column(
                   children: [
                     const Row(
@@ -151,8 +151,13 @@ class MyCart extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurpleAccent,
-                      ),
+    backgroundColor: Colors.deepPurpleAccent,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: const Size(250, 40), // Set the width and height here
+  ),
                       child: const Text(
                         "View Order",
                         style: TextStyle(
@@ -164,11 +169,11 @@ class MyCart extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            // const SizedBox(
+            //   height: 5,
+            // ),
             const Padding(
-              padding: EdgeInsets.only(left: 50, right: 240, top: 20),
+              padding: EdgeInsets.only(left: 50, right: 240, top: 10),
               child: Text(
                 "Older",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -180,14 +185,14 @@ class MyCart extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                 padding: const EdgeInsets.only(left: 10.0,right:10),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black12,
                     ),
-                    height: 80,
-                    width: 300,
+                   height: 70,
+                    width: 380,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -226,14 +231,14 @@ class MyCart extends StatelessWidget {
                   height: 10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                 padding: const EdgeInsets.only(left: 10.0,right:10),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black12,
                     ),
-                    height: 80,
-                    width: 300,
+                 height: 70,
+                    width: 380,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -272,14 +277,14 @@ class MyCart extends StatelessWidget {
                   height: 10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+               padding: const EdgeInsets.only(left: 10.0,right:10),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black12,
                     ),
-                    height: 80,
-                    width: 300,
+                 height: 70,
+                    width: 380,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -318,14 +323,14 @@ class MyCart extends StatelessWidget {
                   height: 10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                  padding: const EdgeInsets.only(left: 10.0,right:10),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black12,
                     ),
-                    height: 80,
-                    width: 300,
+                    height: 70,
+                    width: 380,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [

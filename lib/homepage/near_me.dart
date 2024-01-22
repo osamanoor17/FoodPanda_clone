@@ -49,6 +49,7 @@ class Recommended {
       required this.time});
 }
 
+// ignore: must_be_immutable
 class NearMe extends StatelessWidget {
   List<ExploreItem> exploreItems = [
     ExploreItem(

@@ -81,12 +81,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, 'order_confirm');
                   },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.greenAccent,
-                    minimumSize: const Size(150, 50),
-                  ),
-                  child: const Text('Continue'),
+                   style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    elevation: 8.0,
+    minimumSize: Size(170, 50), // Set the width and height here
+  ),
+                  child: const Text('Continue',style: TextStyle(color: Colors.white),),
                 ),
               ),
             ],
