@@ -592,7 +592,7 @@ class _ViewProductState extends State<ViewProduct> {
             ),
             const SizedBox(
                 height: 175,
-                width: 350,
+                width: double.infinity,
                 child: CustomReviews(
                   imageperson: 'assets/icons/person_f.png',
                   title: 'Jennifer',
@@ -606,7 +606,7 @@ class _ViewProductState extends State<ViewProduct> {
             const Divider(),
             const SizedBox(
                 height: 130,
-                width: 350,
+               width: double.infinity,
                 child: CustomReviews(
                     imageperson: 'assets/icons/person_f.png',
                     title: 'Doris D',
@@ -619,7 +619,7 @@ class _ViewProductState extends State<ViewProduct> {
             const Divider(),
             const SizedBox(
                 height: 130,
-                width: 350,
+                 width: double.infinity,
                 child: CustomReviews(
                   imageperson: 'assets/icons/person.png',
                   title: 'Irene Doe',

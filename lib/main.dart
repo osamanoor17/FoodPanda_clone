@@ -4,10 +4,10 @@ import 'package:ecommerce_clone/splash_screen/splashscreen.dart';
 import 'package:ecommerce_clone/terms/terms.dart';
 import 'package:ecommerce_clone/vouchers_offers/voucher_offers.dart';
 import 'package:ecommerce_clone/welcome/welcome_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'MapPage/mappage.dart';
 import 'addresses/addresses.dart';
 import 'auth/forgetpassword/forgetpassword.dart';
@@ -24,6 +24,7 @@ import 'order_confirm/order_confirm.dart';
 import 'order_tracking/order_tracking.dart';
 
 void main() {
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -31,7 +32,6 @@ void main() {
   ]).then((value) => runApp(const MyApp()));
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
