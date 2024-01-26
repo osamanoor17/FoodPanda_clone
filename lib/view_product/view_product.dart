@@ -632,7 +632,7 @@ class _ViewProductState extends State<ViewProduct> {
                 )),
             const Divider(),
             const Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 10),
+              padding: EdgeInsets.only(left: 30, bottom: 10),
               child: Text(
                 "Your Review",
                 style: TextStyle(
@@ -645,17 +645,18 @@ class _ViewProductState extends State<ViewProduct> {
             const SizedBox(
               height: 10,
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 10),
+            const Align(
+              alignment: Alignment.center,
               child: Text(
-                "Add your review in detail",
-                style: TextStyle(
-                  color: Colors.greenAccent,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+                  "Add your review in detail",
+                  style: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
             ),
+            
             const SizedBox(
               height: 30,
             ),

@@ -75,8 +75,9 @@ class _StarRatingState extends State<StarRating> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(width: 50),
+        // const SizedBox(width: 100),
         for (int i = 1; i <= 5; i++)
           Padding(
             padding: const EdgeInsets.only(right: 5),

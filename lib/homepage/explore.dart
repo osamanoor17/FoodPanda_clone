@@ -232,7 +232,7 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: Color.fromARGB(255, 245, 245, 245),
       appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
@@ -320,10 +320,10 @@ class _ExploreState extends State<Explore> {
                       },
                       child: Container(
                           margin:
-                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                              const EdgeInsets.only(left: 22.0, right:10),
                           child: Column(children: [
                             SizedBox(
-                              width: 200,
+                              width: 180,
                               height: 230,
                               child: Container(
                                 padding: const EdgeInsets.all(12.0),
@@ -443,10 +443,10 @@ class _ExploreState extends State<Explore> {
                       },
                       child: Container(
                           margin:
-                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                              const EdgeInsets.only(left: 22.0, right:10),
                           child: Column(children: [
                             SizedBox(
-                              width: 200,
+                             width: 180,
                               height: 230,
                               child: Container(
                                 padding: const EdgeInsets.all(12.0),
@@ -542,78 +542,68 @@ class _ExploreState extends State<Explore> {
             const SizedBox(
               height: 10,
             ),
-            CustomRowWidget(
-              title: 'By Type of Food',
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              height: 145,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: exploreItems.length,
-                itemBuilder: (context, index) {
-                  ExploreItem item = exploreItems[index];
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ViewProduct(
-                            imagePath: item.imagePath,
-                            foodName: item.title,
-                            rating: item.rating,
-                            price: item.price,
-                            time: '',
-                          ),
-                        ),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0),
-                          child: GestureDetector(
-                            child: CircleAvatar(
-                              backgroundColor: Colors.transparent,
-                              radius: 50,
-                              child: ClipOval(
-                                child: Image.asset(
-                                  item.imagePath,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
+             CustomRowWidget(title: 'By Type of Food', onPressed: () {}),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 165,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: exploreItems.length,
+                  itemBuilder: (context, index) {
+                    ExploreItem item = exploreItems[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewProduct(
+                              imagePath: item.imagePath,
+                              foodName: item.title,
+                              rating: item.rating,
+                              price: item.price,
+                              time: '',
                             ),
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        );
+                      },
+                      child: Padding(
+                           padding: const EdgeInsets.only(left:20.0,right:15.0),
+                        child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                             GestureDetector(
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  radius: 50,
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      item.imagePath,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                              ),                       
                             Text(
-                              item.title,
-                              style: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0, left: 7),
-                              child: Text(
-                                item.price.toString(),
-                                style: const TextStyle(
-                                    fontSize: 14, color: Colors.black),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                                  item.title,
+                                  style: const TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                                 Text(
+                                    item.price.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                    textAlign: TextAlign.center,
+                                  ),
                           ],
                         ),
-                      ],
-                    ),
-                  );
-                },
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
             const SizedBox(
               height: 10,
             ),
@@ -641,10 +631,10 @@ class _ExploreState extends State<Explore> {
                       },
                       child: Container(
                           margin:
-                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                              const EdgeInsets.only(left: 22.0, right:10),
                           child: Column(children: [
                             SizedBox(
-                              width: 200,
+                               width: 180,
                               height: 230,
                               child: Container(
                                 padding: const EdgeInsets.all(12.0),

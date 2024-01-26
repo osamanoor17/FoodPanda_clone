@@ -198,7 +198,7 @@ class NearMe extends StatelessWidget {
   Widget build(BuildContext context) {
     ValueNotifier<int> itemCountNotifier = ValueNotifier<int>(0);
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
         appBar: MyAppBar(itemCountNotifier: itemCountNotifier),
         drawer: const CustomDrawer(),
         body: SingleChildScrollView(
@@ -213,7 +213,7 @@ class NearMe extends StatelessWidget {
                 height: 10,
               ),
               SizedBox(
-                height: 145,
+                height: 165,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: exploreItems.length,
@@ -234,45 +234,37 @@ class NearMe extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 25.0),
-                            child: GestureDetector(
-                              child: CircleAvatar(
-                                backgroundColor: Colors.transparent,
-                                radius: 50,
-                                child: ClipOval(
-                                  child: Image.asset(
-                                    item.imagePath,
-                                    fit: BoxFit.contain,
+                      child: Padding(
+                           padding: const EdgeInsets.only(left:20.0,right:15.0),
+                        child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                             GestureDetector(
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  radius: 50,
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      item.imagePath,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                item.title,
-                                style: const TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 5.0, left: 7),
-                                child: Text(
-                                  item.price.toString(),
+                              ),                       
+                            Text(
+                                  item.title,
                                   style: const TextStyle(
-                                      fontSize: 14, color: Colors.black),
+                                      fontSize: 14, fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.center,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                                 Text(
+                                    item.price.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                    textAlign: TextAlign.center,
+                                  ),
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -308,11 +300,11 @@ class NearMe extends StatelessWidget {
                         },
                         child: Container(
                             margin:
-                                const EdgeInsets.only(left: 20.0, right: 20.0),
+                                const EdgeInsets.only(left: 22.0, right:10),
                             child: Column(children: [
                               SizedBox(
-                                width: 200,
-                                height: 230,
+                                width: 180,
+                              height: 230,
                                 child: Container(
                                   padding: const EdgeInsets.all(12.0),
                                   decoration: BoxDecoration(
@@ -430,11 +422,11 @@ class NearMe extends StatelessWidget {
                         },
                         child: Container(
                             margin:
-                                const EdgeInsets.only(left: 20.0, right: 20.0),
+                                const EdgeInsets.only(left: 22.0, right:10),
                             child: Column(children: [
                               SizedBox(
-                                width: 200,
-                                height: 230,
+                                width: 180,
+                              height: 230,
                                 child: Container(
                                   padding: const EdgeInsets.all(12.0),
                                   decoration: BoxDecoration(

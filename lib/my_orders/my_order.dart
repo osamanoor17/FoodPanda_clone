@@ -27,9 +27,6 @@ class MyCart extends StatelessWidget {
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
-                // SizedBox(
-                //   height: 10,
-                // ),
                 Padding(
                   padding: EdgeInsets.only(left: 50, right: 240, top: 10),
                   child: Text(
@@ -52,7 +49,7 @@ class MyCart extends StatelessWidget {
                   color: Colors.black12,
                 ),
                 height: 225,
-                width: 380,
+                width: double.infinity,
                 child: Column(
                   children: [
                     const Row(
@@ -169,9 +166,7 @@ class MyCart extends StatelessWidget {
                 ),
               ),
             ),
-            // const SizedBox(
-            //   height: 5,
-            // ),
+            
             const Padding(
               padding: EdgeInsets.only(left: 50, right: 240, top: 10),
               child: Text(
@@ -192,7 +187,7 @@ class MyCart extends StatelessWidget {
                       color: Colors.black12,
                     ),
                    height: 70,
-                    width: 380,
+                    width: double.infinity,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -238,7 +233,7 @@ class MyCart extends StatelessWidget {
                       color: Colors.black12,
                     ),
                  height: 70,
-                    width: 380,
+                     width: double.infinity,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -284,7 +279,7 @@ class MyCart extends StatelessWidget {
                       color: Colors.black12,
                     ),
                  height: 70,
-                    width: 380,
+                    width: double.infinity,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -330,7 +325,7 @@ class MyCart extends StatelessWidget {
                       color: Colors.black12,
                     ),
                     height: 70,
-                    width: 380,
+                     width: double.infinity,
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
