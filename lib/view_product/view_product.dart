@@ -24,7 +24,8 @@ class ViewProduct extends StatefulWidget {
   final String foodName;
   final double rating;
   final double price;
-  const ViewProduct({super.key, 
+  const ViewProduct({
+    super.key,
     required this.imagePath,
     required this.foodName,
     required this.rating,
@@ -461,9 +462,10 @@ class _ViewProductState extends State<ViewProduct> {
               height: 20,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(right: 0),
                   child: Text(
                     widget.foodName,
                     style: const TextStyle(
@@ -473,7 +475,7 @@ class _ViewProductState extends State<ViewProduct> {
                   ),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(left: 130),
+                    padding: const EdgeInsets.only(left: 0),
                     child: Row(children: [
                       const Text(
                         "\$",
@@ -496,7 +498,7 @@ class _ViewProductState extends State<ViewProduct> {
             ),
             const SizedBox(height: 8),
             const Padding(
-              padding: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.only(left: 30),
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 style: TextStyle(
@@ -558,21 +560,9 @@ class _ViewProductState extends State<ViewProduct> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child:
-                  customRadioButton('full', 'Full', '(3-5 persons)', '\$7.99'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10, left: 7),
-              child: customRadioButton(
-                  'medium', 'Medium', '(2-3 persons)', '\$4.99'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child:
-                  customRadioButton('small', 'Small', '(1 person)', '\$1.99'),
-            ),
+            customRadioButton('full', 'Full', '(3-5 persons)', '\$7.99'),
+            customRadioButton('half', 'Half', '(2-3 persons)', '\$4.99'),
+            customRadioButton('small', 'Small', '(1 person)', '\$1.99'),
             const SizedBox(
               height: 5,
             ),
@@ -606,7 +596,7 @@ class _ViewProductState extends State<ViewProduct> {
             const Divider(),
             const SizedBox(
                 height: 130,
-               width: double.infinity,
+                width: double.infinity,
                 child: CustomReviews(
                     imageperson: 'assets/icons/person_f.png',
                     title: 'Doris D',
@@ -619,7 +609,7 @@ class _ViewProductState extends State<ViewProduct> {
             const Divider(),
             const SizedBox(
                 height: 130,
-                 width: double.infinity,
+                width: double.infinity,
                 child: CustomReviews(
                   imageperson: 'assets/icons/person.png',
                   title: 'Irene Doe',
@@ -643,22 +633,21 @@ class _ViewProductState extends State<ViewProduct> {
             ),
             const StarRating(),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             const Align(
               alignment: Alignment.center,
               child: Text(
-                  "Add your review in detail",
-                  style: TextStyle(
-                    color: Colors.redAccent,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                "Add your review in detail",
+                style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
             ),
-            
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
           ],
         ),
